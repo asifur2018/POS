@@ -7,5 +7,6 @@ namespace InvoicePOS
     /// </summary>
     public partial class App : Application
     {
+        int i;
     }
 }
