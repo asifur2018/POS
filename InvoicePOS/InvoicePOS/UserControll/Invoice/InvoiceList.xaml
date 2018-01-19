@@ -11,8 +11,8 @@
                     <TextBlock HorizontalAlignment="Left" Margin="192,8,0,0" TextWrapping="Wrap" Text="To Date:" VerticalAlignment="Top" Width="65" Height="22" FontWeight="Bold"/>
                     <DatePicker HorizontalAlignment="Left" Margin="259,5,0,0" VerticalAlignment="Top" SelectedDate="{Binding ENDDATE,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox Content="Apply Date" IsChecked="{Binding DATE_CHECK,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="380,9,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Right" Height="30" Margin="0,2,220,0" TextWrapping="Wrap" Text="{Binding SEARCH_CUS,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="205"/>
-                    <Button Command="{Binding SearchCustomer}"    Margin="0,1,145,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="75" HorizontalAlignment="Right"  >
+                    <TextBox HorizontalAlignment="Right" Height="30" Margin="0,6,106,0" TextWrapping="Wrap" Text="{Binding SEARCH_CUS,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="205"/>
+                    <Button Command="{Binding SearchCustomer}"    Margin="0,6,16,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="75" HorizontalAlignment="Right"  >
                         <DockPanel HorizontalAlignment="Stretch">
                             <Image Source="/InvoicePOS;component/Images/search-icon.png" Stretch="Uniform" DockPanel.Dock="left" Width="19" Height="21"/>
                             <Label Content="Search" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
