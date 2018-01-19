@@ -535,7 +535,12 @@
         <Setter Property="Foreground" Value="#4a4a4a" />
         <Setter Property="BorderBrush" Value="#cccccc"/>
     </Style>
-
+    <Style x:Key="SettingButtonImage" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#3336ff"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="BorderBrush" Value="White"></Setter>
+        <Setter Property="Cursor" Value="Hand"></Setter>
+    </Style>
     <Style x:Key="ButtonImage" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="#f6f7f9"></Setter>
         <Setter Property="BorderThickness" Value="0"></Setter>

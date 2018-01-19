@@ -62,6 +62,7 @@ namespace InvoicePOS.Views.WelCome
         public static Button DepermentReff;
         public static Button RInvoiceReff;
         public static Button EstimateReff;
+        public static Button SettingsReff;
 
         public WelComePage()
         {
@@ -96,6 +97,7 @@ namespace InvoicePOS.Views.WelCome
             DepermentReff = Deperment;
             RInvoiceReff = RInvoice;
             EstimateReff = Estimate;
+            SettingsReff = Settings;
         }
 
         #region IMainWindow Members
