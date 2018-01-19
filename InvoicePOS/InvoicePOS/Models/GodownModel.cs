@@ -48,6 +48,8 @@ namespace InvoicePOS.Models
     {
         public long GODOWN_ID { get; set; }
         public string GODOWN_NAME { get; set; }
+        public string BUSINESS_NAME { get; set; }
+        public string STOCK_CORRECTION { get; set; }
         public string GOSOWN_DESCRIPTION { get; set; }
         public bool IS_ACTIVE { get; set; }
         public long COMPANY_ID { get; set; }

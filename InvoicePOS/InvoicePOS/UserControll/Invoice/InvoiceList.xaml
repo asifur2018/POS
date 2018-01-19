@@ -24,7 +24,18 @@
                             <Label Content="View" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
                         </DockPanel>
                     </Button>
-
+                    <Button Command="{Binding ExportInvoice}"    Margin="560,6,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}"  Width="110" HorizontalAlignment="Left" Click="Button_Click_1"  >
+                        <DockPanel HorizontalAlignment="Stretch">
+                            <Image Source="/InvoicePOS;component/Images/view1.png" Stretch="Uniform" DockPanel.Dock="left" Width="23" Height="26"/>
+                            <Label Content="Export Item" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
+                        </DockPanel>
+                    </Button>
+                    <Button Command="{Binding ExcelImportClick}"    Margin="675,6,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}"  Width="110" HorizontalAlignment="Left">
+                        <DockPanel HorizontalAlignment="Stretch">
+                            <Image Source="/InvoicePOS;component/Images/view1.png" Stretch="Uniform" DockPanel.Dock="left" Width="23" Height="26"/>
+                            <Label Content="Upload Item" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
+                        </DockPanel>
+                    </Button>
                 </Grid>
 
                 <DataGrid  SelectionMode="Single" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged, Path=ListGrid}" SelectedItem="{Binding Path=SelectInv}"  RowHeight="28"  FontSize="12" Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1" IsReadOnly="True" AutoGenerateColumns="False"     Name="dataGrid1" Margin="10,75,10,0" VerticalAlignment="Top" Height="400"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="White" FontWeight="Normal" HorizontalGridLinesBrush="#dddddd" VerticalGridLinesBrush="#dddddd" Grid.RowSpan="2" MouseDoubleClick="grdInvoice_MouseDoubleClick" >

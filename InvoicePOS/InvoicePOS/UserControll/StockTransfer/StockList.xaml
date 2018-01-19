@@ -49,6 +49,18 @@
                             <Label Content="Show Stocks" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
                         </DockPanel>
                     </Button>
+                    <Button Command="{Binding ExcelImportClick}"   Margin="965,45,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="110" HorizontalAlignment="Left"  >
+                        <DockPanel HorizontalAlignment="Stretch">
+                            <!--<Image Source="/InvoicePOS;component/Images/plus-icon.png" Stretch="Uniform" DockPanel.Dock="left" Width="13" Height="13"/>-->
+                            <Label Content="Upload Item" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
+                        </DockPanel>
+                    </Button>
+                    <Button Command="{Binding ExportItem}"   Margin="850,45,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="110" HorizontalAlignment="Left" Click="Button_Click_1"  >
+                        <DockPanel HorizontalAlignment="Stretch">
+                            <!--<Image Source="/InvoicePOS;component/Images/plus-icon.png" Stretch="Uniform" DockPanel.Dock="left" Width="13" Height="13"/>-->
+                            <Label Content="Export Item" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
+                        </DockPanel>
+                    </Button>
                 </Grid>
                 <Grid VerticalAlignment="Top" HorizontalAlignment="Left"  >
 

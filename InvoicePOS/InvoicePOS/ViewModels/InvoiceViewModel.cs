@@ -36,6 +36,8 @@ using System.Drawing.Imaging;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Printing;
+using Microsoft.Win32;
+using System.Data.OleDb;
 //using static InvoicePOS.Helper.Simple;
 
 namespace InvoicePOS.ViewModels
@@ -2140,7 +2142,99 @@ namespace InvoicePOS.ViewModels
         #endregion
 
 
+        private string _ExcelPath;
+        public string ExcelPath
+        {
+            get { return _ExcelPath; }
+            set
+            {
+                if (Equals(value, _ExcelPath)) return;
+                _ExcelPath = value;
+                OnPropertyChanged("ExcelPath");
+            }
+        }
+        public ICommand _ImportClick { get; set; }
+        public ICommand ImportClick
+        {
+            get
+            {
+                if (_ImportClick == null)
+                {
+                    _ImportClick = new DelegateCommand(ImportClick_Click);
+                }
+                return _ImportClick;
+            }
+        }
+        public void ImportClick_Click()
+        {
+            ImportDataForInvoice sh = new ImportDataForInvoice();
+            sh.Show();
+        }
 
+        public ICommand _ExcelImportClick { get; set; }
+        public ICommand ExcelImportClick
+        {
+            get
+            {
+                if (_ExcelImportClick == null)
+                {
+                    _ExcelImportClick = new DelegateCommand(ExcelImport_Click);
+                }
+                return _ExcelImportClick;
+            }
+        }
+        public void ExcelImport_Click()
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel file(*.xlsm;*.xlsx;*.xlsx;*.xlt; *.xlk;)|*.xlsm;*.xlsx;*.xlsx;*.xlt; *xlk";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            if (openFileDialog.ShowDialog() == true)
+            {
+            }
+            if (File.Exists(openFileDialog.FileName))
+            {
+                string xx = openFileDialog.FileName;
+                ExcelPath = openFileDialog.FileName;
+                var excelConnectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + xx + ";Extended Properties=Excel 12.0;");
+                OleDbConnection objOlecon = new OleDbConnection();
+                objOlecon.ConnectionString = excelConnectionString;
+                objOlecon.Open();
+                OleDbDataAdapter objOleDa = new OleDbDataAdapter("Select * from [Sheet1$]", objOlecon);
+                DataTable objdt = new DataTable();
+                objOleDa.Fill(objdt);
+                List<GetInvoiceModel> _ListGridTemp = new List<GetInvoiceModel>();
+                if (objdt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < objdt.Rows.Count; i++)
+                    {
+                        var df = objdt.Rows[0];
+
+                        _ListGridTemp.Add(new GetInvoiceModel
+                        {
+                            INVOICE_NO = Convert.ToString(objdt.Rows[i].ItemArray[0]),
+                            INVOICE_DATE = Convert.ToDateTime(objdt.Rows[i].ItemArray[1]),
+                            TOTAL_AMOUNT = Convert.ToString(objdt.Rows[i].ItemArray[2]),
+                            TOTAL_TAX = Convert.ToDecimal(objdt.Rows[i].ItemArray[3]),
+                            QUANTITY_TOTAL = Convert.ToString(objdt.Rows[i].ItemArray[4]),
+                            RETURNABLE_AMOUNT = Convert.ToString(objdt.Rows[i].ItemArray[5]),
+                            PENDING_AMOUNT = Convert.ToString(objdt.Rows[i].ItemArray[6]),
+                            CUSTOMER = Convert.ToString(objdt.Rows[i].ItemArray[7]),
+                            CUSTOMER_MOBILE_NO = Convert.ToString(objdt.Rows[i].ItemArray[8]),
+                            //INVOICE_NO = Convert.ToString(objdt.Rows[i].ItemArray[9]),
+                            //CASH_REG = Convert.ToString(objdt.Rows[i].ItemArray[10]),
+                            NUMBER_OF_ITEM = Convert.ToString(objdt.Rows[i].ItemArray[11]),
+                        });
+                    }
+
+
+                }
+                ListGrid = _ListGridTemp;
+                App.Current.Properties["ExcelData"] = SelectInv;
+
+            }
+
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
