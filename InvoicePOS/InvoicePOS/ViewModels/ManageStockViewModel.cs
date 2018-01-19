@@ -3,11 +3,15 @@ using InvoicePOS.Models;
 using InvoicePOS.UserControll.Item;
 using InvoicePOS.UserControll.StockLedger;
 using InvoicePOS.UserControll.StockTransfer;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -610,7 +614,78 @@ namespace InvoicePOS.ViewModels
             }
         }
 
+        private string _ExcelPath;
+        public string ExcelPath
+        {
+            get { return _ExcelPath; }
+            set
+            {
+                if (Equals(value, _ExcelPath)) return;
+                _ExcelPath = value;
+                OnPropertyChanged("ExcelPath");
+            }
+        }
 
+        public ICommand _ExcelImportClick { get; set; }
+        public ICommand ExcelImportClick
+        {
+            get
+            {
+                if (_ExcelImportClick == null)
+                {
+                    _ExcelImportClick = new DelegateCommand(ExcelImport_Click);
+                }
+                return _ExcelImportClick;
+            }
+        }
+        public void ExcelImport_Click()
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel file(*.xlsm;*.xlsx;*.xlsx;*.xlt; *.xlk;)|*.xlsm;*.xlsx;*.xlsx;*.xlt; *xlk";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            if (openFileDialog.ShowDialog() == true)
+            {
+            }
+            if (File.Exists(openFileDialog.FileName))
+            {
+                string xx = openFileDialog.FileName;
+                ExcelPath = openFileDialog.FileName;
+                var excelConnectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + xx + ";Extended Properties=Excel 12.0;");
+                OleDbConnection objOlecon = new OleDbConnection();
+                objOlecon.ConnectionString = excelConnectionString;
+                objOlecon.Open();
+                OleDbDataAdapter objOleDa = new OleDbDataAdapter("Select * from [Sheet1$]", objOlecon);
+                DataTable objdt = new DataTable();
+                objOleDa.Fill(objdt);
+                ObservableCollection<GodownModel> _ListGridTemp = new ObservableCollection<GodownModel>();
+                if (objdt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < objdt.Rows.Count; i++)
+                    {
+                        var df = objdt.Rows[0];
+
+                        _ListGridTemp.Add(new GodownModel
+                        {
+                            SLNO = (objdt.Rows[i].ItemArray[0] != null) ? Convert.ToInt32(objdt.Rows[i].ItemArray[0]) : 0,
+                            BUSINESS_NAME = (objdt.Rows[i].ItemArray[1] != null) ? Convert.ToString(objdt.Rows[i].ItemArray[1]) : "",
+                            GODOWN_NAME = (objdt.Rows[i].ItemArray[1] != null) ? Convert.ToString(objdt.Rows[i].ItemArray[2]) : "",
+                            GODOWN_ID = (objdt.Rows[i].ItemArray[2] != null) ? Convert.ToInt32(objdt.Rows[i].ItemArray[3]) : 0,
+                            //IS_ACTIVE = (objdt.Rows[i].ItemArray[3]!=null)?Convert.ToBoolean(objdt.Rows[i].ItemArray[4]):false,
+                            IS_DEFAULT_GODOWN = (objdt.Rows[i].ItemArray[4] != null) ? Convert.ToBoolean(objdt.Rows[i].ItemArray[5]) : false,
+                            STOCK_CORRECTION = (objdt.Rows[i].ItemArray[4] != null) ? Convert.ToString(objdt.Rows[i].ItemArray[6]) : "",
+                            GOSOWN_DESCRIPTION = (objdt.Rows[i].ItemArray[5] != null) ? Convert.ToString(objdt.Rows[i].ItemArray[7]) : ""
+                        });
+                    }
+
+
+                }
+                ListGrid = _ListGridTemp;
+                App.Current.Properties["ExcelData"] = SelectedItem;
+
+            }
+
+        }
 
 
         public bool Add()
