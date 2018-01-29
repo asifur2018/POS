@@ -682,6 +682,7 @@ namespace InvoicePOS.ViewModels
                     OnPropertyChanged("CreateVisible");
                 }
             }
+
         }
         private string _UpdateVisible { get; set; }
         public string UpdateVisible
