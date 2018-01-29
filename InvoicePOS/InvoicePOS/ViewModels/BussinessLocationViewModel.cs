@@ -1299,6 +1299,14 @@ namespace InvoicePOS.ViewModels
                 InvoicePOS.UserControll.Customer.AddCustomer.BusinessLoc.Text = null;
                 InvoicePOS.UserControll.Customer.AddCustomer.BusinessLoc.Text = SelectedBusinessLoca.BUSINESS_LOCATION;
             }
+            if (SelectedBusinessLoca.SHOP_NAME != null)
+            {
+                InvoicePOS.UserControll.Customer.ViewLedger.BusinessList.Text = null;
+                InvoicePOS.UserControll.Customer.ViewLedger.BusinessList.Text = SelectedBusinessLoca.BUSINESS_LOCATION;
+
+                InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = null;
+                InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = SelectedBusinessLoca.COMPANY;
+            }
             if (fdrt != null)
             {
                 SelectedOpeningStock.GODOWN = fdrt.GODOWN;
