@@ -2094,6 +2094,8 @@ namespace InvoicePOS.ViewModels
         }
 
         
+
+
         public async void BusinessList_Click()
         {
             Window_BusinessLocationList sh = new Window_BusinessLocationList();            
