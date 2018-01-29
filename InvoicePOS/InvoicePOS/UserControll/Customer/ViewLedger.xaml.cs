@@ -61,7 +61,7 @@ namespace InvoicePOS.UserControll.Customer
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            PrintCharts(this.ViewLedger);
+            PrintCharts(this.ViewLedgercust);
         }
         private void PrintCharts(Grid grid)
         {

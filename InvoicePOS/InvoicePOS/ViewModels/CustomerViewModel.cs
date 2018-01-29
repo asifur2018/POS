@@ -2092,10 +2092,6 @@ namespace InvoicePOS.ViewModels
                 return _BusinessListCust;
             }
         }
-
-        
-
-
         public async void BusinessList_Click()
         {
             Window_BusinessLocationList sh = new Window_BusinessLocationList();            

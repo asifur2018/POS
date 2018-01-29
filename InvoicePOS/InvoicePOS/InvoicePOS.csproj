@@ -474,6 +474,9 @@
     <Compile Include="UserControll\Supplier\SupplierView.xaml.cs">
       <DependentUpon>SupplierView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControll\Supplier\ViewLedger.xaml.cs">
+      <DependentUpon>ViewLedger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\Supplier\Window_SupplierList.xaml.cs">
       <DependentUpon>Window_SupplierList.xaml</DependentUpon>
     </Compile>
@@ -1113,6 +1116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControll\Supplier\SupplierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControll\Supplier\ViewLedger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
