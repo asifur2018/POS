@@ -669,6 +669,7 @@ namespace InvoicePOS.ViewModels
                 }
             }
         }
+
         private string _CreateVisible { get; set; }
         public string CreateVisible
         {
