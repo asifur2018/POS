@@ -1761,9 +1761,7 @@ namespace InvoicePOS.ViewModels
             App.Current.Properties["Godown"] = null;
             ItemAdd IA = new ItemAdd();
             IA.Show();
-            // ModalService.NavigateTo(new ItemAdd(), delegate(bool returnValue) { });
-
-
+            
         }
 
 
@@ -2800,8 +2798,8 @@ namespace InvoicePOS.ViewModels
                     Main.NameRef1.Text = null;
                     Main.NameRef1.Text = SelectedItem.ITEM_NAME;
                     App.Current.Properties["ItemSearchMain"] = 0;
-
-
+                    App.Current.Properties["SelectItemList"] = SelectedItem;
+                    
                 }
             }
 
@@ -2839,7 +2837,7 @@ namespace InvoicePOS.ViewModels
 
 
 
-            if (App.Current.Properties["ItemList"] != null)
+            if (App.Current.Properties["ItemList"] != null && AddPO.ItemRef != null)
             {
                 AddPO.ItemRef.Text = SelectedOpeningStock.ITEM_NAME;
                 AddPO.ScrRef.Text = null;

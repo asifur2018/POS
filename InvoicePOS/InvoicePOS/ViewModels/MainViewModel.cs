@@ -1523,41 +1523,7 @@ namespace InvoicePOS.ViewModels
                     if (App.Current.Properties["Grid"] != null)
                     {
                         ObservableCollection<ItemModel> dataItem = App.Current.Properties["Grid"] as ObservableCollection<ItemModel>;
-                        //HttpClient client = new HttpClient();
-                        //client.BaseAddress = new Uri(GlobalData.gblApiAdress);
-                        //client.DefaultRequestHeaders.Accept.Add(
-                        //    new MediaTypeWithQualityHeaderValue("application/json"));
-                        ////client.Timeout = new TimeSpan(500000000000);
-                        //HttpResponseMessage response = client.GetAsync("api/ItemAPI/CheckItemQuantity?id=" + dataItem[0].ITEM_ID + "").Result;
-                        //   if (response.IsSuccessStatusCode)
-                        //{
-                        //    data = JsonConvert.DeserializeObject<ItemModel[]>(await response.Content.ReadAsStringAsync());
-                        //    if (data.Length > 0)
-                        //    {
-                        //        for (int i = 0; i < data.Length; i++)
-                        //        {
-                        //            SelectedItem.ITEM_ID = data[i].ITEM_ID;
-                        //            SelectedItem.ITEM_NAME = data[i].ITEM_NAME;
-                        //            SelectedItem.BARCODE = data[i].BARCODE;
-                        //            SelectedItem.SALES_PRICE = data[i].SALES_PRICE;
-                        //            SelectedItem.BUSINESS_LOC = data[i].BUSINESS_LOC;
-                        //            SelectedItem.GODOWN = data[i].GODOWN;
-                        //            SelectedItem.COMPANY_NAME = data[i].COMPANY_NAME;
-                        //            SelectedItem.DATE = data[i].DATE;
-                        //            SelectedItem.BUSINESS_LOC = data[i].BUSINESS_LOC;
-                        //            SelectedItem.OPENING_STOCK_ID = data[i].OPENING_STOCK_ID;
-
-                        //            SelectedItem.Current_Qty = data[i].Current_Qty;
-                        //            SelectedItem.OPN_QNT = data[i].OPN_QNT;
-                        //            SelectedItem.TAX_PAID_ID = data[i].TAX_PAID_ID;
-                        //            SelectedItem.TAX_PAID_NAME = data[i].TAX_PAID_NAME;
-                        //            SelectedItem.TAX_PAID = data[i].TAX_PAID;
-                        //            SelectedItem.TAX_COLLECTED_NAME = data[i].TAX_COLLECTED_NAME;
-                        //            SelectedItem.TAX_COLLECTED_ID = data[i].TAX_COLLECTED_ID;
-                        //            SelectedItem.SALES_PRICE_BEFOR_TAX = data[i].SALES_PRICE_BEFOR_TAX;
-                        //        }
-                        //    }
-                        //}
+                       
 
                         HttpClient client = new HttpClient();
                         // This instance has already started one or more requests. Properties can only be modified before sending the first request.
@@ -1569,7 +1535,7 @@ namespace InvoicePOS.ViewModels
                         HttpResponseMessage response = client.GetAsync("api/InvoiceAPI/HoldInvoice?id=" + dataItemID + "").Result;
                         if (response.StatusCode.ToString() == "OK")
                         {
-                            MessageBox.Show("Invoice Hold Successfuly");
+                            MessageBox.Show("Invoice Held Successfuly");
                             //Cancel_Customer();
                             //ModalService.NavigateTo(new CustomerList(), delegate(bool returnValue) { });
                         }
@@ -1823,7 +1789,7 @@ namespace InvoicePOS.ViewModels
                 }
                 else
                 {
-                    MessageBox.Show("Select Removed Item");
+                    MessageBox.Show("Select item for removal");
                 }
             }
 
@@ -3757,6 +3723,52 @@ namespace InvoicePOS.ViewModels
             }
         }
 
+        public ICommand _AddItemClick;
+        public ICommand AddItemClick
+        {
+            get
+            {
+                if (_AddItemClick == null)
+                {
+                    _AddItemClick = new DelegateCommand(AddItem_Click);
+                }
+                return _AddItemClick;
+            }
+        }
+
+        public void AddItem_Click()
+        {
+
+            // WelComePage.ItemPRef.Background = System.Windows.Media.Brushes.Red;
+
+
+            App.Current.Properties["ITemAdd"] = 1;
+            App.Current.Properties["Action"] = 123;
+            App.Current.Properties["itemName"] = null;
+            App.Current.Properties["barcode"] = null;
+            App.Current.Properties["BussLocation"] = null;
+            App.Current.Properties["Qunt"] = null;
+            App.Current.Properties["Godown"] = null;
+            ItemAdd IA = new ItemAdd();
+            IA.Show();
+            _ListGrid_Temp.Add(new ItemModel
+            {
+                BARCODE = SelectedItem.BARCODE,
+                ITEM_NAME = SelectedItem.ITEM_NAME,
+                SALES_PRICE_BEFOR_TAX_QTY = SelectedItem.SALES_PRICE_BEFOR_TAX_QTY,
+                Current_Qty = SelectedItem.Current_Qty,
+                Discount = SelectedItem.Discount,
+                SalePriceWithDiscount = SelectedItem.SalePriceWithDiscount,
+                TaxValue = SelectedItem.TaxValue,
+                TotalTax = SelectedItem.TotalTax,
+                Total = SelectedItem.Total
+            });
+            ListGrid = _ListGrid_Temp;
+            // ModalService.NavigateTo(new ItemAdd(), delegate(bool returnValue) { });
+
+
+        }
+
 
         #region Open Setup window
 
@@ -3971,6 +3983,22 @@ namespace InvoicePOS.ViewModels
             App.Current.Properties["ItemMain"] = 1;
             Window_ItemList ex = new Window_ItemList();
             ex.ShowDialog();
+           SelectedItem = App.Current.Properties["SelectItemList"] as ItemModel;
+            // ModalService.NavigateTo(new ItemAdd(), delegate(bool returnValue) { });
+           _ListGrid_Temp.Add(new ItemModel
+           {
+               BARCODE = SelectedItem.BARCODE,
+               ITEM_NAME = SelectedItem.ITEM_NAME,
+               SALES_PRICE_BEFOR_TAX_QTY = Convert.ToDecimal(SelectedItem.OPN_QNT * SelectedItem.SALES_PRICE_BEFOR_TAX) - SelectedItem.Discount,
+               Current_Qty = 1,
+               Discount = SelectedItem.Discount,
+               SalePriceWithDiscount = SelectedItem.SalePriceWithDiscount,
+               TaxValue = SelectedItem.TaxValue,
+               TotalTax = SelectedItem.TotalTax,
+               Total = ((decimal)(SelectedItem.OPN_QNT) * (SelectedItem.SALES_PRICE)),
+           });
+           ListGrid = _ListGrid_Temp;
+
         }
 
 
@@ -4110,6 +4138,7 @@ namespace InvoicePOS.ViewModels
             App.Current.Properties["ItemSearchMain"] = 1;
             Window_ItemList ex = new Window_ItemList();
             ex.ShowDialog();
+
         }
 
         private ICommand _ItemShowStock { get; set; }
@@ -4131,7 +4160,19 @@ namespace InvoicePOS.ViewModels
             App.Current.Properties["ItemStock"] = 1;
             Window_ItemList ex = new Window_ItemList();
             ex.ShowDialog();
-
+            _ListGrid_Temp.Add(new ItemModel
+            {
+                BARCODE = SelectedItem.BARCODE,
+                ITEM_NAME = SelectedItem.ITEM_NAME,
+                SALES_PRICE_BEFOR_TAX_QTY = Convert.ToDecimal(SelectedItem.OPN_QNT * SelectedItem.SALES_PRICE_BEFOR_TAX) - SelectedItem.Discount,
+                Current_Qty = 1,
+                Discount = SelectedItem.Discount,
+                SalePriceWithDiscount = SelectedItem.SalePriceWithDiscount,
+                TaxValue = SelectedItem.TaxValue,
+                TotalTax = SelectedItem.TotalTax,
+                Total = ((decimal)(SelectedItem.OPN_QNT) * (SelectedItem.SALES_PRICE)),
+            });
+            ListGrid = _ListGrid_Temp;
         }
         private bool _Invoice_No;
         public bool Invoice_No

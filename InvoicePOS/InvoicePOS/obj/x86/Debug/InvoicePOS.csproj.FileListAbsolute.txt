@@ -111,6 +111,7 @@ D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\StockTransf
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\SupplierAdd.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\SupplierList.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\SupplierView.baml
+D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\ViewLedger.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\Window_SupplierList.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\SuppPayment\SupplierPayView.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\SuppPayment\SuppPayAdd.baml
@@ -255,6 +256,7 @@ D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\StockTransf
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\SupplierAdd.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\SupplierList.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\SupplierView.g.cs
+D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\ViewLedger.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\Window_SupplierList.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\SuppPayment\SupplierPayView.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\SuppPayment\SuppPayAdd.g.cs
@@ -341,6 +343,4 @@ D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.Properties.Re
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.csproj.GenerateResource.Cache
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.exe
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.pdb
-D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\ViewLedger.baml
-D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Supplier\ViewLedger.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.csprojResolveAssemblyReference.cache

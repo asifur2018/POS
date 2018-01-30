@@ -11,10 +11,10 @@
         <Label x:Name="label1" Content="Select Business Location :" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Height="25" Width="144"/>
         <Label x:Name="label2" Content="From Cash Register :" HorizontalAlignment="Left" Margin="11,71,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="To Cash Register :" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="152,16,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="159,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="159,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="159,127,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="152,16,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="159,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="159,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="159,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button" Content="--" HorizontalAlignment="Left" Margin="284,47,0,0" VerticalAlignment="Top" Width="22" Height="17"/>
         <Button x:Name="button_Copy" Content="--" HorizontalAlignment="Left" Margin="284,78,0,0" VerticalAlignment="Top" Width="22" Height="17"/>
         <Button x:Name="button_Copy1" Content="--" HorizontalAlignment="Left" Margin="284,131,0,0" VerticalAlignment="Top" Width="22" Height="17"/>

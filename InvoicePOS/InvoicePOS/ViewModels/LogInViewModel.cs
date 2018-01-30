@@ -92,6 +92,7 @@ namespace InvoicePOS.ViewModels
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+            
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
             client.Timeout = new TimeSpan(500000000000);
