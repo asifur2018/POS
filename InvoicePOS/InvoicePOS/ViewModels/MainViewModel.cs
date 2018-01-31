@@ -3996,9 +3996,10 @@ namespace InvoicePOS.ViewModels
                TaxValue = SelectedItem.TaxValue,
                TotalTax = SelectedItem.TotalTax,
                Total = ((decimal)(SelectedItem.OPN_QNT) * (SelectedItem.SALES_PRICE)),
+               ITEM_ID = SelectedItem.ITEM_ID
            });
            ListGrid = _ListGrid_Temp;
-
+           App.Current.Properties["DataGridL"] = ListGrid;
         }
 
 

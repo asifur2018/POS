@@ -343,4 +343,3 @@ D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.Properties.Re
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.csproj.GenerateResource.Cache
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.exe
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.pdb
-D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.csprojResolveAssemblyReference.cache

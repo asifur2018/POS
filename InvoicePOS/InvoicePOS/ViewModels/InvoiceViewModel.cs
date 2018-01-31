@@ -17,7 +17,7 @@ using System.IO.Packaging;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Printing;
+//using System.Printing;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,9 +35,10 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Interop;
 using System.Windows.Media;
-using System.Printing;
+//using System.Printing;
 using Microsoft.Win32;
 using System.Data.OleDb;
+using System.Printing;
 //using static InvoicePOS.Helper.Simple;
 
 namespace InvoicePOS.ViewModels
@@ -348,6 +349,8 @@ namespace InvoicePOS.ViewModels
                 client.BaseAddress = new Uri(GlobalData.gblApiAdress);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
+                
+                
                 var response = await client.PostAsJsonAsync("api/InvoiceAPI/CreateInvoice/", SelectInvoice);
                 if (response.StatusCode.ToString() == "OK")
                 {
@@ -367,6 +370,12 @@ namespace InvoicePOS.ViewModels
                     Main.BussLocationMainReff.Text = null;
                     Main.CustomerMainReff.Text = null;
 
+                    PrintCharts(InvoicePOS.Views.Main.PayNow.PrintGrid);
+                    //PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
+                    //if (printDlg.ShowDialog() == true)
+                    //{
+                    //    printDlg.PrintVisual(InvoicePOS.Views.Main.PayNow.PrintGrid, "First WPF Print");
+                    //}
                     Cancel_Invoice();
                 }
 
@@ -374,6 +383,11 @@ namespace InvoicePOS.ViewModels
 
             
         }
+        private void PrintPage()
+        {
+           
+        }
+
         private void PrintCharts(Grid grid)
         {
             PrintDialog print = new PrintDialog();
@@ -871,8 +885,8 @@ namespace InvoicePOS.ViewModels
 
             }
         }
-        private int _TOTAL_AMOUNT;
-        public int TOTAL_AMOUNT
+        private decimal _TOTAL_AMOUNT;
+        public decimal TOTAL_AMOUNT
         {
             get
             {
@@ -881,11 +895,14 @@ namespace InvoicePOS.ViewModels
             set
             {
                 SelectInvoice.TOTAL_AMOUNT = value;
+
                 if (SelectInvoice.TOTAL_AMOUNT != value)
                 {
                     SelectInvoice.TOTAL_AMOUNT = value;
                     OnPropertyChanged("TOTAL_AMOUNT");
+                    
                 }
+
             }
         }
 
@@ -930,15 +947,23 @@ namespace InvoicePOS.ViewModels
             get
             {
                 return SelectInvoice.DISCOUNT_INCLUDED;
+            
             }
             set
             {
                 SelectInvoice.DISCOUNT_INCLUDED = value;
-                if (SelectInvoice.DISCOUNT_INCLUDED != value)
+               
+                if (SelectInvoice.DISCOUNT_INCLUDED == value)
                 {
                     SelectInvoice.DISCOUNT_INCLUDED = value;
-                    OnPropertyChanged("DISCOUNT_INCLUDED");
+                   
+                    if (DISCOUNT_INCLUDED != null)
+                    {
+                        var totalAmount = TOTAL_AMOUNT - DISCOUNT_INCLUDED;
+                        TOTAL_AMOUNT = totalAmount;
+                    }
                 }
+                OnPropertyChanged("DISCOUNT_INCLUDED");
             }
         }
         private decimal _TAX_INCLUDED;
@@ -1483,33 +1508,34 @@ namespace InvoicePOS.ViewModels
             get
             {
 
-                return SelectInvoice.ADVANCED_AMOUNT;
+                return _ADVANCED_AMOUNT;
             }
             set
             {
-                SelectInvoice.CASH_AMOUNT = value;
-                decimal recivedAmount = 0;
-                recivedAmount = CASH_AMOUNT + CHEQUE_AMOUNT + TRANSFER_AMOUNT + FINANCIAL_AMOUNT;
-                decimal pendingAmount = TOTAL_AMOUNT - recivedAmount;
-                decimal returnAmount = RECIVED_AMOUNT - TOTAL_AMOUNT;
-                if (SelectInvoice.CASH_AMOUNT == value)
+                _ADVANCED_AMOUNT = value;
+                //decimal recivedAmount = 0;
+                //recivedAmount = CASH_AMOUNT + CHEQUE_AMOUNT + TRANSFER_AMOUNT + FINANCIAL_AMOUNT;
+                //decimal pendingAmount = TOTAL_AMOUNT - recivedAmount;
+                //decimal returnAmount = RECIVED_AMOUNT - TOTAL_AMOUNT;
+                if (_ADVANCED_AMOUNT != null && _ADVANCED_AMOUNT != 0 )
                 {
-                    if (recivedAmount >= TOTAL_AMOUNT)
-                    {
-                        PENDING_AMOUNT = 0;
-                        ADVANCED_AMOUNT = 0;
-                        RETURNABLE_AMOUNT = recivedAmount - TOTAL_AMOUNT;
-                        //RECIVED_AMOUNT = TOTAL_AMOUNT;
-                        RECIVED_AMOUNT = recivedAmount;
-                    }
-                    else
-                    {
-                        RECIVED_AMOUNT = recivedAmount;
-                        PENDING_AMOUNT = pendingAmount;
-                        //ADVANCED_AMOUNT = pendingAmount;
-                        RETURNABLE_AMOUNT = 0;
-                    }
+                //    if (recivedAmount >= TOTAL_AMOUNT)
+                //    {
+                //        PENDING_AMOUNT = 0;
+                //        ADVANCED_AMOUNT = 0;
+                //        RETURNABLE_AMOUNT = recivedAmount - TOTAL_AMOUNT;
+                //        //RECIVED_AMOUNT = TOTAL_AMOUNT;
+                //        RECIVED_AMOUNT = recivedAmount;
+                //    }
+                //    else
+                //    {
+                //        RECIVED_AMOUNT = recivedAmount;
+                //        PENDING_AMOUNT = pendingAmount;
+                //        //ADVANCED_AMOUNT = pendingAmount;
+                //        RETURNABLE_AMOUNT = 0;
+                //    }
                 }
+                    OnPropertyChanged("_ADVANCED_AMOUNT");
             }
         }
         //*30.11.2017*
