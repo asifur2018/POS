@@ -233,9 +233,6 @@
     <Compile Include="UserControll\Customer\CustomerList.xaml.cs">
       <DependentUpon>CustomerList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControll\Customer\ImportDataForCustomer.xaml.cs">
-      <DependentUpon>ImportDataForCustomer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControll\Customer\ImportExcel.xaml.cs">
       <DependentUpon>ImportExcel.xaml</DependentUpon>
     </Compile>
@@ -475,6 +472,9 @@
     </Compile>
     <Compile Include="UserControll\Supplier\SupplierView.xaml.cs">
       <DependentUpon>SupplierView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\Supplier\ViewLedger.xaml.cs">
+      <DependentUpon>ViewLedger.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControll\Supplier\Window_SupplierList.xaml.cs">
       <DependentUpon>Window_SupplierList.xaml</DependentUpon>
@@ -810,10 +810,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControll\Customer\ImportDataForCustomer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControll\Customer\ImportExcel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1131,6 +1127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControll\Supplier\SupplierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControll\Supplier\ViewLedger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

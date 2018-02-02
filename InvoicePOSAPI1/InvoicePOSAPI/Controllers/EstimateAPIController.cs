@@ -14,27 +14,27 @@ namespace InvoicePOSAPI.Controllers
         EstimateModel _EstimateModel = new EstimateModel();
         NEW_POSEntities db = new NEW_POSEntities();
         [HttpGet]
-        public HttpResponseMessage GetEstimate(string id)
+        public HttpResponseMessage GetEstimate()
         {
-            var str1 = (from p in db.TBL_ESTIMATE1
-                        group p by p.ID into grps
-                        select new EstimateModel
-                        {
-                            EstimateId = grps.Key,
-                            //EstimateNo = grps.Select(x => x.ESTIMATE_NO.ToString()),
-                            //EstimateNo = grps.Key,
-                            //Item_Id = Convert.ToInt32(grps.Select( x=> x.ITEM_ID).ToString()),
-                            //ItemName = grps.Select(x => x.ITEM_NAME).ToString(),
-                            //EstimateDate = Convert.ToDateTime(grps.Select(x => x.ESTIMATE_DATE).ToString()),
-                            // Values = grps,
-                            // Datetime=grps.FirstOrDefault(x=>x.ESTIMATE_DATE),
-                            CountItem = grps.Count(),
-                            TotalPrice = grps.Sum(x => x.TOTAL),
-                            TotalTax = grps.Sum(x => x.TOTAL_WITH_TAX),
-                            //TotalTax=0,
-                        }).ToList();
+            //var str1 = (from p in db.TBL_ESTIMATE1
+            //            group p by p.ID into grps
+            //            select new EstimateModel
+            //            {
+            //                EstimateId = grps.Key,
+            //                //EstimateNo = grps.Select(x => x.ESTIMATE_NO.ToString()),
+            //                //EstimateNo = grps.Key,
+            //                //Item_Id = Convert.ToInt32(grps.Select( x=> x.ITEM_ID).ToString()),
+            //                //ItemName = grps.Select(x => x.ITEM_NAME).ToString(),
+            //                //EstimateDate = Convert.ToDateTime(grps.Select(x => x.ESTIMATE_DATE).ToString()),
+            //                // Values = grps,
+            //                // Datetime=grps.FirstOrDefault(x=>x.ESTIMATE_DATE),
+            //                CountItem = grps.Count(),
+            //                TotalPrice = grps.Sum(x => x.TOTAL),
+            //                TotalTax = grps.Sum(x => x.TOTAL_WITH_TAX),
+            //                //TotalTax=0,
+            //            }).ToList();
 
-
+            var str1 = db.TBL_ESTIMATE1.ToList();
             return Request.CreateResponse(HttpStatusCode.OK, str1);
         }
         [HttpGet]

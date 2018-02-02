@@ -1299,6 +1299,23 @@ namespace InvoicePOS.ViewModels
                 InvoicePOS.UserControll.Customer.AddCustomer.BusinessLoc.Text = null;
                 InvoicePOS.UserControll.Customer.AddCustomer.BusinessLoc.Text = SelectedBusinessLoca.BUSINESS_LOCATION;
             }
+            if (SelectedBusinessLoca.SHOP_NAME != null
+                && InvoicePOS.UserControll.Customer.ViewLedger.BusinessList != null)
+            {
+                InvoicePOS.UserControll.Customer.ViewLedger.BusinessList.Text = null;
+                InvoicePOS.UserControll.Customer.ViewLedger.BusinessList.Text = SelectedBusinessLoca.BUSINESS_LOCATION;
+
+                InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = null;
+                InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = SelectedBusinessLoca.COMPANY;
+            }
+            if (SelectedBusinessLoca.SHOP_NAME != null && InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList != null)
+            {
+                InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList.Text = null;
+                InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList.Text = SelectedBusinessLoca.SHOP_NAME;
+
+                InvoicePOS.UserControll.Supplier.ViewLedger.CompanyList.Text = null;
+                InvoicePOS.UserControll.Supplier.ViewLedger.CompanyList.Text = SelectedBusinessLoca.COMPANY;
+            }
             if (fdrt != null)
             {
                 SelectedOpeningStock.GODOWN = fdrt.GODOWN;

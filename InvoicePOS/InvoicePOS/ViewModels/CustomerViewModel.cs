@@ -2042,6 +2042,104 @@ namespace InvoicePOS.ViewModels
             }
 
         }
+        private string _CrBal = string.Empty;
+        public string CrBal
+        {
+            get { return this._CrBal; }
+
+            set
+            {
+                this._CrBal = value;
+                this.OnPropertyChanged("CrBal");
+            }
+        }
+        public ICommand _ViewLedger { get; set; }
+        public ICommand ViewLedger
+        {
+            get
+            {
+                if (_ViewLedger == null)
+                {
+                    _ViewLedger = new DelegateCommand(ViewLedger_Click);
+                }
+                return _ViewLedger;
+            }
+        }
+
+        public async void ViewLedger_Click()
+        {
+            InvoicePOS.UserControll.Customer.ViewLedger sh = new UserControll.Customer.ViewLedger();
+            if (SelectedCustomer != null)
+            {
+                InvoicePOS.UserControll.Customer.ViewLedger.FAccount.Text = SelectedCustomer.FULL_NAME;
+                InvoicePOS.UserControll.Customer.ViewLedger.CBalance.Text = SelectedCustomer.CLOSING_AMT.ToString();
+                InvoicePOS.UserControll.Customer.ViewLedger.OBalance.Text = SelectedCustomer.OPENING_AMT.ToString();
+                InvoicePOS.UserControll.Customer.ViewLedger.CreditLmt.Text = SelectedCustomer.credit_Limits.ToString();
+                InvoicePOS.UserControll.Customer.ViewLedger.DebitLmt.Text = SelectedCustomer.DEFAULT_CREIT_LIMIT.ToString();
+            }
+            sh.Show();
+        }
+
+        public ICommand _BusinessListCust { get; set; }
+        public ICommand BusinessListCust
+        {
+            get
+            {
+                if (_BusinessListCust == null)
+                {
+                    _BusinessListCust = new DelegateCommand(BusinessList_Click);
+                }
+                return _BusinessListCust;
+            }
+        }
+        public async void BusinessList_Click()
+        {
+            Window_BusinessLocationList sh = new Window_BusinessLocationList();            
+            sh.Show();
+        }
+
+        public ICommand _SelectOkBusiness { get; set; }
+        public ICommand SelectOkBusiness
+        {
+            get
+            {
+                if (_SelectOkBusiness == null)
+                {
+                    _SelectOkBusiness = new DelegateCommand(SelectOkBusiness_Ok);
+                }
+                return _SelectOkBusiness;
+            }
+        }
+        private BusinessLocationModel _SelectedBusinessLoca;
+        public BusinessLocationModel SelectedBusinessLoca
+        {
+            get { return _SelectedBusinessLoca; }
+            set
+            {
+                if (_SelectedBusinessLoca != value)
+                {
+                    _SelectedBusinessLoca = value;
+                    App.Current.Properties["LOC_ID"] = SelectedBusinessLoca.BUSINESS_LOCATION_ID;
+                    App.Current.Properties["BUSSINESS_LOC"] = SelectedBusinessLoca.BUSINESS_LOCATION;
+                    App.Current.Properties["BussLocList"] = SelectedBusinessLoca.BUSINESS_LOCATION;
+                    App.Current.Properties["BussLocName"] = SelectedBusinessLoca.BUSS_ADDRESS_1;
+                    OnPropertyChanged("_SelectedBusinessLoca");
+                }
+
+            }
+        }
+        public void SelectOkBusiness_Ok()
+        {          
+           
+            if (SelectedBusinessLoca.BUSINESS_LOCATION != null)
+            {
+                InvoicePOS.UserControll.Customer.ViewLedger.BusinessList.Text = null;
+                InvoicePOS.UserControll.Customer.ViewLedger.BusinessList.Text = SelectedBusinessLoca.BUSINESS_LOCATION;
+
+                InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = null;
+                InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = SelectedBusinessLoca.COMPANY;
+            }
+        }
         public ICommand _EditCustomer { get; set; }
         public ICommand EditCustomer
         {
