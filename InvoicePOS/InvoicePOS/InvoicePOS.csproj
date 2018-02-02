@@ -125,6 +125,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\FontHelper.cs" />
     <Compile Include="Helper\AsyncCommand .cs" />
     <Compile Include="Helper\Simple.cs" />
     <Compile Include="Helper\SimpleFolderConverter.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Models\CashRegModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\CurrencySettingsModel.cs" />
     <Compile Include="Models\CustomerGroupModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
@@ -302,9 +304,6 @@
     </Compile>
     <Compile Include="UserControll\GoDown\Window_GodownList.xaml.cs">
       <DependentUpon>Window_GodownList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControll\Invoice\ImportDataForInvoice.xaml.cs">
-      <DependentUpon>ImportDataForInvoice.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControll\Invoice\InvoiceList.xaml.cs">
       <DependentUpon>InvoiceList.xaml</DependentUpon>
@@ -521,6 +520,7 @@
     <Compile Include="ViewModels\ChangQntViewModel.cs" />
     <Compile Include="ViewModels\ChildViewModel.cs" />
     <Compile Include="ViewModels\Company\CompanyCommand.cs" />
+    <Compile Include="ViewModels\CurrencySettingsViewModel.cs" />
     <Compile Include="ViewModels\CustomerGroupViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerCommand.cs" />
@@ -612,6 +612,9 @@
     <Compile Include="Views\ChangeItem\ChangeItemPrice.xaml.cs">
       <DependentUpon>ChangeItemPrice.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CurrencySettings.xaml.cs">
+      <DependentUpon>CurrencySettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Customer\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
@@ -629,6 +632,15 @@
     </Compile>
     <Compile Include="Views\Customer\Openingbalance.xaml.cs">
       <DependentUpon>Openingbalance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FontChooser.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>FontChooser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\FontFamilyListItem.cs" />
+    <Compile Include="Helpers\FontSizeListItem.cs" />
+    <Compile Include="Views\InvoiceSettings.xaml.cs">
+      <DependentUpon>InvoiceSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ItemNameAutoComplete.xaml.cs">
       <DependentUpon>ItemNameAutoComplete.xaml</DependentUpon>
@@ -666,10 +678,13 @@
     <Compile Include="Views\Main\Taxdetails.xaml.cs">
       <DependentUpon>Taxdetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\NameDictionaryHelper.cs" />
     <Compile Include="Views\Report\EstimateInvoice.xaml.cs" />
     <Compile Include="Views\SaleUnitAutoComplete.xaml.cs">
       <DependentUpon>SaleUnitAutoComplete.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TypefaceListItem.cs" />
+    <Compile Include="Helpers\TypographicFeatureListItem.cs" />
     <Compile Include="Views\Unit\AddUnit.xaml.cs">
       <DependentUpon>AddUnit.xaml</DependentUpon>
     </Compile>
@@ -888,10 +903,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControll\GoDown\Window_GodownList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControll\Invoice\ImportDataForInvoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1264,6 +1275,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\CurrencySettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Customer\Customer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1287,6 +1302,14 @@
     <Page Include="Views\Customer\Openingbalance.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FontChooser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InvoiceSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ItemNameAutoComplete.xaml">
       <SubType>Designer</SubType>
@@ -1375,6 +1398,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resources.resx" />
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>

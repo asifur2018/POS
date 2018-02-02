@@ -7,11 +7,62 @@ using System.Windows;
 using System.ComponentModel;
 using InvoicePOS.Helpers;
 using System.Windows.Controls;
+using System.Windows.Input;
+using InvoicePOS.Views;
 
 namespace InvoicePOS.ViewModels
 {
     class SettingsViewModel : DependencyObject, INotifyPropertyChanged, IModalService
     {
+        #region Command Binding
+
+
+
+        private ICommand _InvoiceClick;
+        public ICommand InvoiceClick
+        {
+            get
+            {
+                if (_InvoiceClick == null)
+                {
+                    _InvoiceClick = new DelegateCommand(Invoice_Click);
+                }
+                return _InvoiceClick;
+            }
+        }
+
+        public void Invoice_Click()
+        {
+            InvoiceSettings invoiceSettingsView = new InvoiceSettings();
+            invoiceSettingsView.Show();
+
+        }
+
+
+        private ICommand _CurrencyClick;
+        public ICommand CurrencyClick
+        {
+            get
+            {
+                if (_CurrencyClick == null)
+                {
+                    _CurrencyClick = new DelegateCommand(Currency_Click);
+                }
+                return _CurrencyClick;
+            }
+        }
+
+        public void Currency_Click()
+        {
+            CurrencySettings currencySettingsView = new CurrencySettings();
+            currencySettingsView.Show();
+
+        }
+
+       
+        
+        #endregion
+
         #region Interface Implementation
         public event PropertyChangedEventHandler PropertyChanged;
 

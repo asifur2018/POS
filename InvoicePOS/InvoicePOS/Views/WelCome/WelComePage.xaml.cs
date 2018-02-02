@@ -108,7 +108,10 @@ namespace InvoicePOS.Views.WelCome
         void IModalService.NavigateTo(UserControl uc, BackNavigationEventHandler backFromDialog)
         {
             foreach (UIElement item in modalGrid.Children)
+            {
                 item.IsEnabled = false;
+                item.Visibility = System.Windows.Visibility.Collapsed;
+            }
             modalGrid.Children.Add(uc);
 
             _backFunctions.Push(backFromDialog);

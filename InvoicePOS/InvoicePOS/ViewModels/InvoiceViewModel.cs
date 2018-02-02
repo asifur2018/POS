@@ -2167,8 +2167,8 @@ namespace InvoicePOS.ViewModels
         }
         public void ImportClick_Click()
         {
-            ImportDataForInvoice sh = new ImportDataForInvoice();
-            sh.Show();
+            //ImportDataForInvoice sh = new ImportDataForInvoice();
+            //sh.Show();
         }
 
         public ICommand _ExcelImportClick { get; set; }
