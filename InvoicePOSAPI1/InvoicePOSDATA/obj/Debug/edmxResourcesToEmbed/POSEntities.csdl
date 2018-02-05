@@ -1539,5 +1539,6 @@
     <Property Type="Boolean" Name="IS_TRANSFER_CASH_REGISTER" />
     <Property Type="Boolean" Name="IS_DELETE" />
     <Property Type="String" Name="STATUS" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="BUSINESS_LOC_ID" />
   </EntityType>
 </Schema>

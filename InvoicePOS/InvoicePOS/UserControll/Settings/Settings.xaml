@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         Width="1050" Height="920">
     <Grid>
-        <Button Name="Invoice" Command="{Binding Path=ItemList,UpdateSourceTrigger=PropertyChanged }"   HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="150" Height="40" Style="{StaticResource SettingButtonImage}">
+        <Button Name="Invoice" Command="{Binding Path=InvoiceClick,UpdateSourceTrigger=PropertyChanged }"   HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="150" Height="40" Style="{StaticResource SettingButtonImage}">
             <DockPanel Margin="0,0,0,0" HorizontalAlignment="Left" Width="146"  Height="30">
                 <Image Source="/InvoicePOS;component/Images/invoice.png" Margin="0,0,0,0" HorizontalAlignment="Left" Stretch="Uniform" DockPanel.Dock="Left" Width="30" Height="30"/>
                 <Label Content="Invoice" Width="100" Height="30" FontFamily="Verdana" FontSize="14" FontWeight="Bold" Foreground="White"></Label>
@@ -17,7 +17,7 @@
                 <Label Content="Printer" Width="100" Height="30" FontFamily="Verdana" FontSize="14" FontWeight="Bold" Foreground="White"></Label>
             </DockPanel>
         </Button>
-        <Button Name="Currency" Command="{Binding Path=ItemList,UpdateSourceTrigger=PropertyChanged }"   HorizontalAlignment="Left" Margin="500,50,0,0" VerticalAlignment="Top" Width="150" Height="40" Style="{StaticResource SettingButtonImage}">
+        <Button Name="Currency" Command="{Binding Path=CurrencyClick,UpdateSourceTrigger=PropertyChanged }"   HorizontalAlignment="Left" Margin="500,50,0,0" VerticalAlignment="Top" Width="150" Height="40" Style="{StaticResource SettingButtonImage}">
             <DockPanel Margin="0,0,0,0" HorizontalAlignment="Left" Width="146"  Height="30">
                 <Image Source="/InvoicePOS;component/Images/currency.png" Margin="0,0,0,0" HorizontalAlignment="Left" Stretch="Uniform" DockPanel.Dock="Left" Width="30" Height="30"/>
                 <Label Content="Currency" Width="100" Height="30" FontFamily="Verdana" FontSize="14" FontWeight="Bold" Foreground="White"></Label>

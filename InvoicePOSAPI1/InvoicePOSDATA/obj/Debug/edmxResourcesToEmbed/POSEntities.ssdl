@@ -1403,9 +1403,10 @@
     <Property Name="TRANSFER_ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CASH_TRANSFER_NUMBER" Type="nvarchar" MaxLength="50" />
     <Property Name="COMPANY_ID" Type="bigint" />
-    <Property Name="BUSINESS_LOC" Type="bigint" />
-    <Property Name="FROM_CASH_REGISTER" Type="bigint" />
-    <Property Name="TO_CASH_REGISTER" Type="bigint" />
+    <Property Name="BUSINESS_LOC_ID" Type="bigint" />
+    <Property Name="BUSINESS_LOC" Type="nvarchar" MaxLength="100" />
+    <Property Name="FROM_CASH_REGISTER" Type="nvarchar" MaxLength="50" />
+    <Property Name="TO_CASH_REGISTER" Type="nvarchar" MaxLength="50" />
     <Property Name="TOTAL_TRANSFERED_AMOUNT" Type="decimal" Scale="2" />
     <Property Name="TRANSFER_DATE" Type="datetime" />
     <Property Name="IS_TRANSFER_CASH_REGISTER" Type="bit" />

@@ -301,12 +301,6 @@
     <Compile Include="UserControll\GoDown\Window_GodownList.xaml.cs">
       <DependentUpon>Window_GodownList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControll\Invoice\AddInvoice.xaml.cs">
-      <DependentUpon>AddInvoice.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControll\Invoice\ImportDataForInvoice.xaml.cs">
-      <DependentUpon>ImportDataForInvoice.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControll\Invoice\InvoiceList.xaml.cs">
       <DependentUpon>InvoiceList.xaml</DependentUpon>
     </Compile>
@@ -888,14 +882,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControll\GoDown\Window_GodownList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControll\Invoice\AddInvoice.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControll\Invoice\ImportDataForInvoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

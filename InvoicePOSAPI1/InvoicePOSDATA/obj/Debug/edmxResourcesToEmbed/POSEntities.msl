@@ -1527,6 +1527,7 @@
     <EntitySetMapping Name="TBL_TRANSFER_CASH">
       <EntityTypeMapping TypeName="NEW_POSModel.TBL_TRANSFER_CASH">
         <MappingFragment StoreEntitySet="TBL_TRANSFER_CASH">
+          <ScalarProperty Name="BUSINESS_LOC_ID" ColumnName="BUSINESS_LOC_ID" />
           <ScalarProperty Name="STATUS" ColumnName="STATUS" />
           <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
           <ScalarProperty Name="IS_TRANSFER_CASH_REGISTER" ColumnName="IS_TRANSFER_CASH_REGISTER" />

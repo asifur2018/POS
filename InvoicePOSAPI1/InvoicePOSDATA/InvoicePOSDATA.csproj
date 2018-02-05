@@ -293,8 +293,18 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>POSEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="POSEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>POSEntities.edmx</DependentUpon>
+      <LastGenOutput>POSEntities.Context.cs</LastGenOutput>
+    </None>
     <None Include="POSEntities.edmx.diagram">
       <DependentUpon>POSEntities.edmx</DependentUpon>
+    </None>
+    <None Include="POSEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>POSEntities.edmx</DependentUpon>
+      <LastGenOutput>POSEntities.cs</LastGenOutput>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -313,18 +323,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="POSEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>POSEntities.edmx</DependentUpon>
-      <LastGenOutput>POSEntities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="POSEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>POSEntities.edmx</DependentUpon>
-      <LastGenOutput>POSEntities.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
