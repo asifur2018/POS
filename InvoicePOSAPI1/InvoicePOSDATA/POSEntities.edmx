@@ -60,6 +60,7 @@
           <EntitySet Name="tbl_supppaydetails" EntityType="NEW_POSModel.Store.tbl_supppaydetails" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TBL_TAX" EntityType="NEW_POSModel.Store.TBL_TAX" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TBL_TRANSFER" EntityType="NEW_POSModel.Store.TBL_TRANSFER" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TBL_TRANSFER_CASH" EntityType="NEW_POSModel.Store.TBL_TRANSFER_CASH" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TBL_UNIT_MEASURING" EntityType="NEW_POSModel.Store.TBL_UNIT_MEASURING" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TBL_USER" EntityType="NEW_POSModel.Store.TBL_USER" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TBL_VENDORS" EntityType="NEW_POSModel.Store.TBL_VENDORS" store:Type="Tables" Schema="dbo" />
@@ -814,6 +815,8 @@
           <Property Name="STATUS" Type="varchar" MaxLength="50" />
           <Property Name="SALES_RETURN_AMOUNT" Type="decimal" Scale="2" />
           <Property Name="EMPLOYEE_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CASH_REGISTERID" Type="bigint" />
+          <Property Name="COMANY_ID" Type="bigint" />
         </EntityType>
         <EntityType Name="TBL_ITEM_LOCATION">
           <Key>
@@ -1173,6 +1176,7 @@
           <Property Name="COMPANY_ID" Type="bigint" />
           <Property Name="IS_DELETE" Type="bit" />
           <Property Name="USER_ID" Type="bigint" />
+          <Property Name="CASH_REGISTERID" Type="bigint" />
         </EntityType>
         <EntityType Name="TBL_REPORT_ADD">
           <Key>
@@ -1396,6 +1400,22 @@
           <Property Name="TRANSFER_BANK_ID" Type="bigint" />
           <Property Name="TRANSFER_DATE" Type="datetime" />
           <Property Name="USER_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="TBL_TRANSFER_CASH">
+          <Key>
+            <PropertyRef Name="TRANSFER_ID" />
+          </Key>
+          <Property Name="TRANSFER_ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CASH_TRANSFER_NUMBER" Type="nvarchar" MaxLength="50" />
+          <Property Name="COMPANY_ID" Type="bigint" />
+          <Property Name="BUSINESS_LOC" Type="bigint" />
+          <Property Name="FROM_CASH_REGISTER" Type="bigint" />
+          <Property Name="TO_CASH_REGISTER" Type="bigint" />
+          <Property Name="TOTAL_TRANSFERED_AMOUNT" Type="decimal" Scale="2" />
+          <Property Name="TRANSFER_DATE" Type="datetime" />
+          <Property Name="IS_TRANSFER_CASH_REGISTER" Type="bit" />
+          <Property Name="IS_DELETE" Type="bit" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TBL_UNIT_MEASURING">
           <Key>
@@ -2248,6 +2268,8 @@
           <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SALES_RETURN_AMOUNT" Type="Decimal" Precision="18" Scale="2" />
           <Property Type="String" Name="EMPLOYEE_ID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="CASH_REGISTERID" />
+          <Property Type="Int64" Name="COMANY_ID" />
         </EntityType>
         <EntityType Name="TBL_ITEM_LOCATION">
           <Key>
@@ -2607,6 +2629,7 @@
           <Property Name="COMPANY_ID" Type="Int64" />
           <Property Name="IS_DELETE" Type="Boolean" />
           <Property Name="USER_ID" Type="Int64" />
+          <Property Type="Int64" Name="CASH_REGISTERID" />
         </EntityType>
         <EntityType Name="TBL_REPORT_ADD">
           <Key>
@@ -3214,6 +3237,7 @@
           <EntitySet Name="VW_EMP_ACCESS_MODULE" EntityType="Self.VW_EMP_ACCESS_MODULE" />
           <EntitySet Name="VW_EMP_MODULE_ACCESS" EntityType="Self.VW_EMP_MODULE_ACCESS" />
           <FunctionImport Name="SP_All_Invoice" ReturnType="Collection(NEW_POSModel.SP_All_Invoice_Result)" />
+          <EntitySet Name="TBL_TRANSFER_CASH" EntityType="NEW_POSModel.TBL_TRANSFER_CASH" />
         </EntityContainer>
         <ComplexType Name="SP_All_Invoice_Result">
           <Property Type="String" Name="INVOICE_NO" Nullable="true" MaxLength="50" />
@@ -3259,6 +3283,22 @@
           <Property Type="String" Name="TRANSFER_BRANCH" Nullable="true" MaxLength="50" />
           <Property Type="Int64" Name="TRANSFER_BANK_AC" Nullable="true" />
         </ComplexType>
+        <EntityType Name="TBL_TRANSFER_CASH">
+          <Key>
+            <PropertyRef Name="TRANSFER_ID" />
+          </Key>
+          <Property Type="Int64" Name="TRANSFER_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CASH_TRANSFER_NUMBER" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="COMPANY_ID" />
+          <Property Type="Int64" Name="BUSINESS_LOC" />
+          <Property Type="Int64" Name="FROM_CASH_REGISTER" />
+          <Property Type="Int64" Name="TO_CASH_REGISTER" />
+          <Property Type="Decimal" Name="TOTAL_TRANSFERED_AMOUNT" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="TRANSFER_DATE" Precision="3" />
+          <Property Type="Boolean" Name="IS_TRANSFER_CASH_REGISTER" />
+          <Property Type="Boolean" Name="IS_DELETE" />
+          <Property Type="String" Name="STATUS" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3766,6 +3806,8 @@
           <EntitySetMapping Name="TBL_INVOICE_PAY">
             <EntityTypeMapping TypeName="NEW_POSModel.TBL_INVOICE_PAY">
               <MappingFragment StoreEntitySet="TBL_INVOICE_PAY">
+                <ScalarProperty Name="COMANY_ID" ColumnName="COMANY_ID" />
+                <ScalarProperty Name="CASH_REGISTERID" ColumnName="CASH_REGISTERID" />
                 <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
                 <ScalarProperty Name="INVOICE_ID" ColumnName="INVOICE_ID" />
                 <ScalarProperty Name="INVOICE_NO" ColumnName="INVOICE_NO" />
@@ -4156,6 +4198,7 @@
           <EntitySetMapping Name="TBL_RECEIVE_PAYMENT">
             <EntityTypeMapping TypeName="NEW_POSModel.TBL_RECEIVE_PAYMENT">
               <MappingFragment StoreEntitySet="TBL_RECEIVE_PAYMENT">
+                <ScalarProperty Name="CASH_REGISTERID" ColumnName="CASH_REGISTERID" />
                 <ScalarProperty Name="RECEIVE_PAYMENT_ID" ColumnName="RECEIVE_PAYMENT_ID" />
                 <ScalarProperty Name="RECEIVE_PAY_NO" ColumnName="RECEIVE_PAY_NO" />
                 <ScalarProperty Name="BUSINESS_LOCATION_ID" ColumnName="BUSINESS_LOCATION_ID" />
@@ -4785,6 +4828,23 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="TBL_TRANSFER_CASH">
+            <EntityTypeMapping TypeName="NEW_POSModel.TBL_TRANSFER_CASH">
+              <MappingFragment StoreEntitySet="TBL_TRANSFER_CASH">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+                <ScalarProperty Name="IS_TRANSFER_CASH_REGISTER" ColumnName="IS_TRANSFER_CASH_REGISTER" />
+                <ScalarProperty Name="TRANSFER_DATE" ColumnName="TRANSFER_DATE" />
+                <ScalarProperty Name="TOTAL_TRANSFERED_AMOUNT" ColumnName="TOTAL_TRANSFERED_AMOUNT" />
+                <ScalarProperty Name="TO_CASH_REGISTER" ColumnName="TO_CASH_REGISTER" />
+                <ScalarProperty Name="FROM_CASH_REGISTER" ColumnName="FROM_CASH_REGISTER" />
+                <ScalarProperty Name="BUSINESS_LOC" ColumnName="BUSINESS_LOC" />
+                <ScalarProperty Name="COMPANY_ID" ColumnName="COMPANY_ID" />
+                <ScalarProperty Name="CASH_TRANSFER_NUMBER" ColumnName="CASH_TRANSFER_NUMBER" />
+                <ScalarProperty Name="TRANSFER_ID" ColumnName="TRANSFER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

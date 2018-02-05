@@ -120,7 +120,7 @@
                             <ColumnDefinition Width="267*"/>
                             <ColumnDefinition Width="172*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:Name="textBlock2"  Margin="10,10,0,0" TextWrapping="Wrap" Text="Bar Code:" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource labeltextadditem}" />
+                        <TextBlock x:Name="textBlock2"  Margin="10,10,0,0" TextWrapping="Wrap" Text="Barcode:" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource labeltextadditem}" />
                         <TextBox x:Name="textBox2" Margin="154,5,0,0" IsEnabled="{Binding BARCODEENABLE}" Text="{Binding BARCODE, Mode=TwoWay,  ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Style="{StaticResource itemTextboxdetails}" HorizontalAlignment="Left" Width="192" />
                         <Button x:Name="butAuto" Content="Auto Generate" Command="{Binding AUTOCODE}" Visibility="{Binding AUTOCODEVISIBLE}" HorizontalAlignment="Left" Height="25" Margin="349,5,0,0" VerticalAlignment="Top" Width="103"/>
                         <Button x:Name="button2" Content="Define My Own" Command="{Binding ItemBarcode}" Visibility="{Binding DEFINECODEVISIBLE}" HorizontalAlignment="Left" Height="25" Margin="349,5,0,0" VerticalAlignment="Top" Width="103"/>

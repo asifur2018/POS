@@ -12,6 +12,7 @@ D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\bin\Debug\Microsoft.Expression.Interac
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\bin\Debug\Newtonsoft.Json.xml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\bin\Debug\System.Net.Http.Formatting.xml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\bin\Debug\System.Windows.Interactivity.xml
+D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\InvoicePOS.csprojResolveAssemblyReference.cache
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\Resources\EnglishDictionary.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\Resources\GermanDictionary.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\Resources\IconsResourceDictionary.baml
@@ -60,6 +61,7 @@ D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\GoDown\AddG
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\GoDown\GodownList.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\GoDown\ViewGoDown.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\GoDown\Window_GodownList.baml
+D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Invoice\AddInvoice.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Invoice\ImportDataForInvoice.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Invoice\InvoiceList.baml
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Invoice\ViewInvoice.baml
@@ -198,6 +200,7 @@ D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\GoDown\AddG
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\GoDown\GodownList.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\GoDown\ViewGoDown.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\GoDown\Window_GodownList.g.cs
+D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Invoice\AddInvoice.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Invoice\ImportDataForInvoice.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Invoice\InvoiceList.g.cs
 D:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\UserControll\Invoice\ViewInvoice.g.cs

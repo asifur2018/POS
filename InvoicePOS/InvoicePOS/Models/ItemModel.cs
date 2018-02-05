@@ -103,6 +103,11 @@ namespace InvoicePOS.Models
         public int TOTAL_QTY { get; set; }
         public decimal EFFECTIVE_RATE_PER_UNIT { get; set; }
         public DateTime ESTIMATE_DATE { get; set; }
+        public string ESTIMATE_NO { get; set; }
+        public int ESTIMATE_ID { get; set; }
+        public int COUNT_ITEM { get; set; }
+        public string BUSINESS_LOCATION { get; set; }
+        public string CASH_REG { get; set; }
         
         //public string INVOICE_NO { get; set; }
         public string SUPPLIER_INVOICE_NO { get; set; }

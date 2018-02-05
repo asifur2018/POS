@@ -502,6 +502,8 @@
     <EntitySetMapping Name="TBL_INVOICE_PAY">
       <EntityTypeMapping TypeName="NEW_POSModel.TBL_INVOICE_PAY">
         <MappingFragment StoreEntitySet="TBL_INVOICE_PAY">
+          <ScalarProperty Name="COMANY_ID" ColumnName="COMANY_ID" />
+          <ScalarProperty Name="CASH_REGISTERID" ColumnName="CASH_REGISTERID" />
           <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
           <ScalarProperty Name="INVOICE_ID" ColumnName="INVOICE_ID" />
           <ScalarProperty Name="INVOICE_NO" ColumnName="INVOICE_NO" />
@@ -892,6 +894,7 @@
     <EntitySetMapping Name="TBL_RECEIVE_PAYMENT">
       <EntityTypeMapping TypeName="NEW_POSModel.TBL_RECEIVE_PAYMENT">
         <MappingFragment StoreEntitySet="TBL_RECEIVE_PAYMENT">
+          <ScalarProperty Name="CASH_REGISTERID" ColumnName="CASH_REGISTERID" />
           <ScalarProperty Name="RECEIVE_PAYMENT_ID" ColumnName="RECEIVE_PAYMENT_ID" />
           <ScalarProperty Name="RECEIVE_PAY_NO" ColumnName="RECEIVE_PAY_NO" />
           <ScalarProperty Name="BUSINESS_LOCATION_ID" ColumnName="BUSINESS_LOCATION_ID" />
@@ -1521,5 +1524,22 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="TBL_TRANSFER_CASH">
+      <EntityTypeMapping TypeName="NEW_POSModel.TBL_TRANSFER_CASH">
+        <MappingFragment StoreEntitySet="TBL_TRANSFER_CASH">
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+          <ScalarProperty Name="IS_TRANSFER_CASH_REGISTER" ColumnName="IS_TRANSFER_CASH_REGISTER" />
+          <ScalarProperty Name="TRANSFER_DATE" ColumnName="TRANSFER_DATE" />
+          <ScalarProperty Name="TOTAL_TRANSFERED_AMOUNT" ColumnName="TOTAL_TRANSFERED_AMOUNT" />
+          <ScalarProperty Name="TO_CASH_REGISTER" ColumnName="TO_CASH_REGISTER" />
+          <ScalarProperty Name="FROM_CASH_REGISTER" ColumnName="FROM_CASH_REGISTER" />
+          <ScalarProperty Name="BUSINESS_LOC" ColumnName="BUSINESS_LOC" />
+          <ScalarProperty Name="COMPANY_ID" ColumnName="COMPANY_ID" />
+          <ScalarProperty Name="CASH_TRANSFER_NUMBER" ColumnName="CASH_TRANSFER_NUMBER" />
+          <ScalarProperty Name="TRANSFER_ID" ColumnName="TRANSFER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

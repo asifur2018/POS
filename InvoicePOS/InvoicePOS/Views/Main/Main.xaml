@@ -135,7 +135,7 @@
             <TextBlock x:Name="textBlock11" HorizontalAlignment="Left" Height="25" Margin="171,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Style="{StaticResource strongtext}"><Run Text="L"/><Run Text="ogin:"/></TextBlock>
             <TextBlock x:Name="textBlock12" HorizontalAlignment="Left" Height="27" Margin="221,96,0,0" TextWrapping="Wrap" Text="Admin" VerticalAlignment="Top" Width="45"/>
             <TextBlock x:Name="textBlock13" HorizontalAlignment="Left" Height="24" Margin="271,98,0,0" TextWrapping="Wrap" Text="Cash Register:" VerticalAlignment="Top" Width="105" Style="{StaticResource strongtext}"/>
-            <TextBlock x:Name="textBlock14" HorizontalAlignment="Left" Height="20" Margin="397,102,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="129"/>
+            <TextBlock x:Name="textBlock14" Text="Manager's drawer" HorizontalAlignment="Left" Height="20" Margin="397,96,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="129"/>
             <Image HorizontalAlignment="Left" Height="108" Source="{Binding IMAGE_PATH1}" Name="ImgSource" VerticalAlignment="Top" Width="156" Margin="14,10,0,0"/>
             <TextBlock x:Name="textBlock3" Text="{Binding BusinessLocName}" HorizontalAlignment="Left" Margin="499,24,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
             <TextBlock x:Name="textBlock21" Text="{Binding BusinessAddress}" HorizontalAlignment="Left" Margin="500,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -147,11 +147,11 @@
                 <ColumnDefinition Width="1076*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Rectangle Fill="#f5f5f5" Margin="10,14,1,8" Stroke="#dadada" Grid.ColumnSpan="2"/>
+            <Rectangle Fill="#f5f5f5" Margin="10,14,1,13" Stroke="#dadada" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="textBlock15" Height="20" Margin="20,0,0,107" TextWrapping="Wrap"  Text="{DynamicResource Invoice}"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="105" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="textBlock16" Height="20" Margin="284,0,374,108" TextWrapping="Wrap"  Text="{DynamicResource Date}"  VerticalAlignment="Bottom" Grid.Column="1"/>
-            <TextBlock x:Name="textBlock17" Height="20" Margin="20,0,666,83" TextWrapping="Wrap" Text="{DynamicResource Bar Code}"  VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="Select_BarCodee" Text="{Binding Select_BarCode,UpdateSourceTrigger=PropertyChanged}" Margin="95,0,48,78" TextWrapping="Wrap" VerticalAlignment="Bottom" Style="{StaticResource numberdisplayTextboxsearch}" Width="Auto" Grid.Column="1"   >
+            <TextBlock x:Name="textBlock17" Height="20" Margin="20,0,666,83" TextWrapping="Wrap" Text="{DynamicResource Barcode}"  VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="Select_BarCodee" Text="{Binding Select_BarCode,UpdateSourceTrigger=PropertyChanged}" Margin="96,0,291,77" Height="28" TextWrapping="Wrap" VerticalAlignment="Bottom" Style="{StaticResource numberdisplayTextboxsearch}" Width="Auto" Grid.Column="1"   >
                 <TextBox.InputBindings>
                     <KeyBinding Key="Tab" Command="{Binding TabChangeCode}" />
                     <KeyBinding Key="Enter" Command="{Binding TabChangeCode}" />

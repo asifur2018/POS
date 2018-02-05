@@ -243,6 +243,9 @@
     <Compile Include="TBL_TRANSFER.cs">
       <DependentUpon>POSEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TBL_TRANSFER_CASH.cs">
+      <DependentUpon>POSEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBL_UNIT_MEASURING.cs">
       <DependentUpon>POSEntities.tt</DependentUpon>
     </Compile>

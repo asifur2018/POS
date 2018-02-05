@@ -349,8 +349,8 @@ namespace InvoicePOS.ViewModels
                 client.BaseAddress = new Uri(GlobalData.gblApiAdress);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                
-                
+
+
                 var response = await client.PostAsJsonAsync("api/InvoiceAPI/CreateInvoice/", SelectInvoice);
                 if (response.StatusCode.ToString() == "OK")
                 {
@@ -894,15 +894,8 @@ namespace InvoicePOS.ViewModels
             }
             set
             {
-                SelectInvoice.TOTAL_AMOUNT = value;
-
-                if (SelectInvoice.TOTAL_AMOUNT != value)
-                {
-                    SelectInvoice.TOTAL_AMOUNT = value;
-                    OnPropertyChanged("TOTAL_AMOUNT");
-                    
-                }
-
+                SelectInvoice.TOTAL_AMOUNT = value;                 
+                OnPropertyChanged("TOTAL_AMOUNT");
             }
         }
 
@@ -956,11 +949,12 @@ namespace InvoicePOS.ViewModels
                 if (SelectInvoice.DISCOUNT_INCLUDED == value)
                 {
                     SelectInvoice.DISCOUNT_INCLUDED = value;
-                   
+
                     if (DISCOUNT_INCLUDED != null)
                     {
                         var totalAmount = TOTAL_AMOUNT - DISCOUNT_INCLUDED;
                         TOTAL_AMOUNT = totalAmount;
+                        ROUNDOFF_AMOUNT = ROUNDOFF_AMOUNT - Convert.ToInt32(DISCOUNT_INCLUDED);
                     }
                 }
                 OnPropertyChanged("DISCOUNT_INCLUDED");
@@ -1943,6 +1937,65 @@ namespace InvoicePOS.ViewModels
                 OnPropertyChanged("SelectInv");
             }
 
+        }
+        private ICommand _AddINvoice { get; set; }
+        public ICommand AddNvoice
+        {
+            get
+            {
+                if (_AddINvoice == null)
+                {
+                    _AddINvoice = new DelegateCommand(Add_INvoice);
+                }
+                return _AddINvoice;
+            }
+
+        }
+        public async void Add_INvoice()
+        {
+
+        }
+        private ICommand _DeleteINvoice { get; set; }
+        public ICommand DeleteINvoice
+        {
+            get
+            {
+                if (_DeleteINvoice == null)
+                {
+                    _DeleteINvoice = new DelegateCommand(Delete_INvoice);
+                }
+                return _DeleteINvoice;
+            }
+
+        }
+        public async void Delete_INvoice()
+        {
+            if (SelectInv.INVOICE_NO != null)
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure delete this invoice " + SelectInv.INVOICE_ID + "?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    var id = SelectInv.INVOICE_ID;
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                    HttpResponseMessage response = client.GetAsync("api/InvoiceAPI/DeleteInvoice?id=" + id + "").Result;
+                    if (response.StatusCode.ToString() == "OK")
+                    {
+                        ModalService.NavigateTo(new Invoice(), delegate(bool returnValue) { });
+                        MessageBox.Show("Invoice Deleted Successfully");
+                    }
+                }
+                else
+                {
+                    Cancel_Invoice();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select Invoice");
+            }
         }
         private ICommand _ViewINvoice { get; set; }
         public ICommand ViewINvoice

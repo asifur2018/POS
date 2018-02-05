@@ -509,6 +509,8 @@
     <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="SALES_RETURN_AMOUNT" Type="Decimal" Precision="18" Scale="2" />
     <Property Type="String" Name="EMPLOYEE_ID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="CASH_REGISTERID" />
+    <Property Type="Int64" Name="COMANY_ID" />
   </EntityType>
   <EntityType Name="TBL_ITEM_LOCATION">
     <Key>
@@ -868,6 +870,7 @@
     <Property Name="COMPANY_ID" Type="Int64" />
     <Property Name="IS_DELETE" Type="Boolean" />
     <Property Name="USER_ID" Type="Int64" />
+    <Property Type="Int64" Name="CASH_REGISTERID" />
   </EntityType>
   <EntityType Name="TBL_REPORT_ADD">
     <Key>
@@ -1475,6 +1478,7 @@
     <EntitySet Name="VW_EMP_ACCESS_MODULE" EntityType="Self.VW_EMP_ACCESS_MODULE" />
     <EntitySet Name="VW_EMP_MODULE_ACCESS" EntityType="Self.VW_EMP_MODULE_ACCESS" />
     <FunctionImport Name="SP_All_Invoice" ReturnType="Collection(NEW_POSModel.SP_All_Invoice_Result)" />
+    <EntitySet Name="TBL_TRANSFER_CASH" EntityType="NEW_POSModel.TBL_TRANSFER_CASH" />
   </EntityContainer>
   <ComplexType Name="SP_All_Invoice_Result">
     <Property Type="String" Name="INVOICE_NO" Nullable="true" MaxLength="50" />
@@ -1520,4 +1524,20 @@
     <Property Type="String" Name="TRANSFER_BRANCH" Nullable="true" MaxLength="50" />
     <Property Type="Int64" Name="TRANSFER_BANK_AC" Nullable="true" />
   </ComplexType>
+  <EntityType Name="TBL_TRANSFER_CASH">
+    <Key>
+      <PropertyRef Name="TRANSFER_ID" />
+    </Key>
+    <Property Type="Int64" Name="TRANSFER_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CASH_TRANSFER_NUMBER" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="COMPANY_ID" />
+    <Property Type="Int64" Name="BUSINESS_LOC" />
+    <Property Type="Int64" Name="FROM_CASH_REGISTER" />
+    <Property Type="Int64" Name="TO_CASH_REGISTER" />
+    <Property Type="Decimal" Name="TOTAL_TRANSFERED_AMOUNT" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="TRANSFER_DATE" Precision="3" />
+    <Property Type="Boolean" Name="IS_TRANSFER_CASH_REGISTER" />
+    <Property Type="Boolean" Name="IS_DELETE" />
+    <Property Type="String" Name="STATUS" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

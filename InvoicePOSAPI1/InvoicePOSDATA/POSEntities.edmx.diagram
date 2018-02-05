@@ -70,6 +70,7 @@
         <EntityTypeShape EntityType="NEW_POSModel.View_STOCK_SEARCH" Width="1.5" PointX="18.75" PointY="26.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.VW_EMP_ACCESS_MODULE" Width="1.5" PointX="20.75" PointY="26.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.VW_EMP_MODULE_ACCESS" Width="1.5" PointX="0.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.TBL_TRANSFER_CASH" Width="1.5" PointX="10.516635501066519" PointY="6.7072506876230475" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

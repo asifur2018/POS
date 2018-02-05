@@ -93,6 +93,7 @@ namespace InvoicePOSDATA
         public DbSet<View_STOCK_SEARCH> View_STOCK_SEARCH { get; set; }
         public DbSet<VW_EMP_ACCESS_MODULE> VW_EMP_ACCESS_MODULE { get; set; }
         public DbSet<VW_EMP_MODULE_ACCESS> VW_EMP_MODULE_ACCESS { get; set; }
+        public DbSet<TBL_TRANSFER_CASH> TBL_TRANSFER_CASH { get; set; }
     
         public virtual ObjectResult<SP_All_Invoice_Result> SP_All_Invoice()
         {

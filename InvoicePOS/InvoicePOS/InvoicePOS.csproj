@@ -144,6 +144,7 @@
     <Compile Include="Models\EstimateModel.cs" />
     <Compile Include="Models\GetReceivePayment.cs" />
     <Compile Include="Models\GodownModel.cs" />
+    <Compile Include="Models\HoldInvoice.cs" />
     <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\LoyaltyModel.cs" />
@@ -299,6 +300,9 @@
     </Compile>
     <Compile Include="UserControll\GoDown\Window_GodownList.xaml.cs">
       <DependentUpon>Window_GodownList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\Invoice\AddInvoice.xaml.cs">
+      <DependentUpon>AddInvoice.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControll\Invoice\ImportDataForInvoice.xaml.cs">
       <DependentUpon>ImportDataForInvoice.xaml</DependentUpon>
@@ -884,6 +888,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControll\GoDown\Window_GodownList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControll\Invoice\AddInvoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

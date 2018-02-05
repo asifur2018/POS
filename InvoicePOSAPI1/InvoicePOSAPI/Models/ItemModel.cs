@@ -71,6 +71,12 @@ namespace InvoicePOSAPI.Models
         public DateTime ITEM_RECEIVE_DATE { get; set; }
         public string  SALES_RETURN_NO { get; set; }
         public DateTime ESTIMATE_DATE { get; set; }
+        public string ESTIMATE_NO { get; set; }
+        public int ESTIMATE_ID { get; set; }
+        public int COUNT_ITEM { get; set; }
+        public string BUSINESS_LOCATION { get; set; }
+        public string CASH_REG { get; set; }
+        public DateTime INVOICE_DATE { get; set; }
 
         public string SUPPLIER_INVOICE_NO { get; set; }
         public long BUSINESS_LOCATION_ID { get; set; }
