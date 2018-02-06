@@ -2165,7 +2165,6 @@ namespace InvoicePOS.ViewModels
         {
             try
             {
-                var barcode = Select_BarCode;
                 ObservableCollection<ItemModel> _ListGrid_Temp = new ObservableCollection<ItemModel>();
                 ItemData = new ObservableCollection<ItemModel>();
                 HttpClient client = new HttpClient();
@@ -2216,328 +2215,326 @@ namespace InvoicePOS.ViewModels
                                 SALES_PRICE_BEFOR_TAX = data[i].SALES_PRICE_BEFOR_TAX,
                                 TaxName = data[i].TaxName,
                                 TaxValue = data[i].TaxValue,
-                                IS_ACTIVE = data[i].IS_ACTIVE,
-
                                 //Total = ((decimal)(data[i].OPN_QNT) * (data[i].SALES_PRICE)) + (data[i].SALES_PRICE - data[i].PURCHASE_UNIT_PRICE),
 
                                 Total = ((decimal)(data[i].OPN_QNT) * (data[i].SALES_PRICE)),
                             });
-                            App.Current.Properties["DataGridSearchBarcode"] = _ListGrid_Temp;
-                            var dataList = App.Current.Properties["DataGridSearchBarcode"] as ObservableCollection<ItemModel>;
-                            if (Select_BarCode == data[i].BARCODE && data[i].IS_ACTIVE == true)
+
+                        }
+                        App.Current.Properties["DataGridPuzzale"] = _ListGrid_Temp;
+                    }
+
+                    if (App.Current.Properties["DataGridL"] != null)
+                    {
+                        AddListGrid = App.Current.Properties["DataGridL"] as ObservableCollection<ItemModel>;
+                    }
+                    else
+                    {
+                        AddListGrid = new ObservableCollection<ItemModel>();
+                    }
+                    var dataList = App.Current.Properties["DataGridSearchBarcode"] as ObservableCollection<ItemModel>;
+                    if (Select_BarCode != null && Select_BarCode != "")
+                    {
+                        var checkBarcode = (from a in dataList where a.BARCODE == Select_BarCode && a.IS_ACTIVE == true select a).FirstOrDefault();
+                        if (checkBarcode.IS_ACTIVE == true)
+                        {
+                            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("This item already added,Do you want to active this item?", "Add Item", System.Windows.MessageBoxButton.YesNo);
+                            if (messageBoxResult == MessageBoxResult.Yes)
                             {
-                                //App.Current.Properties["ManualBarcode"] = Select_BarCode;
-
-
-                                var checkBarcode = (from a in dataList where a.BARCODE == Select_BarCode && a.IS_ACTIVE == true select a).FirstOrDefault();
-                                if (checkBarcode.IS_ACTIVE != true)
+                                AddListGrid.Add(new ItemModel
                                 {
-                                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("This item already added,Do you want to active this item?", "Add Item", System.Windows.MessageBoxButton.YesNo);
-                                    if (messageBoxResult == MessageBoxResult.Yes)
-                                    {
-                                        AddListGrid.Add(new ItemModel
-                                        {
-                                            Discount = checkBarcode.Discount,
-                                            SLNO = x,
-                                            ITEM_NAME = checkBarcode.ITEM_NAME,
-                                            ITEM_ID = checkBarcode.ITEM_ID,
-                                            BARCODE = checkBarcode.BARCODE,
-                                            ACCESSORIES_KEYWORD = checkBarcode.ACCESSORIES_KEYWORD,
-                                            CATAGORY_ID = checkBarcode.CATAGORY_ID,
-                                            ITEM_DESCRIPTION = checkBarcode.ITEM_DESCRIPTION,
-                                            ITEM_INVOICE_ID = checkBarcode.ITEM_INVOICE_ID,
-                                            ITEM_PRICE = checkBarcode.ITEM_PRICE,
-                                            ITEM_PRODUCT_ID = checkBarcode.ITEM_PRODUCT_ID,
-                                            KEYWORD = checkBarcode.KEYWORD,
-                                            MRP = checkBarcode.MRP,
-                                            PURCHASE_UNIT = checkBarcode.PURCHASE_UNIT,
-                                            PURCHASE_UNIT_PRICE = checkBarcode.PURCHASE_UNIT_PRICE,
-                                            SALES_PRICE = checkBarcode.SALES_PRICE,
-                                            SALES_UNIT = checkBarcode.SALES_UNIT,
-                                            SEARCH_CODE = checkBarcode.SEARCH_CODE,
-                                            TAX_COLLECTED = checkBarcode.TAX_COLLECTED,
-                                            TAX_PAID = checkBarcode.SALES_PRICE,
-                                            ALLOW_PURCHASE_ON_ESHOP = checkBarcode.ALLOW_PURCHASE_ON_ESHOP,
-                                            CATEGORY_NAME = checkBarcode.CATEGORY_NAME,
-                                            DISPLAY_INDEX = checkBarcode.DISPLAY_INDEX,
-                                            INCLUDE_TAX = checkBarcode.INCLUDE_TAX,
-                                            ITEM_GROUP_NAME = checkBarcode.ITEM_GROUP_NAME,
-                                            ITEM_UNIQUE_NAME = checkBarcode.ITEM_UNIQUE_NAME,
-                                            Current_Qty = (int)checkBarcode.Current_Qty,
-                                            OPN_QNT = checkBarcode.OPN_QNT,
-                                            REGIONAL_LANGUAGE = checkBarcode.REGIONAL_LANGUAGE,
-                                            SALES_PRICE_BEFOR_TAX = checkBarcode.SALES_PRICE_BEFOR_TAX,
-                                            TaxName = checkBarcode.TaxName,
-                                            TaxValue = checkBarcode.TaxValue,
-                                            Total = ((decimal)(checkBarcode.Current_Qty) * (checkBarcode.SALES_PRICE)) + checkBarcode.SALES_PRICE,
-                                        });
-                                    }
+                                    Discount = checkBarcode.Discount,
+                                    SLNO = x,
+                                    ITEM_NAME = checkBarcode.ITEM_NAME,
+                                    ITEM_ID = checkBarcode.ITEM_ID,
+                                    BARCODE = checkBarcode.BARCODE,
+                                    ACCESSORIES_KEYWORD = checkBarcode.ACCESSORIES_KEYWORD,
+                                    CATAGORY_ID = checkBarcode.CATAGORY_ID,
+                                    ITEM_DESCRIPTION = checkBarcode.ITEM_DESCRIPTION,
+                                    ITEM_INVOICE_ID = checkBarcode.ITEM_INVOICE_ID,
+                                    ITEM_PRICE = checkBarcode.ITEM_PRICE,
+                                    ITEM_PRODUCT_ID = checkBarcode.ITEM_PRODUCT_ID,
+                                    KEYWORD = checkBarcode.KEYWORD,
+                                    MRP = checkBarcode.MRP,
+                                    PURCHASE_UNIT = checkBarcode.PURCHASE_UNIT,
+                                    PURCHASE_UNIT_PRICE = checkBarcode.PURCHASE_UNIT_PRICE,
+                                    SALES_PRICE = checkBarcode.SALES_PRICE,
+                                    SALES_UNIT = checkBarcode.SALES_UNIT,
+                                    SEARCH_CODE = checkBarcode.SEARCH_CODE,
+                                    TAX_COLLECTED = checkBarcode.TAX_COLLECTED,
+                                    TAX_PAID = checkBarcode.SALES_PRICE,
+                                    ALLOW_PURCHASE_ON_ESHOP = checkBarcode.ALLOW_PURCHASE_ON_ESHOP,
+                                    CATEGORY_NAME = checkBarcode.CATEGORY_NAME,
+                                    DISPLAY_INDEX = checkBarcode.DISPLAY_INDEX,
+                                    INCLUDE_TAX = checkBarcode.INCLUDE_TAX,
+                                    ITEM_GROUP_NAME = checkBarcode.ITEM_GROUP_NAME,
+                                    ITEM_UNIQUE_NAME = checkBarcode.ITEM_UNIQUE_NAME,
+                                    Current_Qty = (int)checkBarcode.Current_Qty,
+                                    OPN_QNT = checkBarcode.OPN_QNT,
+                                    REGIONAL_LANGUAGE = checkBarcode.REGIONAL_LANGUAGE,
+                                    SALES_PRICE_BEFOR_TAX = checkBarcode.SALES_PRICE_BEFOR_TAX,
+                                    TaxName = checkBarcode.TaxName,
+                                    TaxValue = checkBarcode.TaxValue,
+                                    Total = ((decimal)(checkBarcode.Current_Qty) * (checkBarcode.SALES_PRICE)) + checkBarcode.SALES_PRICE,
+                                });
+                            }
+                        }
+
+                        //App.Current.Properties["ManualBarcode"] = Select_BarCode;
+                        //var itemToRemove = (from m in _ListGrid_Temp where m.BARCODE == Select_BarCode select m).ToList();
+                        //var itemToRemove = (from m in _ListGrid_Temp where m.BARCODE.ToUpper() == Select_BarCode.ToUpper() select m).ToList();
+                        List<ItemModel> itemToRemove = new List<ItemModel>();
+                        for (int i = 0; i < _ListGrid_Temp.Count; i++)
+                        {
+                            if (_ListGrid_Temp[i].BARCODE != null)
+                            {
+                                if (_ListGrid_Temp[i].BARCODE.ToUpper() == Select_BarCode.ToUpper())
+                                {
+                                    itemToRemove.Add(_ListGrid_Temp[i]);
                                 }
                             }
-                            // }
-                            //App.Current.Properties["DataGridPuzzale"] = _ListGrid_Temp;
-                            //}
+                        }
+                        ObservableCollection<ItemModel> myCollection = new ObservableCollection<ItemModel>(itemToRemove);
+
+                        var Item1 = (from a in AddListGrid where a.BARCODE == Select_BarCode select a).FirstOrDefault();
+
+                        int opqunt = 0;
+                        if (itemToRemove.Count != 0)
+                        {
+                            opqunt = (int)itemToRemove.ElementAt(0).Current_Qty;
+                        }
+                        else
+                        {
+                            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Do you want to add this Item?", "Add Item", System.Windows.MessageBoxButton.YesNo);
+                            if (messageBoxResult == MessageBoxResult.Yes)
+                            {
+                                ItemAdd obj = new ItemAdd();
+                                obj.ShowDialog();
+                            }
+                        }
+
+                        if (Item1 != null)
+                        {
+                            if (Item1.Discount == 0)
+                            {
+
+
+                                AddListGrid.Remove(Item1);
+                                x = x + 1;
+                                AddListGrid.Add(new ItemModel
+                                {
+                                    Discount = Item1.Discount,
+                                    SLNO = x,
+                                    ITEM_NAME = Item1.ITEM_NAME,
+                                    ITEM_ID = Item1.ITEM_ID,
+                                    BARCODE = Item1.BARCODE,
+                                    ACCESSORIES_KEYWORD = Item1.ACCESSORIES_KEYWORD,
+                                    CATAGORY_ID = Item1.CATAGORY_ID,
+                                    ITEM_DESCRIPTION = Item1.ITEM_DESCRIPTION,
+                                    ITEM_INVOICE_ID = Item1.ITEM_INVOICE_ID,
+                                    ITEM_PRICE = Item1.ITEM_PRICE,
+                                    ITEM_PRODUCT_ID = Item1.ITEM_PRODUCT_ID,
+                                    KEYWORD = Item1.KEYWORD,
+                                    MRP = Item1.MRP,
+                                    PURCHASE_UNIT = Item1.PURCHASE_UNIT,
+                                    PURCHASE_UNIT_PRICE = Item1.PURCHASE_UNIT_PRICE,
+                                    SALES_PRICE = Item1.SALES_PRICE,
+                                    SALES_UNIT = Item1.SALES_UNIT,
+                                    SEARCH_CODE = Item1.SEARCH_CODE,
+                                    TAX_COLLECTED = Item1.TAX_COLLECTED,
+                                    TAX_PAID = Item1.SALES_PRICE,
+                                    ALLOW_PURCHASE_ON_ESHOP = Item1.ALLOW_PURCHASE_ON_ESHOP,
+                                    CATEGORY_NAME = Item1.CATEGORY_NAME,
+                                    DISPLAY_INDEX = Item1.DISPLAY_INDEX,
+                                    INCLUDE_TAX = Item1.INCLUDE_TAX,
+                                    ITEM_GROUP_NAME = Item1.ITEM_GROUP_NAME,
+                                    ITEM_UNIQUE_NAME = Item1.ITEM_UNIQUE_NAME,
+                                    Current_Qty = opqunt + (int)Item1.Current_Qty,
+                                    OPN_QNT = Item1.OPN_QNT,
+                                    REGIONAL_LANGUAGE = Item1.REGIONAL_LANGUAGE,
+                                    SALES_PRICE_BEFOR_TAX = Item1.SALES_PRICE_BEFOR_TAX,
+                                    TaxName = Item1.TaxName,
+                                    TaxValue = Item1.TaxValue,
+                                    Total = ((decimal)(Item1.Current_Qty) * (Item1.SALES_PRICE)) + Item1.SALES_PRICE,
+                                });
+
+                                Main.ListQnt.Text = (Item1.Current_Qty + Convert.ToInt32(Main.ListQnt.Text)).ToString();
+
+                                var GrossAmt = Main.GrossamountReff.Text;
+                                var valgrss = ((decimal)(Item1.Current_Qty) * (SelectedItem.SALES_PRICE));
+                                var grodd = valgrss + Convert.ToDecimal(GrossAmt);
+
+                                Main.GrossamountReff.Text = grodd.ToString();
+                            }
                             else
                             {
-                                if (App.Current.Properties["DataGridL"] != null)
+                                MessageBox.Show("Can't add this Item atfrist delete discount or delete item then you chnage Quentity", "Error");
+                            }
+                        }
+                        else
+                        {
+
+                            foreach (var item in myCollection)
+                            {
+                                x = x + 1;
+                                AddListGrid.Add(new ItemModel
                                 {
-                                    AddListGrid = App.Current.Properties["DataGridL"] as ObservableCollection<ItemModel>;
-                                }
-                                else
+
+                                    Discount = item.Discount,
+                                    SLNO = x,
+                                    ITEM_NAME = item.ITEM_NAME,
+                                    ITEM_ID = item.ITEM_ID,
+                                    BARCODE = item.BARCODE,
+                                    ACCESSORIES_KEYWORD = item.ACCESSORIES_KEYWORD,
+                                    CATAGORY_ID = item.CATAGORY_ID,
+                                    ITEM_DESCRIPTION = item.ITEM_DESCRIPTION,
+                                    ITEM_INVOICE_ID = item.ITEM_INVOICE_ID,
+                                    ITEM_PRICE = item.ITEM_PRICE,
+                                    ITEM_PRODUCT_ID = item.ITEM_PRODUCT_ID,
+                                    KEYWORD = item.KEYWORD,
+                                    MRP = item.MRP,
+                                    PURCHASE_UNIT = item.PURCHASE_UNIT,
+                                    PURCHASE_UNIT_PRICE = item.PURCHASE_UNIT_PRICE,
+                                    SALES_PRICE = item.SALES_PRICE,
+                                    SALES_UNIT = item.SALES_UNIT,
+                                    SEARCH_CODE = item.SEARCH_CODE,
+                                    TAX_COLLECTED = item.TAX_COLLECTED,
+                                    TAX_PAID = item.SALES_PRICE,
+                                    ALLOW_PURCHASE_ON_ESHOP = item.ALLOW_PURCHASE_ON_ESHOP,
+                                    CATEGORY_NAME = item.CATEGORY_NAME,
+                                    DISPLAY_INDEX = item.DISPLAY_INDEX,
+                                    INCLUDE_TAX = item.INCLUDE_TAX,
+                                    ITEM_GROUP_NAME = item.ITEM_GROUP_NAME,
+                                    ITEM_UNIQUE_NAME = item.ITEM_UNIQUE_NAME,
+                                    OPN_QNT = item.OPN_QNT,
+                                    Current_Qty = item.Current_Qty,
+                                    REGIONAL_LANGUAGE = item.REGIONAL_LANGUAGE,
+                                    SALES_PRICE_BEFOR_TAX = item.SALES_PRICE_BEFOR_TAX,
+                                    TaxName = item.TaxName,
+                                    TaxValue = item.TaxValue,
+                                    Total = ((decimal)(item.Current_Qty) * (item.SALES_PRICE)),
+
+                                });
+
+                            }
+                        }
+                        if (AddListGrid.Count > 0)
+                        {
+                            for (int i = 0; i < AddListGrid.Count; i++)
+                            {
+                                if (AddListGrid[i].OPN_QNT < AddListGrid[i].Current_Qty)
                                 {
-                                    AddListGrid = new ObservableCollection<ItemModel>();
-                                }
-
-                                if (Select_BarCode != null && Select_BarCode != "")
-                                {
-                                    //App.Current.Properties["ManualBarcode"] = Select_BarCode;
-                                    var itemToRemove = (from m in _ListGrid_Temp where m.BARCODE == Select_BarCode select m).ToList();
-                                    ObservableCollection<ItemModel> myCollection = new ObservableCollection<ItemModel>(itemToRemove);
-                                    var Item1 = (from a in AddListGrid where a.BARCODE == Select_BarCode select a).FirstOrDefault();
-
-                                    int opqunt = 0;
-                                    if (itemToRemove.Count != 0)
+                                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("This Item not Avable. Do you went to add this item?", "Add Item", System.Windows.MessageBoxButton.YesNo);
+                                    if (messageBoxResult != MessageBoxResult.Yes)
                                     {
-                                        opqunt = (int)itemToRemove.ElementAt(0).Current_Qty;
+                                        var RemoveItem = (from a in AddListGrid where a.ITEM_ID == AddListGrid[i].ITEM_ID select a).FirstOrDefault();
+                                        AddListGrid.Remove(RemoveItem);
+                                        x = x + 1;
+                                        AddListGrid.Add(new ItemModel
+                                        {
+                                            Discount = Item1.Discount,
+                                            SLNO = x,
+                                            ITEM_NAME = Item1.ITEM_NAME,
+                                            ITEM_ID = Item1.ITEM_ID,
+                                            BARCODE = Item1.BARCODE,
+                                            ACCESSORIES_KEYWORD = Item1.ACCESSORIES_KEYWORD,
+                                            CATAGORY_ID = Item1.CATAGORY_ID,
+                                            ITEM_DESCRIPTION = Item1.ITEM_DESCRIPTION,
+                                            ITEM_INVOICE_ID = Item1.ITEM_INVOICE_ID,
+                                            ITEM_PRICE = Item1.ITEM_PRICE,
+                                            ITEM_PRODUCT_ID = Item1.ITEM_PRODUCT_ID,
+                                            KEYWORD = Item1.KEYWORD,
+                                            MRP = Item1.MRP,
+                                            PURCHASE_UNIT = Item1.PURCHASE_UNIT,
+                                            PURCHASE_UNIT_PRICE = Item1.PURCHASE_UNIT_PRICE,
+                                            SALES_PRICE = Item1.SALES_PRICE,
+                                            SALES_UNIT = Item1.SALES_UNIT,
+                                            SEARCH_CODE = Item1.SEARCH_CODE,
+                                            TAX_COLLECTED = Item1.TAX_COLLECTED,
+                                            TAX_PAID = Item1.SALES_PRICE,
+                                            ALLOW_PURCHASE_ON_ESHOP = Item1.ALLOW_PURCHASE_ON_ESHOP,
+                                            CATEGORY_NAME = Item1.CATEGORY_NAME,
+                                            DISPLAY_INDEX = Item1.DISPLAY_INDEX,
+                                            INCLUDE_TAX = Item1.INCLUDE_TAX,
+                                            ITEM_GROUP_NAME = Item1.ITEM_GROUP_NAME,
+                                            ITEM_UNIQUE_NAME = Item1.ITEM_UNIQUE_NAME,
+                                            Current_Qty = opqunt + (int)Item1.Current_Qty - 1,
+                                            OPN_QNT = Item1.OPN_QNT,
+                                            REGIONAL_LANGUAGE = Item1.REGIONAL_LANGUAGE,
+                                            SALES_PRICE_BEFOR_TAX = Item1.SALES_PRICE_BEFOR_TAX,
+                                            TaxName = Item1.TaxName,
+                                            TaxValue = Item1.TaxValue,
+                                            Total = ((decimal)(Item1.Current_Qty) * (Item1.SALES_PRICE)) + Item1.SALES_PRICE,
+                                        });
                                     }
-                                    else
+
+
+                                    if (messageBoxResult == MessageBoxResult.Yes)
                                     {
-                                        MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Do you want to add this Item?", "Add Item", System.Windows.MessageBoxButton.YesNo);
-                                        if (messageBoxResult == MessageBoxResult.Yes)
+                                        var RemoveItem = (from a in AddListGrid where a.ITEM_ID == AddListGrid[i].ITEM_ID select a).FirstOrDefault();
+                                        AddListGrid.Remove(RemoveItem);
+                                        x = x + 1;
+                                        AddListGrid.Add(new ItemModel
                                         {
-                                            ItemAdd obj = new ItemAdd();
-                                            obj.ShowDialog();
-                                        }
-                                        else
-                                        {
-                                            Close();
-                                        }
+
+                                            Discount = Item1.Discount,
+                                            SLNO = x,
+                                            ITEM_NAME = Item1.ITEM_NAME,
+                                            ITEM_ID = Item1.ITEM_ID,
+                                            BARCODE = Item1.BARCODE,
+                                            ACCESSORIES_KEYWORD = Item1.ACCESSORIES_KEYWORD,
+                                            CATAGORY_ID = Item1.CATAGORY_ID,
+                                            ITEM_DESCRIPTION = Item1.ITEM_DESCRIPTION,
+                                            ITEM_INVOICE_ID = Item1.ITEM_INVOICE_ID,
+                                            ITEM_PRICE = Item1.ITEM_PRICE,
+                                            ITEM_PRODUCT_ID = Item1.ITEM_PRODUCT_ID,
+                                            KEYWORD = Item1.KEYWORD,
+                                            MRP = Item1.MRP,
+                                            PURCHASE_UNIT = Item1.PURCHASE_UNIT,
+                                            PURCHASE_UNIT_PRICE = Item1.PURCHASE_UNIT_PRICE,
+                                            SALES_PRICE = Item1.SALES_PRICE,
+                                            SALES_UNIT = Item1.SALES_UNIT,
+                                            SEARCH_CODE = Item1.SEARCH_CODE,
+                                            TAX_COLLECTED = Item1.TAX_COLLECTED,
+                                            TAX_PAID = Item1.SALES_PRICE,
+                                            ALLOW_PURCHASE_ON_ESHOP = Item1.ALLOW_PURCHASE_ON_ESHOP,
+                                            CATEGORY_NAME = Item1.CATEGORY_NAME,
+                                            DISPLAY_INDEX = Item1.DISPLAY_INDEX,
+                                            INCLUDE_TAX = Item1.INCLUDE_TAX,
+                                            ITEM_GROUP_NAME = Item1.ITEM_GROUP_NAME,
+                                            ITEM_UNIQUE_NAME = Item1.ITEM_UNIQUE_NAME,
+                                            Current_Qty = opqunt + (int)Item1.Current_Qty,
+                                            OPN_QNT = Item1.OPN_QNT,
+                                            REGIONAL_LANGUAGE = Item1.REGIONAL_LANGUAGE,
+                                            SALES_PRICE_BEFOR_TAX = Item1.SALES_PRICE_BEFOR_TAX,
+                                            TaxName = Item1.TaxName,
+                                            TaxValue = Item1.TaxValue,
+                                            Total = ((decimal)(Item1.Current_Qty) * (Item1.SALES_PRICE)) + Item1.SALES_PRICE,
+                                        });
                                     }
 
-                                    if (Item1 != null)
-                                    {
-                                        if (Item1.Discount == 0)
-                                        {
 
-
-                                            AddListGrid.Remove(Item1);
-                                            x = x + 1;
-                                            AddListGrid.Add(new ItemModel
-                                            {
-                                                Discount = Item1.Discount,
-                                                SLNO = x,
-                                                ITEM_NAME = Item1.ITEM_NAME,
-                                                ITEM_ID = Item1.ITEM_ID,
-                                                BARCODE = Item1.BARCODE,
-                                                ACCESSORIES_KEYWORD = Item1.ACCESSORIES_KEYWORD,
-                                                CATAGORY_ID = Item1.CATAGORY_ID,
-                                                ITEM_DESCRIPTION = Item1.ITEM_DESCRIPTION,
-                                                ITEM_INVOICE_ID = Item1.ITEM_INVOICE_ID,
-                                                ITEM_PRICE = Item1.ITEM_PRICE,
-                                                ITEM_PRODUCT_ID = Item1.ITEM_PRODUCT_ID,
-                                                KEYWORD = Item1.KEYWORD,
-                                                MRP = Item1.MRP,
-                                                PURCHASE_UNIT = Item1.PURCHASE_UNIT,
-                                                PURCHASE_UNIT_PRICE = Item1.PURCHASE_UNIT_PRICE,
-                                                SALES_PRICE = Item1.SALES_PRICE,
-                                                SALES_UNIT = Item1.SALES_UNIT,
-                                                SEARCH_CODE = Item1.SEARCH_CODE,
-                                                TAX_COLLECTED = Item1.TAX_COLLECTED,
-                                                TAX_PAID = Item1.SALES_PRICE,
-                                                ALLOW_PURCHASE_ON_ESHOP = Item1.ALLOW_PURCHASE_ON_ESHOP,
-                                                CATEGORY_NAME = Item1.CATEGORY_NAME,
-                                                DISPLAY_INDEX = Item1.DISPLAY_INDEX,
-                                                INCLUDE_TAX = Item1.INCLUDE_TAX,
-                                                ITEM_GROUP_NAME = Item1.ITEM_GROUP_NAME,
-                                                ITEM_UNIQUE_NAME = Item1.ITEM_UNIQUE_NAME,
-                                                Current_Qty = opqunt + (int)Item1.Current_Qty,
-                                                OPN_QNT = Item1.OPN_QNT,
-                                                REGIONAL_LANGUAGE = Item1.REGIONAL_LANGUAGE,
-                                                SALES_PRICE_BEFOR_TAX = Item1.SALES_PRICE_BEFOR_TAX,
-                                                TaxName = Item1.TaxName,
-                                                TaxValue = Item1.TaxValue,
-                                                Total = ((decimal)(Item1.Current_Qty) * (Item1.SALES_PRICE)) + Item1.SALES_PRICE,
-                                            });
-
-                                            Main.ListQnt.Text = (Item1.Current_Qty + Convert.ToInt32(Main.ListQnt.Text)).ToString();
-
-                                            var GrossAmt = Main.GrossamountReff.Text;
-                                            var valgrss = ((decimal)(Item1.Current_Qty) * (SelectedItem.SALES_PRICE));
-                                            var grodd = valgrss + Convert.ToDecimal(GrossAmt);
-
-                                            Main.GrossamountReff.Text = grodd.ToString();
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Can't add this Item atfrist delete discount or delete item then you chnage Quentity", "Error");
-                                        }
-                                    }
-                                    else
-                                    {
-
-                                        foreach (var item in myCollection)
-                                        {
-                                            x = x + 1;
-                                            AddListGrid.Add(new ItemModel
-                                            {
-
-                                                Discount = item.Discount,
-                                                SLNO = x,
-                                                ITEM_NAME = item.ITEM_NAME,
-                                                ITEM_ID = item.ITEM_ID,
-                                                BARCODE = item.BARCODE,
-                                                ACCESSORIES_KEYWORD = item.ACCESSORIES_KEYWORD,
-                                                CATAGORY_ID = item.CATAGORY_ID,
-                                                ITEM_DESCRIPTION = item.ITEM_DESCRIPTION,
-                                                ITEM_INVOICE_ID = item.ITEM_INVOICE_ID,
-                                                ITEM_PRICE = item.ITEM_PRICE,
-                                                ITEM_PRODUCT_ID = item.ITEM_PRODUCT_ID,
-                                                KEYWORD = item.KEYWORD,
-                                                MRP = item.MRP,
-                                                PURCHASE_UNIT = item.PURCHASE_UNIT,
-                                                PURCHASE_UNIT_PRICE = item.PURCHASE_UNIT_PRICE,
-                                                SALES_PRICE = item.SALES_PRICE,
-                                                SALES_UNIT = item.SALES_UNIT,
-                                                SEARCH_CODE = item.SEARCH_CODE,
-                                                TAX_COLLECTED = item.TAX_COLLECTED,
-                                                TAX_PAID = item.SALES_PRICE,
-                                                ALLOW_PURCHASE_ON_ESHOP = item.ALLOW_PURCHASE_ON_ESHOP,
-                                                CATEGORY_NAME = item.CATEGORY_NAME,
-                                                DISPLAY_INDEX = item.DISPLAY_INDEX,
-                                                INCLUDE_TAX = item.INCLUDE_TAX,
-                                                ITEM_GROUP_NAME = item.ITEM_GROUP_NAME,
-                                                ITEM_UNIQUE_NAME = item.ITEM_UNIQUE_NAME,
-                                                OPN_QNT = item.OPN_QNT,
-                                                Current_Qty = item.Current_Qty,
-                                                REGIONAL_LANGUAGE = item.REGIONAL_LANGUAGE,
-                                                SALES_PRICE_BEFOR_TAX = item.SALES_PRICE_BEFOR_TAX,
-                                                TaxName = item.TaxName,
-                                                TaxValue = item.TaxValue,
-                                                Total = ((decimal)(item.Current_Qty) * (item.SALES_PRICE)),
-
-                                            });
-
-                                        }
-                                    }
-                                    if (AddListGrid.Count > 0)
-                                    {
-                                        for (int j = 0; i < AddListGrid.Count; j++)
-                                        {
-                                            if (AddListGrid[j].OPN_QNT < AddListGrid[j].Current_Qty)
-                                            {
-                                                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("This Item not Avable. Do you went to add this item?", "Add Item", System.Windows.MessageBoxButton.YesNo);
-                                                if (messageBoxResult != MessageBoxResult.Yes)
-                                                {
-                                                    var RemoveItem = (from a in AddListGrid where a.ITEM_ID == AddListGrid[i].ITEM_ID select a).FirstOrDefault();
-                                                    AddListGrid.Remove(RemoveItem);
-                                                    x = x + 1;
-                                                    AddListGrid.Add(new ItemModel
-                                                    {
-                                                        Discount = Item1.Discount,
-                                                        SLNO = x,
-                                                        ITEM_NAME = Item1.ITEM_NAME,
-                                                        ITEM_ID = Item1.ITEM_ID,
-                                                        BARCODE = Item1.BARCODE,
-                                                        ACCESSORIES_KEYWORD = Item1.ACCESSORIES_KEYWORD,
-                                                        CATAGORY_ID = Item1.CATAGORY_ID,
-                                                        ITEM_DESCRIPTION = Item1.ITEM_DESCRIPTION,
-                                                        ITEM_INVOICE_ID = Item1.ITEM_INVOICE_ID,
-                                                        ITEM_PRICE = Item1.ITEM_PRICE,
-                                                        ITEM_PRODUCT_ID = Item1.ITEM_PRODUCT_ID,
-                                                        KEYWORD = Item1.KEYWORD,
-                                                        MRP = Item1.MRP,
-                                                        PURCHASE_UNIT = Item1.PURCHASE_UNIT,
-                                                        PURCHASE_UNIT_PRICE = Item1.PURCHASE_UNIT_PRICE,
-                                                        SALES_PRICE = Item1.SALES_PRICE,
-                                                        SALES_UNIT = Item1.SALES_UNIT,
-                                                        SEARCH_CODE = Item1.SEARCH_CODE,
-                                                        TAX_COLLECTED = Item1.TAX_COLLECTED,
-                                                        TAX_PAID = Item1.SALES_PRICE,
-                                                        ALLOW_PURCHASE_ON_ESHOP = Item1.ALLOW_PURCHASE_ON_ESHOP,
-                                                        CATEGORY_NAME = Item1.CATEGORY_NAME,
-                                                        DISPLAY_INDEX = Item1.DISPLAY_INDEX,
-                                                        INCLUDE_TAX = Item1.INCLUDE_TAX,
-                                                        ITEM_GROUP_NAME = Item1.ITEM_GROUP_NAME,
-                                                        ITEM_UNIQUE_NAME = Item1.ITEM_UNIQUE_NAME,
-                                                        Current_Qty = opqunt + (int)Item1.Current_Qty - 1,
-                                                        OPN_QNT = Item1.OPN_QNT,
-                                                        REGIONAL_LANGUAGE = Item1.REGIONAL_LANGUAGE,
-                                                        SALES_PRICE_BEFOR_TAX = Item1.SALES_PRICE_BEFOR_TAX,
-                                                        TaxName = Item1.TaxName,
-                                                        TaxValue = Item1.TaxValue,
-                                                        Total = ((decimal)(Item1.Current_Qty) * (Item1.SALES_PRICE)) + Item1.SALES_PRICE,
-                                                    });
-                                                }
-
-
-                                                if (messageBoxResult == MessageBoxResult.Yes)
-                                                {
-                                                    var RemoveItem = (from a in AddListGrid where a.ITEM_ID == AddListGrid[i].ITEM_ID select a).FirstOrDefault();
-                                                    AddListGrid.Remove(RemoveItem);
-                                                    x = x + 1;
-                                                    AddListGrid.Add(new ItemModel
-                                                    {
-
-                                                        Discount = Item1.Discount,
-                                                        SLNO = x,
-                                                        ITEM_NAME = Item1.ITEM_NAME,
-                                                        ITEM_ID = Item1.ITEM_ID,
-                                                        BARCODE = Item1.BARCODE,
-                                                        ACCESSORIES_KEYWORD = Item1.ACCESSORIES_KEYWORD,
-                                                        CATAGORY_ID = Item1.CATAGORY_ID,
-                                                        ITEM_DESCRIPTION = Item1.ITEM_DESCRIPTION,
-                                                        ITEM_INVOICE_ID = Item1.ITEM_INVOICE_ID,
-                                                        ITEM_PRICE = Item1.ITEM_PRICE,
-                                                        ITEM_PRODUCT_ID = Item1.ITEM_PRODUCT_ID,
-                                                        KEYWORD = Item1.KEYWORD,
-                                                        MRP = Item1.MRP,
-                                                        PURCHASE_UNIT = Item1.PURCHASE_UNIT,
-                                                        PURCHASE_UNIT_PRICE = Item1.PURCHASE_UNIT_PRICE,
-                                                        SALES_PRICE = Item1.SALES_PRICE,
-                                                        SALES_UNIT = Item1.SALES_UNIT,
-                                                        SEARCH_CODE = Item1.SEARCH_CODE,
-                                                        TAX_COLLECTED = Item1.TAX_COLLECTED,
-                                                        TAX_PAID = Item1.SALES_PRICE,
-                                                        ALLOW_PURCHASE_ON_ESHOP = Item1.ALLOW_PURCHASE_ON_ESHOP,
-                                                        CATEGORY_NAME = Item1.CATEGORY_NAME,
-                                                        DISPLAY_INDEX = Item1.DISPLAY_INDEX,
-                                                        INCLUDE_TAX = Item1.INCLUDE_TAX,
-                                                        ITEM_GROUP_NAME = Item1.ITEM_GROUP_NAME,
-                                                        ITEM_UNIQUE_NAME = Item1.ITEM_UNIQUE_NAME,
-                                                        Current_Qty = opqunt + (int)Item1.Current_Qty,
-                                                        OPN_QNT = Item1.OPN_QNT,
-                                                        REGIONAL_LANGUAGE = Item1.REGIONAL_LANGUAGE,
-                                                        SALES_PRICE_BEFOR_TAX = Item1.SALES_PRICE_BEFOR_TAX,
-                                                        TaxName = Item1.TaxName,
-                                                        TaxValue = Item1.TaxValue,
-                                                        Total = ((decimal)(Item1.Current_Qty) * (Item1.SALES_PRICE)) + Item1.SALES_PRICE,
-                                                    });
-                                                }
-
-
-                                            }
-                                        }
-
-                                    }
-                                    //}
-                                    App.Current.Properties["DataGridL"] = AddListGrid;
-                                    App.Current.Properties["DataGrid"] = AddListGrid;
-                                    Main.ListGridRef.ItemsSource = AddListGrid;
-                                    ListGrid = AddListGrid;
-                                    TotalBottom();
-                                    //ListGrid = AddListGrid;
-                                    LoadGrid();
-
-                                }
-                                else
-                                {
-                                    Main.ScrRef.Text = "";
                                 }
                             }
 
                         }
+                        //}
+                        App.Current.Properties["DataGridL"] = AddListGrid;
+                        App.Current.Properties["DataGrid"] = AddListGrid;
+                        Main.ListGridRef.ItemsSource = AddListGrid;
+                        ListGrid = AddListGrid;
+                        TotalBottom();
+                        //ListGrid = AddListGrid;
+                        LoadGrid();
+
+                    }
+                    else
+                    {
+                        Main.ScrRef.Text = "";
                     }
                 }
+
+
 
                 _Select_BarCode = "";
                 Select_BarCode = "";

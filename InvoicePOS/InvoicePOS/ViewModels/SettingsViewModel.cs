@@ -33,8 +33,8 @@ namespace InvoicePOS.ViewModels
 
         public void Invoice_Click()
         {
-            InvoiceSettings invoiceSettingsView = new InvoiceSettings();
-            invoiceSettingsView.Show();
+            //InvoiceSettings invoiceSettingsView = new InvoiceSettings();
+            //invoiceSettingsView.Show();
 
         }
 
@@ -54,8 +54,8 @@ namespace InvoicePOS.ViewModels
 
         public void Currency_Click()
         {
-            CurrencySettings currencySettingsView = new CurrencySettings();
-            currencySettingsView.Show();
+            //CurrencySettings currencySettingsView = new CurrencySettings();
+            //currencySettingsView.Show();
 
         }
 

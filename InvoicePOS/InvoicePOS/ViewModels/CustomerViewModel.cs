@@ -3385,7 +3385,13 @@ namespace InvoicePOS.ViewModels
                     uhy = await response.Content.ReadAsStringAsync();
                     string dd = Convert.ToString(uhy);
                     string aaa = dd.Substring(1, 8);
-                    CUSTOMER_NUMBER = aaa;
+                    //CUSTOMER_NUMBER = aaa;
+                    string input = aaa;
+                    int lastIndex = input.LastIndexOf('-');
+                    string lastNumber = input.Substring(lastIndex + 1);
+                    string increment = (int.Parse(lastNumber) + 1).ToString();
+                    string result = string.Concat(input.Substring(0, lastIndex + 1), increment);
+                    CUSTOMER_NUMBER = result;
                 }
                 else
                 {
@@ -3394,7 +3400,7 @@ namespace InvoicePOS.ViewModels
             }
             catch (Exception ex)
             { }
-
+            
             return uhy;
         }
         //public async Task<string> GetCustomerNo1()

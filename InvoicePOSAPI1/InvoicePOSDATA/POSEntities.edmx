@@ -1761,7 +1761,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NEW_POSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="NEW_POSEntities1" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="NEW_POSEntities3" p1:LazyLoadingEnabled="true">
           <EntitySet Name="AUTHORIZATIONs" EntityType="NEW_POSModel.AUTHORIZATION" />
           <EntitySet Name="MODULEs" EntityType="NEW_POSModel.MODULE" />
           <EntitySet Name="TBL_AUTO_GENERATE_CODE" EntityType="NEW_POSModel.TBL_AUTO_GENERATE_CODE" />
@@ -3307,7 +3307,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NEW_POSModelStoreContainer" CdmEntityContainer="NEW_POSEntities1">
+        <EntityContainerMapping StorageEntityContainer="NEW_POSModelStoreContainer" CdmEntityContainer="NEW_POSEntities3">
           <EntitySetMapping Name="AUTHORIZATIONs">
             <EntityTypeMapping TypeName="NEW_POSModel.AUTHORIZATION">
               <MappingFragment StoreEntitySet="AUTHORIZATION">

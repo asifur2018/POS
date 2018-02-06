@@ -13,7 +13,7 @@ namespace InvoicePOSAPI.Controllers
     public class InvoiceAPIController : ApiController
     {
         InvoiceModel Invoice = new InvoiceModel();
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
 
 
 

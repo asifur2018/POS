@@ -6429,3 +6429,4 @@ D:\_GIT_T\POS\InvoicePOSAPI1\InvoicePOSAPI\bin\System.Web.WebPages.Razor.xml
 D:\_GIT_T\POS\InvoicePOSAPI1\InvoicePOSAPI\obj\Debug\InvoicePOSAPI.csprojResolveAssemblyReference.cache
 D:\_GIT_T\POS\InvoicePOSAPI1\InvoicePOSAPI\obj\Debug\InvoicePOSAPI.dll
 D:\_GIT_T\POS\InvoicePOSAPI1\InvoicePOSAPI\obj\Debug\InvoicePOSAPI.pdb
+D:\Annwesha\POS\POS\InvoicePOSAPI1\InvoicePOSAPI\obj\Debug\InvoicePOSAPI.csprojResolveAssemblyReference.cache

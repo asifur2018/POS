@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="73217be08de848bfa1c7b79f3fdee549" Name="Diagram1">
+      <Diagram DiagramId="ec722761b72e4eb58a3fe7cfa20e7cd6" Name="Diagram1">
         <EntityTypeShape EntityType="NEW_POSModel.AUTHORIZATION" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.MODULE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.TBL_AUTO_GENERATE_CODE" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />

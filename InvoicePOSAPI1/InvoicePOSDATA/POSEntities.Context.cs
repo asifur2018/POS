@@ -16,10 +16,10 @@ namespace InvoicePOSDATA
     using System.Data.Objects.DataClasses;
     using System.Linq;
     
-    public partial class NEW_POSEntities1 : DbContext
+    public partial class NEW_POSEntities3 : DbContext
     {
-        public NEW_POSEntities1()
-            : base("name=NEW_POSEntities1")
+        public NEW_POSEntities3()
+            : base("name=NEW_POSEntities3")
         {
         }
     

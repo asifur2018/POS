@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="NEW_POSModelStoreContainer" CdmEntityContainer="NEW_POSEntities">
+  <EntityContainerMapping StorageEntityContainer="NEW_POSModelStoreContainer" CdmEntityContainer="NEW_POSEntities1">
     <EntitySetMapping Name="AUTHORIZATIONs">
       <EntityTypeMapping TypeName="NEW_POSModel.AUTHORIZATION">
         <MappingFragment StoreEntitySet="AUTHORIZATION">
@@ -393,7 +393,6 @@
     <EntitySetMapping Name="TBL_ESTIMATE1">
       <EntityTypeMapping TypeName="NEW_POSModel.TBL_ESTIMATE1">
         <MappingFragment StoreEntitySet="TBL_ESTIMATE1">
-          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ESTIMATE_NO" ColumnName="ESTIMATE_NO" />
           <ScalarProperty Name="ITEM_ID" ColumnName="ITEM_ID" />
@@ -407,6 +406,7 @@
           <ScalarProperty Name="TOTAL_WITH_TAX" ColumnName="TOTAL_WITH_TAX" />
           <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
           <ScalarProperty Name="ESTIMATE_DATE" ColumnName="ESTIMATE_DATE" />
+          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -439,7 +439,6 @@
     <EntitySetMapping Name="TBL_HOLD_INVOICE">
       <EntityTypeMapping TypeName="NEW_POSModel.TBL_HOLD_INVOICE">
         <MappingFragment StoreEntitySet="TBL_HOLD_INVOICE">
-          <ScalarProperty Name="ITEM_ID" ColumnName="ITEM_ID" />
           <ScalarProperty Name="INVOICE_ID" ColumnName="INVOICE_ID" />
           <ScalarProperty Name="INVOICE_NO" ColumnName="INVOICE_NO" />
           <ScalarProperty Name="INVOICE_DATE" ColumnName="INVOICE_DATE" />
@@ -466,6 +465,7 @@
           <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="STATUS" ColumnName="STATUS" />
           <ScalarProperty Name="SALES_RETURN_AMOUNT" ColumnName="SALES_RETURN_AMOUNT" />
+          <ScalarProperty Name="ITEM_ID" ColumnName="ITEM_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -502,9 +502,6 @@
     <EntitySetMapping Name="TBL_INVOICE_PAY">
       <EntityTypeMapping TypeName="NEW_POSModel.TBL_INVOICE_PAY">
         <MappingFragment StoreEntitySet="TBL_INVOICE_PAY">
-          <ScalarProperty Name="COMANY_ID" ColumnName="COMANY_ID" />
-          <ScalarProperty Name="CASH_REGISTERID" ColumnName="CASH_REGISTERID" />
-          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
           <ScalarProperty Name="INVOICE_ID" ColumnName="INVOICE_ID" />
           <ScalarProperty Name="INVOICE_NO" ColumnName="INVOICE_NO" />
           <ScalarProperty Name="INVOICE_DATE" ColumnName="INVOICE_DATE" />
@@ -537,6 +534,9 @@
           <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="STATUS" ColumnName="STATUS" />
           <ScalarProperty Name="SALES_RETURN_AMOUNT" ColumnName="SALES_RETURN_AMOUNT" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="CASH_REGISTERID" ColumnName="CASH_REGISTERID" />
+          <ScalarProperty Name="COMANY_ID" ColumnName="COMANY_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -556,7 +556,6 @@
     <EntitySetMapping Name="TBL_ITEMS">
       <EntityTypeMapping TypeName="NEW_POSModel.TBL_ITEMS">
         <MappingFragment StoreEntitySet="TBL_ITEMS">
-          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
           <ScalarProperty Name="ITEM_ID" ColumnName="ITEM_ID" />
           <ScalarProperty Name="ITEM_NAME" ColumnName="ITEM_NAME" />
           <ScalarProperty Name="ITEM_DESCRIPTION" ColumnName="ITEM_DESCRIPTION" />
@@ -604,6 +603,7 @@
           <ScalarProperty Name="IS_ACIVE" ColumnName="IS_ACIVE" />
           <ScalarProperty Name="INCLUDE_TAX" ColumnName="INCLUDE_TAX" />
           <ScalarProperty Name="ITEM_LOCATION_NAME" ColumnName="ITEM_LOCATION_NAME" />
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -894,7 +894,6 @@
     <EntitySetMapping Name="TBL_RECEIVE_PAYMENT">
       <EntityTypeMapping TypeName="NEW_POSModel.TBL_RECEIVE_PAYMENT">
         <MappingFragment StoreEntitySet="TBL_RECEIVE_PAYMENT">
-          <ScalarProperty Name="CASH_REGISTERID" ColumnName="CASH_REGISTERID" />
           <ScalarProperty Name="RECEIVE_PAYMENT_ID" ColumnName="RECEIVE_PAYMENT_ID" />
           <ScalarProperty Name="RECEIVE_PAY_NO" ColumnName="RECEIVE_PAY_NO" />
           <ScalarProperty Name="BUSINESS_LOCATION_ID" ColumnName="BUSINESS_LOCATION_ID" />
@@ -914,6 +913,7 @@
           <ScalarProperty Name="COMPANY_ID" ColumnName="COMPANY_ID" />
           <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
           <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="CASH_REGISTERID" ColumnName="CASH_REGISTERID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1147,6 +1147,24 @@
           <ScalarProperty Name="TRANSFER_BANK_ID" ColumnName="TRANSFER_BANK_ID" />
           <ScalarProperty Name="TRANSFER_DATE" ColumnName="TRANSFER_DATE" />
           <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_TRANSFER_CASH">
+      <EntityTypeMapping TypeName="NEW_POSModel.TBL_TRANSFER_CASH">
+        <MappingFragment StoreEntitySet="TBL_TRANSFER_CASH">
+          <ScalarProperty Name="TRANSFER_ID" ColumnName="TRANSFER_ID" />
+          <ScalarProperty Name="CASH_TRANSFER_NUMBER" ColumnName="CASH_TRANSFER_NUMBER" />
+          <ScalarProperty Name="COMPANY_ID" ColumnName="COMPANY_ID" />
+          <ScalarProperty Name="BUSINESS_LOC_ID" ColumnName="BUSINESS_LOC_ID" />
+          <ScalarProperty Name="BUSINESS_LOC" ColumnName="BUSINESS_LOC" />
+          <ScalarProperty Name="FROM_CASH_REGISTER" ColumnName="FROM_CASH_REGISTER" />
+          <ScalarProperty Name="TO_CASH_REGISTER" ColumnName="TO_CASH_REGISTER" />
+          <ScalarProperty Name="TOTAL_TRANSFERED_AMOUNT" ColumnName="TOTAL_TRANSFERED_AMOUNT" />
+          <ScalarProperty Name="TRANSFER_DATE" ColumnName="TRANSFER_DATE" />
+          <ScalarProperty Name="IS_TRANSFER_CASH_REGISTER" ColumnName="IS_TRANSFER_CASH_REGISTER" />
+          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1524,23 +1542,5 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="TBL_TRANSFER_CASH">
-      <EntityTypeMapping TypeName="NEW_POSModel.TBL_TRANSFER_CASH">
-        <MappingFragment StoreEntitySet="TBL_TRANSFER_CASH">
-          <ScalarProperty Name="BUSINESS_LOC_ID" ColumnName="BUSINESS_LOC_ID" />
-          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
-          <ScalarProperty Name="IS_TRANSFER_CASH_REGISTER" ColumnName="IS_TRANSFER_CASH_REGISTER" />
-          <ScalarProperty Name="TRANSFER_DATE" ColumnName="TRANSFER_DATE" />
-          <ScalarProperty Name="TOTAL_TRANSFERED_AMOUNT" ColumnName="TOTAL_TRANSFERED_AMOUNT" />
-          <ScalarProperty Name="TO_CASH_REGISTER" ColumnName="TO_CASH_REGISTER" />
-          <ScalarProperty Name="FROM_CASH_REGISTER" ColumnName="FROM_CASH_REGISTER" />
-          <ScalarProperty Name="BUSINESS_LOC" ColumnName="BUSINESS_LOC" />
-          <ScalarProperty Name="COMPANY_ID" ColumnName="COMPANY_ID" />
-          <ScalarProperty Name="CASH_TRANSFER_NUMBER" ColumnName="CASH_TRANSFER_NUMBER" />
-          <ScalarProperty Name="TRANSFER_ID" ColumnName="TRANSFER_ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
