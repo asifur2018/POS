@@ -1420,12 +1420,28 @@ namespace InvoicePOS.ViewModels
                 App.Current.Properties["SalesReturnBuss"] = SelectedBusinessLoca.SHOP_NAME;
                 App.Current.Properties["BussSalesReturn"] = null;
             }
-            if (App.Current.Properties["BussLocList"] != null)
+            if (App.Current.Properties["BussCashReg"] != null)
             {
                 AddCashReg.BussReff.Text = null;
                 AddCashReg.BussReff.Text = SelectedBusinessLoca.SHOP_NAME;
                 App.Current.Properties["BussCashReg"] = null;
             }
+
+            if (App.Current.Properties["BussTransCash"] != null)
+            {
+                TransferCash.BussRef.Text = SelectedBusinessLoca.SHOP_NAME;
+                App.Current.Properties["BussTransCashID"] = SelectedBusinessLoca.BUSINESS_LOCATION_ID;
+                App.Current.Properties["BussTransCash"] = null;
+            }
+
+            //if (App.Current.Properties["BussViewTransCash"] != null)
+            //{
+            //    ViewCashTranscation.BussRef.Text = SelectedBusinessLoca.SHOP_NAME;
+            //    App.Current.Properties["BussViewTransCashID"] = SelectedBusinessLoca.BUSINESS_LOCATION_ID;
+            //    App.Current.Properties["BussViewTransCash"] = null;
+            //}
+
+
             if (App.Current.Properties["ReceivePaymentBussReff"] != null)
             {
                 AddReceivePayment.ReceivePaymentBussReff.Text = null;

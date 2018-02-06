@@ -50,6 +50,7 @@ namespace InvoicePOS.Views.WelCome
         public static Button payrecivedReff;
         public static Button Employee1Reff;
         public static Button cashRegReff;
+        public static Button transfercashReff;
         public static Button SalesReturnReff;
         public static Button RecItemReff;
         public static Button SubpayReff;
@@ -74,7 +75,7 @@ namespace InvoicePOS.Views.WelCome
             POrdReff = POrder;
             ReptdReff = Report;
             InvoiceReff = Invoice;
-            dailySalesReff = dailySales;
+            //dailySalesReff = dailySales;
             stockLegerReff = stockLeger;
             UnitReff = Unit;
             catagoryReff = catagory;
@@ -84,6 +85,7 @@ namespace InvoicePOS.Views.WelCome
             payrecivedReff = payrecived;
             Employee1Reff = Employee1;
             cashRegReff = cashReg;
+            transfercashReff = TransferCash;
             SalesReturnReff = SalesReturn;
             RecItemReff = RecItem;
             SubpayReff = Subpay;

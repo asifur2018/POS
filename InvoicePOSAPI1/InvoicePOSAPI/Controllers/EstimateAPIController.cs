@@ -16,6 +16,8 @@ namespace InvoicePOSAPI.Controllers
         [HttpGet]
         public HttpResponseMessage GetEstimate(string id)
         {
+           
+            
             var str1 = (from p in db.TBL_ESTIMATE1
                         group p by p.ID into grps
                         select new EstimateModel

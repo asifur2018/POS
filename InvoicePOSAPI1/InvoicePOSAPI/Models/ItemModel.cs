@@ -8,6 +8,7 @@ namespace InvoicePOSAPI.Models
 {
     public class ItemModel
     {
+        //public string ESTIMATE_NO { get; set; }
         public int? ITEM_ID1 { get; set; }
         public int? ITEM_ID { get; set; }
         public int SLNO { get; set; }       

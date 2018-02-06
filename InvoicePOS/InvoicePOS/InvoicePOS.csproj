@@ -193,8 +193,20 @@
     <Compile Include="UserControll\CashReg\CashReg.xaml.cs">
       <DependentUpon>CashReg.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControll\CashReg\TransferCash.xaml.cs">
+      <DependentUpon>TransferCash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\CashReg\TransferCashList.xaml.cs">
+      <DependentUpon>TransferCashList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\CashReg\ViewCashReg.xaml.cs">
       <DependentUpon>ViewCashReg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\CashReg\ViewCashTranscation.xaml.cs">
+      <DependentUpon>ViewCashTranscation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\CashReg\View_Transfer_Cash.xaml.cs">
+      <DependentUpon>View_Transfer_Cash.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControll\CashReg\Window_CashRegList.xaml.cs">
       <DependentUpon>Window_CashRegList.xaml</DependentUpon>
@@ -302,9 +314,6 @@
     </Compile>
     <Compile Include="UserControll\GoDown\Window_GodownList.xaml.cs">
       <DependentUpon>Window_GodownList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControll\Invoice\ImportDataForInvoice.xaml.cs">
-      <DependentUpon>ImportDataForInvoice.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControll\Invoice\InvoiceList.xaml.cs">
       <DependentUpon>InvoiceList.xaml</DependentUpon>
@@ -735,7 +744,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControll\CashReg\TransferCash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControll\CashReg\TransferCashList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControll\CashReg\ViewCashReg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControll\CashReg\ViewCashTranscation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControll\CashReg\View_Transfer_Cash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -884,10 +909,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControll\GoDown\Window_GodownList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControll\Invoice\ImportDataForInvoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

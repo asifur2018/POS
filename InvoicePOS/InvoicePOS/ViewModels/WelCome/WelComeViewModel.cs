@@ -46,6 +46,7 @@ using System.Net;
 using System.IO;
 using InvoicePOS.UserControll.Estimate;
 using InvoicePOS.Views.Company;
+using InvoicePOS.UserControll.CashReg;
 namespace InvoicePOS.ViewModels.WelCome
 {
     public class WelComeViewModel : DependencyObject, INotifyPropertyChanged, IModalService
@@ -584,6 +585,7 @@ namespace InvoicePOS.ViewModels.WelCome
             WelComePage.RecItemReff.Background = color;
             WelComePage.SalesReturnReff.Background = color;
             WelComePage.cashRegReff.Background = color;
+            WelComePage.transfercashReff.Background = color;
             WelComePage.Employee1Reff.Background = color;
             WelComePage.payrecivedReff.Background = color;
             WelComePage.BussLocationReff.Background = color;
@@ -591,7 +593,7 @@ namespace InvoicePOS.ViewModels.WelCome
             WelComePage.ItemLocationReff.Background = color;
             WelComePage.catagoryReff.Background = color;
             WelComePage.stockLegerReff.Background = color;
-            WelComePage.dailySalesReff.Background = color;
+            //WelComePage.dailySalesReff.Background = color;
             WelComePage.InvoiceReff.Background = color;
             WelComePage.RInvoiceReff.Background = color;
             WelComePage.EstimateReff.Background = color;
@@ -680,6 +682,30 @@ namespace InvoicePOS.ViewModels.WelCome
 
             WelComePage.cashRegReff.Background = color;
             ModalService.NavigateTo(new CashReg(), delegate(bool returnValue) { });
+        }
+
+
+        private ICommand _TRANSFER_CASH { get; set; }
+        public ICommand TRANSFER_CASH
+        {
+            get
+            {
+                if (_TRANSFER_CASH == null)
+                {
+                    _TRANSFER_CASH = new DelegateCommand(TransferCashList);
+                }
+                return _TRANSFER_CASH;
+            }
+
+        }
+
+        public void TransferCashList()
+        {
+            clear();
+            var color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFF0000"));
+
+            WelComePage.transfercashReff.Background = color;
+            ModalService.NavigateTo(new TransferCashList(), delegate(bool returnValue) { });
         }
 
         private ICommand _SUPPLIER { get; set; }

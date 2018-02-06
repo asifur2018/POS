@@ -498,15 +498,16 @@ namespace InvoicePOSAPI.Controllers
         public HttpResponseMessage GetPoNo()
         {
 
-            string value = Convert.ToString(db.TBL_PO_PAYMENT
-                            .OrderByDescending(p => p.PO_NUMBER)
-                            .Select(r => r.PO_NUMBER)
-                            .First());
-            var RefNumber = new
-            {
-                SuppRefNumber = value
-            };
-            return Request.CreateResponse(HttpStatusCode.OK, value);
+            //string value = Convert.ToString(db.TBL_PO_PAYMENT
+            //                .OrderByDescending(p => p.PO_NUMBER)
+            //                .Select(r => r.PO_NUMBER)
+            //                .First());
+            //var RefNumber = new
+            //{
+            //    SuppRefNumber = value
+            //};
+            //return Request.CreateResponse(HttpStatusCode.OK, value);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
     }

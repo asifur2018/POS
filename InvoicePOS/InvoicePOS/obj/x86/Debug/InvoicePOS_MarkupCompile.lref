@@ -1,28 +1,28 @@
-﻿D:\annwesha\POS\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\CashReg\Window_CashRegList.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Company\BusinessLocationAdd.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Customer\AddCustomer.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Employee\EmployeeAdd.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Item\ItemAdd.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Item\ViewSalesHistory.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Item\Window_Opening_stock.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Report\AddReportGroup.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Report\GenerateReport.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Report\Item Report\ReportAllItem.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Report\PO Report\ReportPO.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\AddNewCashTransfer.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashReg.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashRegisterAmountDetails.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocation.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocationWarningMessage.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\WindowCashRegister.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\ChangeItem\ChangeItemPrice.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Company\Company_Window.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\MainWindow.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Main\demopage.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Main\Main.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Main\ShowStockList.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Report\EstimateInvoice.xaml;;
-FD:\annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\WelCome\WelComePage.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\CashReg\Window_CashRegList.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Company\BusinessLocationAdd.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Customer\AddCustomer.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Employee\EmployeeAdd.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Item\ItemAdd.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Item\ViewSalesHistory.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Item\Window_Opening_stock.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Report\AddReportGroup.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Report\GenerateReport.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Report\Item Report\ReportAllItem.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Report\PO Report\ReportPO.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\AddNewCashTransfer.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashReg.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashRegisterAmountDetails.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocation.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocationWarningMessage.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\WindowCashRegister.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\ChangeItem\ChangeItemPrice.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Company\Company_Window.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\MainWindow.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Main\demopage.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Main\Main.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Main\ShowStockList.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Report\EstimateInvoice.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\WelCome\WelComePage.xaml;;
 

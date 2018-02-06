@@ -143,9 +143,7 @@
                     <TextBox x:Name="totTax" HorizontalAlignment="Left" Height="23" Margin="699,520,0,0" TextWrapping="Wrap" Text="{Binding SelectedPO.TOTAL_TAX,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
                     <!--<TextBox x:Name="tot" HorizontalAlignment="Left" Height="23" Margin="850,520,0,0" TextWrapping="Wrap" Text="{Binding TOTAL_QTY}" VerticalAlignment="Top" Width="120"/>-->
                     <TextBox x:Name="total" HorizontalAlignment="Left" Height="23" Margin="699,548,0,0" TextWrapping="Wrap" Text="{Binding SelectedPO.TOTAL_AMOUNT,ValidatesOnDataErrors=True,UpdateSourceTrigger=LostFocus,  Mode=TwoWay, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="120"/>
-                    <Button Content="Save" IsEnabled="{Binding isenable}"  Visibility="{Binding CreatVisible}" Command="{Binding Path=InsertPO,UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Margin="575,592,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Update" Visibility="{Binding UpdVisible}" Command="{Binding UpdatePO, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="575,592,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Cancel" HorizontalAlignment="Left" Command="{Binding Cancel}" Margin="674,592,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
+                    
                     <Button  Content="{Binding ButtonText}"  Command="{Binding SupMyCode, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Margin="302,53,0,0" VerticalAlignment="Top" Width="104"/>
                 </Grid>
                 <Button Content="--" Command="{Binding ItemListClick}" HorizontalAlignment="Left" Margin="302,238,0,0" VerticalAlignment="Top" Width="24" />

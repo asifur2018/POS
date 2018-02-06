@@ -28,12 +28,69 @@ namespace InvoicePOSAPI.Controllers
                            ISADGUSTMENT = a.IS_ADGUSTMENT,
                            LOGIN = a.LOGIN,
                            IS_MAIN_CASH = a.IS_MAIN_CASH,
+                           IS_TRANSFER_CASH_REGISTER = true,
+                           TRANSFER_DATE = System.DateTime.Now,
+                           CASH_TO_TRANSFER = 1,
                            COMPANY_ID = a.COMPANY_ID,
                            CASH_AMOUNT = a.CASH_AMOUNT,
                        }).ToList();
 
             return Request.CreateResponse(HttpStatusCode.OK, str);
         }
+        [HttpGet]
+        public HttpResponseMessage GetAllTransferedCash(int id)
+        {
+            var str = (from a in db.TBL_TRANSFER_CASH
+                       //join b in db.TBL_BUSINESS_LOCATION on a.BUSINESS_LOC equals b.BUSINESS_LOCATION_ID
+                       where a.COMPANY_ID == id && a.IS_DELETE == false
+                       select new CashRegModel
+                       {
+                           BUSINESS_LOCATION = a.BUSINESS_LOC,
+                           TRANSFER_ID = a.TRANSFER_ID,
+                           TRANSFER_CODE = a.CASH_TRANSFER_NUMBER,
+                           FROM_TRAN_CASH_REGISTER = a.FROM_CASH_REGISTER,
+                           TO_TRAN_CASH_REGISTER = a.TO_CASH_REGISTER,
+                           CASH_TO_TRANSFER = a.TOTAL_TRANSFERED_AMOUNT,
+                           CASH_REG_NO = 1,
+                           IS_MAIN_CASH = false,
+                           ISADGUSTMENT=false,
+                           COMPANY_ID = a.COMPANY_ID,
+                           CASH_AMOUNT = 1,
+                           //TRANSFER_DATE = a.TRANSFER_DATE,
+                           TRANSFER_DATE =System.DateTime.Now,
+                           IS_TRANSFER_CASH_REGISTER = a.IS_TRANSFER_CASH_REGISTER,
+                           STATUS = a.STATUS,
+                           }).ToList();
+
+            return Request.CreateResponse(HttpStatusCode.OK, str);
+        }
+
+        //[HttpGet]
+        //public HttpResponseMessage GetAllCashTranscation(int id1,string id2, DateTime id3,DateTime id4)
+        //{
+            //var str = (from b in db.TBL_INVOICE_PAY
+            //           join a in db.TBL_RECEIVE_PAYMENT on b.INVOICE_DATE equals a.DATE
+            //           join c in db.TBL_TRANSFER_CASH on a.COMPANY_ID equals c.COMPANY_ID
+            //           join d in db.TBL_NEWCASHREGISTER on c.COMPANY_ID equals d.COMPANY_ID
+            //           where a.COMPANY_ID == id1 && a.BUSINESS_LOCATION == id2 && b.INVOICE_DATE >= id3 && b.INVOICE_DATE <= id4
+            //           group b by new {a.DATE,b.INVOICE_DATE,c.TRANSFER_DATE,a.BUSINESS_LOCATION  }into g 
+                       
+            //           select new CashRegModel
+            //          {
+
+            //              BUSINESS_LOCATION =a.BUSINESS_LOCATION,
+            //              TRANSFER_ID = c.TRANSFER_ID,
+            //              TRANSFER_CODE = a.CASH_TRANSFER_NUMBER,
+            //              FROM_TRAN_CASH_REGISTER = a.FROM_CASH_REGISTER,
+            //              TO_TRAN_CASH_REGISTER = a.TO_CASH_REGISTER,
+                          
+            //              STATUS = a.STATUS,
+            //          }).ToList();
+
+            //return Request.CreateResponse(HttpStatusCode.OK, str);
+        //}
+
+
         [HttpGet]
         public HttpResponseMessage GetCASH()
         {
@@ -69,6 +126,36 @@ namespace InvoicePOSAPI.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, str);
         }
+
+        [HttpGet]
+        public HttpResponseMessage ViewTransferCash(int id)
+        {
+                 var str = (from a in db.TBL_TRANSFER_CASH
+                            //join b in db.TBL_BUSINESS_LOCATION on a.BUSINESS_LOC equals b.BUSINESS_LOCATION_ID
+                            where a.TRANSFER_ID == id && a.IS_DELETE == false
+                            select new CashRegModel
+                        {
+                            BUSINESS_LOCATION = a.BUSINESS_LOC,
+                           TRANSFER_ID = a.TRANSFER_ID,
+                           TRANSFER_CODE = a.CASH_TRANSFER_NUMBER,
+                           FROM_TRAN_CASH_REGISTER = a.FROM_CASH_REGISTER,
+                           TO_TRAN_CASH_REGISTER = a.TO_CASH_REGISTER,
+                           CASH_TO_TRANSFER = a.TOTAL_TRANSFERED_AMOUNT,
+                           IS_TRANSFER_CASH_REGISTER = a.IS_TRANSFER_CASH_REGISTER,
+                           CASH_REG_NO = 1,
+                           IS_MAIN_CASH = false,
+                           ISADGUSTMENT = false,
+                           COMPANY_ID = a.COMPANY_ID,
+                           CASH_AMOUNT = 1,
+                           TRANSFER_DATE = a.TRANSFER_DATE,
+                           STATUS = a.STATUS,
+                       }).ToList();
+
+            return Request.CreateResponse(HttpStatusCode.OK, str);
+        }
+
+
+
         [HttpGet]
         public HttpResponseMessage DeleteCashReg(int id)
         {
@@ -76,9 +163,17 @@ namespace InvoicePOSAPI.Controllers
             str.IS_DELETE = true;
             db.SaveChanges();
             return Request.CreateResponse(HttpStatusCode.OK, "success");
-
-
         }
+
+        [HttpGet]
+        public HttpResponseMessage DeleteTransferCash(int id)
+        {
+            var str = (from a in db.TBL_TRANSFER_CASH where a.TRANSFER_ID == id select a).FirstOrDefault();
+            str.IS_DELETE = true;
+            db.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+
         [HttpPost]
         public HttpResponseMessage CreateCashReg(CashRegModel _CashRegModel)
         {
@@ -131,5 +226,61 @@ namespace InvoicePOSAPI.Controllers
             };
             return Request.CreateResponse(HttpStatusCode.OK, value);
         }
+
+        [HttpGet]
+        public HttpResponseMessage GetTransferNo()
+        {
+
+            string value = Convert.ToString(db.TBL_TRANSFER_CASH
+                            .OrderByDescending(p => p.CASH_TRANSFER_NUMBER)
+                            .Select(r => r.CASH_TRANSFER_NUMBER)
+                            .First());
+            var RefNumber = new
+            {
+                SuppRefNumber = value
+            };
+            return Request.CreateResponse(HttpStatusCode.OK, value);
+        }
+
+
+        [HttpPost]
+        public HttpResponseMessage TransferCashAdd(CashRegModel crm)
+        {
+            try
+            {
+
+                TBL_TRANSFER_CASH tc = new TBL_TRANSFER_CASH();
+                tc.COMPANY_ID = crm.COMPANY_ID;
+                tc.BUSINESS_LOC_ID = crm.BUSINESS_LOCATION_ID;
+                tc.BUSINESS_LOC = crm.BUSINESS_LOCATION;
+                tc.CASH_TRANSFER_NUMBER = crm.TRANSFER_CODE;
+                tc.FROM_CASH_REGISTER = crm.FROM_TRAN_CASH_REGISTER;
+                tc.TO_CASH_REGISTER = crm.TO_TRAN_CASH_REGISTER;
+                tc.TOTAL_TRANSFERED_AMOUNT = crm.CASH_TO_TRANSFER;
+                tc.TRANSFER_DATE = crm.TRANSFER_DATE;
+                tc.STATUS = "Approved";
+                tc.IS_DELETE = false;
+                db.TBL_TRANSFER_CASH.Add(tc);
+                db.SaveChanges();
+
+
+                var str = (from a in db.TBL_NEWCASHREGISTER where a.CASH_REGISTERID == crm.CASH_REGISTERID_FROM select a).FirstOrDefault();
+
+                str.CASH_AMOUNT = crm.CURRENT_CASH - crm.CASH_TO_TRANSFER;
+                var str1 = (from a in db.TBL_NEWCASHREGISTER where a.CASH_REGISTERID == crm.CASH_REGISTERID_TO select a).FirstOrDefault();
+
+                str1.CASH_AMOUNT = str1.CASH_AMOUNT + crm.CASH_TO_TRANSFER;
+                
+                db.SaveChanges();
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+
     }
 }
