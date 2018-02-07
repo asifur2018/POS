@@ -126,11 +126,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
     <Compile Include="Helpers\Cryptography.cs" />
+    <Compile Include="Helpers\FontFamilyListItem.cs" />
     <Compile Include="Helpers\FontHelper.cs" />
-=======
->>>>>>> b811ef6e96d1a81e5f0f77f4385dd560152d0fa4
+    <Compile Include="Helpers\FontSizeListItem.cs" />
+    <Compile Include="Helpers\NameDictionaryHelper.cs" />
+    <Compile Include="Helpers\TypefaceListItem.cs" />
+    <Compile Include="Helpers\TypographicFeatureListItem.cs" />
     <Compile Include="Helper\AsyncCommand .cs" />
     <Compile Include="Helper\Simple.cs" />
     <Compile Include="Helper\SimpleFolderConverter.cs" />
@@ -537,6 +539,7 @@
     <Compile Include="ViewModels\ChangQntViewModel.cs" />
     <Compile Include="ViewModels\ChildViewModel.cs" />
     <Compile Include="ViewModels\Company\CompanyCommand.cs" />
+    <Compile Include="ViewModels\CurrencySettingsViewModel.cs" />
     <Compile Include="ViewModels\CustomerGroupViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerCommand.cs" />
@@ -551,6 +554,7 @@
     <Compile Include="ViewModels\FolderItem.cs" />
     <Compile Include="ViewModels\GodownViewModel.cs" />
     <Compile Include="ViewModels\HttpClient.cs" />
+    <Compile Include="ViewModels\IEnumerable.cs" />
     <Compile Include="ViewModels\InvoiceViewModel.cs" />
     <Compile Include="ViewModels\ItemLocation.cs" />
     <Compile Include="ViewModels\Item\ItemCommand.cs" />
@@ -628,6 +632,9 @@
     <Compile Include="Views\ChangeItem\ChangeItemPrice.xaml.cs">
       <DependentUpon>ChangeItemPrice.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CurrencySettings.xaml.cs">
+      <DependentUpon>CurrencySettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Customer\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
@@ -645,6 +652,9 @@
     </Compile>
     <Compile Include="Views\Customer\Openingbalance.xaml.cs">
       <DependentUpon>Openingbalance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FontChooser.xaml.cs">
+      <DependentUpon>FontChooser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\InvoiceSettings.xaml.cs">
       <DependentUpon>InvoiceSettings.xaml</DependentUpon>
@@ -1295,6 +1305,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\CurrencySettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Customer\Customer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1316,6 +1330,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Customer\Openingbalance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FontChooser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1410,11 +1428,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Resources\Resources.resx" />
     <EmbeddedResource Include="Resources\Settings.resx" />
-=======
->>>>>>> b811ef6e96d1a81e5f0f77f4385dd560152d0fa4
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
