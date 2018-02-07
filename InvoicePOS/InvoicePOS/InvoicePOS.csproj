@@ -125,6 +125,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\Cryptography.cs" />
     <Compile Include="Helpers\FontHelper.cs" />
     <Compile Include="Helper\AsyncCommand .cs" />
     <Compile Include="Helper\Simple.cs" />
@@ -473,9 +474,6 @@
     <Compile Include="UserControll\Supplier\SupplierView.xaml.cs">
       <DependentUpon>SupplierView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControll\Supplier\ViewLedger.xaml.cs">
-      <DependentUpon>ViewLedger.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControll\Supplier\Window_SupplierList.xaml.cs">
       <DependentUpon>Window_SupplierList.xaml</DependentUpon>
     </Compile>
@@ -513,7 +511,6 @@
     <Compile Include="ViewModels\BankViewModel.cs" />
     <Compile Include="ViewModels\BussinessLocationViewModel.cs" />
     <Compile Include="ViewModels\CashRegViewModel.cs" />
-    <Compile Include="ViewModels\CategoryAutoScr.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\ChangeBussinessLocationViewModel.cs" />
     <Compile Include="ViewModels\ChangeItemViewModel.cs" />
@@ -1130,10 +1127,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControll\Supplier\ViewLedger.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControll\Supplier\Window_SupplierList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1399,6 +1392,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resources.resx" />
+    <EmbeddedResource Include="Resources\Settings.resx" />
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>

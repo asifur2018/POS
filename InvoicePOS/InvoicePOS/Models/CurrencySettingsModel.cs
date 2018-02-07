@@ -37,6 +37,87 @@ namespace InvoicePOS.Models
         public int                      QUANTITY_DECIMAL_PLACES { get; set; }
         public int                      CODE_PAGE { get; set; }
 
+        private string _NUMBER_FORMAT;
+        public string NUMBER_FORMAT
+        {
+            get
+            {
+                string format = "";
+                if (NUMBER_FORMAT_CHOICE_2)
+                {
+                    format = "###,##0";
+                }
+                else
+                {
+                    format = "##,##0";
+                }
+
+                if (NUMBER_DECIMAL_PLACES > 0)
+                {
+                    format += ".";
+                    for (int i = 0; i < NUMBER_DECIMAL_PLACES; i++)
+                    {
+                        format += "0";
+                    }
+                }
+                return format;
+            }
+        }
+
+        private string _QUANTITY_FORMAT;
+        public string QUANTITY_FORMAT
+        {
+            get
+            {
+                string format = "";
+                if (NUMBER_FORMAT_CHOICE_2)
+                {
+                    format = "###,##0";
+                }
+                else
+                {
+                    format = "##,##0";
+                }
+
+                if (QUANTITY_DECIMAL_PLACES > 0)
+                {
+                    format += ".";
+                    for (int i = 0; i < QUANTITY_DECIMAL_PLACES; i++)
+                    {
+                        format += "0";
+                    }
+                }
+                return format;
+            }
+        }
+
+        private string _UNIT_PRICE_FORMAT;
+        public string UNIT_PRICE_FORMAT
+        {
+            get
+            {
+                string format = "";
+                if (NUMBER_FORMAT_CHOICE_2)
+                {
+                    format = "###,##0";
+                }
+                else
+                {
+                    format = "##,##0";
+                }
+
+                if (UNIT_PRICE_DECIMAL_PLACES > 0)
+                {
+                    format += ".";
+                    for (int i = 0; i < UNIT_PRICE_DECIMAL_PLACES; i++)
+                    {
+                        format += "0";
+                    }
+                }
+                return format;
+            }
+        }
+
         public void LoadSettings()
         {
 

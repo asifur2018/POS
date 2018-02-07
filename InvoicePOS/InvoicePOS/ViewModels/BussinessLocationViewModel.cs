@@ -1308,14 +1308,14 @@ namespace InvoicePOS.ViewModels
                 InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = null;
                 InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = SelectedBusinessLoca.COMPANY;
             }
-            if (SelectedBusinessLoca.SHOP_NAME != null && InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList != null)
+           /* if (SelectedBusinessLoca.SHOP_NAME != null && InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList != null)
             {
                 InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList.Text = null;
                 InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList.Text = SelectedBusinessLoca.SHOP_NAME;
 
                 InvoicePOS.UserControll.Supplier.ViewLedger.CompanyList.Text = null;
                 InvoicePOS.UserControll.Supplier.ViewLedger.CompanyList.Text = SelectedBusinessLoca.COMPANY;
-            }
+            }*/
             if (fdrt != null)
             {
                 SelectedOpeningStock.GODOWN = fdrt.GODOWN;

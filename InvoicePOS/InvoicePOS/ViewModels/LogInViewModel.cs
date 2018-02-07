@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using InvoicePOS.Views.Company;
 using InvoicePOS.Views.Main;
+using InvoicePOS.Helpers;
 using System.Net.Http;
 using InvoicePOS.Models;
 using System.Net.Http.Headers;
@@ -89,6 +90,7 @@ namespace InvoicePOS.ViewModels
         ObservableCollection<UserAccessModel> _ListGrid_Temp1 = new ObservableCollection<UserAccessModel>();
         public async void LogIn_Click()
         {
+            string enCryptedPassword = Cryptography.Encrypt(PASSWORD);
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(GlobalData.gblApiAdress);
@@ -96,7 +98,7 @@ namespace InvoicePOS.ViewModels
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
             client.Timeout = new TimeSpan(500000000000);
-            HttpResponseMessage response = client.GetAsync("api/LogInAPI/GetUser?id=" + USERNAME + "&password=" + PASSWORD + "").Result;
+            HttpResponseMessage response = client.GetAsync("api/LogInAPI/GetUser?id=" + USERNAME + "&password=" + enCryptedPassword + "").Result;
             if (response.IsSuccessStatusCode)
             {
                 data = JsonConvert.DeserializeObject<LogInModel>(await response.Content.ReadAsStringAsync());

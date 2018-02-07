@@ -1244,3 +1244,13 @@ D:\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\obj\Debug\InvoiceP
 D:\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csproj.GenerateResource.Cache
 D:\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.exe
 D:\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.pdb
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\bin\Debug\InvoicePOSDATA.exe.config
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\bin\Debug\InvoicePOSDATA.exe
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\bin\Debug\InvoicePOSDATA.pdb
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\bin\Debug\EntityFramework.dll
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\bin\Debug\EntityFramework.xml
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csprojResolveAssemblyReference.cache
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.Properties.Resources.resources
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csproj.GenerateResource.Cache
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.exe
+D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOSAPI1\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.pdb

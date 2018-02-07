@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FONT_FAMILY" xml:space="preserve">
-    <value>Sakkal Majalla</value>
+    <value>Arial</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="FONT_WEIGHT" type="System.Int32, mscorlib">
-    <value>700</value>
+    <value>400</value>
   </data>
   <data name="FONT_STYLE" xml:space="preserve">
     <value>Oblique</value>
@@ -131,28 +131,28 @@
     <value>Medium</value>
   </data>
   <data name="FONT_SIZE" type="System.Double, mscorlib">
-    <value>16.666666666666664</value>
+    <value>20</value>
   </data>
   <data name="TEXT_DECOR_UNDER_LINE" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>False</value>
   </data>
   <data name="TEXT_DECOR_STRIKE_THROUGH" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>False</value>
   </data>
   <data name="TEXT_DECOR_OVER_LINE" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="TEXT_DECOR_BASE_LINE" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>False</value>
   </data>
   <data name="NORMAL_CURRENCY_SYMBOL" xml:space="preserve">
-    <value>vvvvvv</value>
+    <value>@</value>
   </data>
   <data name="NORMAL_CURRENCY_SYMBOL_LEFT" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>False</value>
   </data>
   <data name="SPECIAL_CURRENCY_SYMBOL" xml:space="preserve">
-    <value>abcd</value>
+    <value>$</value>
   </data>
   <data name="SPECIAL_CURRENCY_SYMBOL_LEFT" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -161,7 +161,7 @@
     <value>False</value>
   </data>
   <data name="NUMBER_DECIMAL_PLACES" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="UNIT_PRICE_DECIMAL_PLACES" type="System.Int32, mscorlib">
     <value>0</value>
@@ -170,6 +170,6 @@
     <value>0</value>
   </data>
   <data name="CODE_PAGE" type="System.Int32, mscorlib">
-    <value>1361</value>
+    <value>0</value>
   </data>
 </root>

@@ -1561,16 +1561,16 @@ namespace InvoicePOS.ViewModels
 
         public async void ViewLedgerVendor_Click()
         {
-            InvoicePOS.UserControll.Supplier.ViewLedger sh = new UserControll.Supplier.ViewLedger();
+            //InvoicePOS.UserControll.Supplier.ViewLedger sh = new UserControll.Supplier.ViewLedger();
             if (SelectedSupplier != null)
             {
-                InvoicePOS.UserControll.Supplier.ViewLedger.FAccount.Text = SelectedSupplier.SUPPLIER_NAME;
+               // InvoicePOS.UserControll.Supplier.ViewLedger.FAccount.Text = SelectedSupplier.SUPPLIER_NAME;
                 //InvoicePOS.UserControll.Customer.ViewLedger.CBalance.Text = SelectedSupplier.CLOSING_AMT.ToString();
-                InvoicePOS.UserControll.Supplier.ViewLedger.OBalance.Text = SelectedSupplier.OPENING_BALANCE.ToString();
+               // InvoicePOS.UserControll.Supplier.ViewLedger.OBalance.Text = SelectedSupplier.OPENING_BALANCE.ToString();
                 //InvoicePOS.UserControll.Customer.ViewLedger.CreditLmt.Text = SelectedSupplier.credit_Limits.ToString();
                 //InvoicePOS.UserControll.Customer.ViewLedger.DebitLmt.Text = SelectedSupplier.DEFAULT_CREIT_LIMIT.ToString();
             }
-            sh.Show();
+            //sh.Show();
         }
         public ICommand _BusinessListSupplier { get; set; }
         public ICommand BusinessListSupplier
