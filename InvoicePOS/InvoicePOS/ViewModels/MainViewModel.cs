@@ -1612,7 +1612,17 @@ namespace InvoicePOS.ViewModels
             get
             {
                 if (taxDetailsGridShow == null)
-                    taxDetailsGridShow = new RelayCommand(param => this.ColumnShowHide(param));
+                    if (App.Current.Properties["ShowTax"] == "True")
+                    {
+                       
+                        taxDetailsGridShow = new RelayCommand(param => this.ColumnShowHide(param));
+                    }
+                if (App.Current.Properties["ShowTax"] == "False")
+                {
+
+                    taxDetailsGridShow = new RelayCommand(param => this.ColumnTaxHide(param));
+                }
+
                 return taxDetailsGridShow;
             }
         }
@@ -1626,12 +1636,21 @@ namespace InvoicePOS.ViewModels
                 // this porstion will be get error. Bes value null.
                 currParent = VisualTreeHelper.GetParent(currParent);
             }
-            (currParent as Main).dataGrid1.Columns[6].Visibility = Visibility.Visible;
-            (currParent as Main).dataGrid1.Columns[7].Visibility = Visibility.Visible;
-            //(currParent as Main).dataGrid1.Columns[8].Visibility = Visibility.Visible;
-            //(currParent as Main).dataGrid1.Columns[7].Visibility = Visibility.Visible;
-            ShowTaxVisibility = "Collapsed";
-            HideTaxVisibility = "Visible";
+            
+                (currParent as Main).dataGrid1.Columns[6].Visibility = Visibility.Visible;
+                (currParent as Main).dataGrid1.Columns[7].Visibility = Visibility.Visible;
+                //(currParent as Main).dataGrid1.Columns[8].Visibility = Visibility.Visible;
+                //(currParent as Main).dataGrid1.Columns[7].Visibility = Visibility.Visible;
+                App.Current.Properties["ShowTax"] = "False";
+                //App.Current.Properties["HideTax"] = "True";
+
+
+            
+
+
+
+            //ShowTaxVisibility = "Collapsed";
+            //HideTaxVisibility = "Visible";
 
         }
         private RelayCommand taxDetailsGridHide;
@@ -1657,8 +1676,8 @@ namespace InvoicePOS.ViewModels
             (currParent as Main).dataGrid1.Columns[7].Visibility = Visibility.Hidden;
             //(currParent as Main).dataGrid1.Columns[8].Visibility = Visibility.Hidden;
             //(currParent as Main).dataGrid1.Columns[7].Visibility = Visibility.Hidden;
-            ShowTaxVisibility = "Visible";
-            HideTaxVisibility = "Collapsed";
+            App.Current.Properties["ShowTax"] = "True";
+            
         }
 
         public void Cancel_Invoice()
@@ -3890,6 +3909,9 @@ namespace InvoicePOS.ViewModels
 
             ShowTaxVisibility = "Visible";
             HideTaxVisibility = "Collapsed";
+
+            App.Current.Properties["ShowTax"] = "True";
+            //App.Current.Properties["HideTax"] = "False";
             //TaxNameVisible = "Collapsed";
             //RiteVisible = "Collapsed";
             //TaxNameVisible = false;
