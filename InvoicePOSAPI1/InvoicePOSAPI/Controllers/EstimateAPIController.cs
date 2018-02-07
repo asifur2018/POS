@@ -12,7 +12,7 @@ namespace InvoicePOSAPI.Controllers
     public class EstimateAPIController : ApiController
     {
         EstimateModel _EstimateModel = new EstimateModel();
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         [HttpGet]
         public HttpResponseMessage GetEstimate()
         {
@@ -33,91 +33,165 @@ namespace InvoicePOSAPI.Controllers
             //                TotalTax = grps.Sum(x => x.TOTAL_WITH_TAX),
             //                //TotalTax=0,
             //            }).ToList();
+           
+            var str1 = (from a in db.TBL_ESTIMATE1
+                        join b in db.TBL_ITEMS on a.ITEM_ID equals b.ITEM_ID
+                        join c in db.TBL_BUSINESS_LOCATION on b.BUSS_LOC_ID.Value equals c.BUSINESS_LOCATION_ID
+                        //join d in db.TBL_INVOICE_PAY on b.ITEM_INVOICE_ID.Value equals d.INVOICE_ID
+                        //join e in db.TBL_CASH_REG on d.INVOICE_ID equals e.INVOICE_ID.Value
+                        select new ItemModel 
+                        {
+                            ESTIMATE_DATE = a.ESTIMATE_DATE.Value,
+                            ESTIMATE_NO = a.ESTIMATE_NO,
+                            BUSINESS_LOCATION = c.SHOP_NAME,
+                            //CASH_REG = e.CASH_REG,
+                            //INVOICE_DATE = d.INVOICE_DATE.Value,                            
+                                IMAGE_PATH = b.IMAGE_PATH,
+                                           ITEM_ID = a.ITEM_ID,
+                                           ITEM_NAME = a.ITEM_NAME,
+                                           ITEM_DESCRIPTION = b.ITEM_DESCRIPTION,
+                                           ITEM_PRICE = b.ITEM_PRICE,
+                                           ITEM_INVOICE_ID = b.ITEM_INVOICE_ID,
+                                           ITEM_PRODUCT_ID = b.ITEM_PRODUCT_ID,
+                                           KEYWORD = b.KEYWORD,
+                                           ACCESSORIES_KEYWORD = b.ACCESSORIES_KEYWORD,
+                                           BARCODE = a.BARCODE,
+                                           CATAGORY_ID = b.CATAGORY_ID,
+                                           CATEGORY_NAME = b.CATEGORY_NAME,
+                                           SEARCH_CODE = b.SERCH_CODE,
+                                           TAX_PAID = b.TAX_PAID,
+                                           TAX_COLLECTED = b.TAX_COLLECTED,
+                                           //CUSTOMER_NAME = a.c
+                                           BUSINESS_LOC = b.ITEM_LOCATION,
+                                           BUSS_LOC_ID = b.BUSS_LOC_ID,
+                                           GODOWN_ID = b.GODOWN_ID,
+                                           UNIT_SALES_ID = b.SALE_UNIT_ID,
+                                           UNIT_PURCHAGE_ID = b.PURCHAGE_UNIT_ID,
+                                           PURCHASE_UNIT = b.PURCHASE_UNIT,
+                                           SALES_UNIT = b.SALES_UNIT,
+                                           PURCHASE_UNIT_PRICE = b.PURCHASE_UNIT_PRICE,
+                                           SALES_PRICE = b.SALES_PRICE,
+                                           MRP = b.MRP,
+                                           COMPANY_ID = b.COMPANY_ID,
 
-            var str1 = db.TBL_ESTIMATE1.ToList();
+                                           OPN_QNT = b.OPN_QNT,
+                                           DISPLAY_INDEX = b.DISPLAY_INDEX,
+                                           ITEM_GROUP_NAME = b.ITEM_GROUP_NAME,
+                                           ITEM_UNIQUE_NAME = b.ITEM_UNIQUE_NAME,
+                                           REGIONAL_LANGUAGE = b.REGIONAL_LANGUAGE,
+                                           SALES_PRICE_BEFOR_TAX = b.SALES_PRICE_BEFOR_TAX,
+                                           IS_DELETE = a.IS_DELETE,
+                                           INCLUDE_TAX = b.INCLUDE_TAX,
+                                           IS_Shortable_Item = false,
+                                           IS_Purchased = false,
+                                           IS_Service_Item = false,
+                                           IS_For_Online_Shop = false,
+                                           IS_Not_for_online_shop = false,
+                                           IS_Not_For_Sell = false,
+                                           ALLOW_PURCHASE_ON_ESHOP = false,
+                                           IS_ACTIVE = b.IS_ACIVE,
+                                           IS_Gift_Card = false,
+                                           MODIFICATION_DATE = b.MODIFICATION_DATE,
+                                           WEIGHT_OF_CARDBOARD = b.WEIGHT_OF_CARDBOARD,
+                                           WEIGHT_OF_FOAM = b.WEIGHT_OF_FOAM,
+                                           WEIGHT_OF_PLASTIC = b.WEIGHT_OF_PLASTIC,
+                                           WEIGHT_OF_PAPER = b.WEIGHT_OF_PAPER,
+                                           //GODOWN = b.GODOWN,
+                                           DATE = System.DateTime.Now,
+                                           //COMPANY_NAME = b.COMPANY_NAME,
+                                           TAX_COLLECTED_NAME = b.TAX_COLLECTED_NAME,
+                                           //TAX_PAID_NAME = a.TAX_PAID_NAME,
+                                           TaxName = a.TAX_NAME,
+                                           //TaxValue = a.TAX_VALUE,
+                                           Current_Qty = b.OPN_QNT,
+                                           Total = b.SALES_PRICE,
+                                       }); 
+                       
             return Request.CreateResponse(HttpStatusCode.OK, str1);
         }
         [HttpGet]
         public HttpResponseMessage GetEstimateItem(int id)
         {
-            List<ItemModel> _ItemEstimate = new List<ItemModel>();
+            List<ItemModel> _ItemModel = new List<ItemModel>();
             if (id != null && id != 0)
             {
-                var ItemCount = (from a in db.TBL_ESTIMATE1 where a.ID == id select a.ITEM_ID).ToList();
+                var ItemCount = (from a in db.TBL_ESTIMATE1 join b in db.TBL_ITEMS on a.ITEM_ID equals b.ITEM_ID where a.ID == id select a.ITEM_ID).ToList();
                 if (ItemCount.Count > 0)
                 {
 
                     foreach (var item in ItemCount)
                     {
                         var m = db.View_ITEM_ATTRIBUTE.ToList();
-                       
-                        var str = (from a in db.View_ITEM_ATTRIBUTE.ToList()
+
+                        var str = (from a in db.View_ITEM_ATTRIBUTE.ToList() join c in db.TBL_ITEMS on a.ITEM_ID equals c.ITEM_ID 
                                    where a.ITEM_ID == item && a.IS_DELETE == false
                                    select new ItemModel
                                    {
-                                       IMAGE_PATH = a.IMAGE_PATH,
-                                       ITEM_ID = a.ITEM_ID,
-                                       ITEM_NAME = a.ITEM_NAME,
-                                       ITEM_DESCRIPTION = a.ITEM_DESCRIPTION,
-                                       ITEM_PRICE = a.ITEM_PRICE,
-                                       ITEM_INVOICE_ID = a.ITEM_INVOICE_ID,
-                                       ITEM_PRODUCT_ID = a.ITEM_PRODUCT_ID,
-                                       KEYWORD = a.KEYWORD,
-                                       ACCESSORIES_KEYWORD = a.ACCESSORIES_KEYWORD,
-                                       BARCODE = a.BARCODE,
-                                       CATAGORY_ID = a.CATAGORY_ID,
-                                       CATEGORY_NAME = a.CATEGORY_NAME,
-                                       SEARCH_CODE = a.SERCH_CODE,
-                                       TAX_PAID = a.TAX_PAID,
-                                       TAX_COLLECTED = a.TAX_COLLECTED,
+                                           IMAGE_PATH = a.IMAGE_PATH,
+                                           ITEM_ID = a.ITEM_ID,
+                                           ITEM_NAME = a.ITEM_NAME,
+                                           ITEM_DESCRIPTION = a.ITEM_DESCRIPTION,
+                                           ITEM_PRICE = a.ITEM_PRICE,
+                                           ITEM_INVOICE_ID = a.ITEM_INVOICE_ID,
+                                           ITEM_PRODUCT_ID = a.ITEM_PRODUCT_ID,
+                                           KEYWORD = a.KEYWORD,
+                                           ACCESSORIES_KEYWORD = a.ACCESSORIES_KEYWORD,
+                                           BARCODE = a.BARCODE,
+                                           CATAGORY_ID = a.CATAGORY_ID,
+                                           CATEGORY_NAME = a.CATEGORY_NAME,
+                                           SEARCH_CODE = a.SERCH_CODE,
+                                           TAX_PAID = a.TAX_PAID,
+                                           TAX_COLLECTED = a.TAX_COLLECTED,
 
-                                       BUSINESS_LOC = a.BUSSINESS_LOCATION,
-                                       BUSS_LOC_ID = a.BUSS_LOC_ID,
-                                       GODOWN_ID = a.GODOWN_ID,
-                                       UNIT_SALES_ID = a.SALE_UNIT_ID,
-                                       UNIT_PURCHAGE_ID = a.PURCHAGE_UNIT_ID,
-                                       PURCHASE_UNIT = a.PURCHASE_UNIT,
-                                       SALES_UNIT = a.SALES_UNIT,
-                                       PURCHASE_UNIT_PRICE = a.PURCHASE_UNIT_PRICE,
-                                       SALES_PRICE = a.SALES_PRICE,
-                                       MRP = a.MRP,
-                                       COMPANY_ID = a.COMPANY_ID,
+                                           BUSINESS_LOC = a.BUSSINESS_LOCATION,
+                                           BUSS_LOC_ID = a.BUSS_LOC_ID,
+                                           GODOWN_ID = a.GODOWN_ID,
+                                           UNIT_SALES_ID = a.SALE_UNIT_ID,
+                                           UNIT_PURCHAGE_ID = a.PURCHAGE_UNIT_ID,
+                                           PURCHASE_UNIT = a.PURCHASE_UNIT,
+                                           SALES_UNIT = a.SALES_UNIT,
+                                           PURCHASE_UNIT_PRICE = a.PURCHASE_UNIT_PRICE,
+                                           SALES_PRICE = a.SALES_PRICE,
+                                           MRP = a.MRP,
+                                           COMPANY_ID = a.COMPANY_ID,
 
-                                       OPN_QNT = a.OPN_QNT,
-                                       DISPLAY_INDEX = a.DISPLAY_INDEX,
-                                       ITEM_GROUP_NAME = a.ITEM_GROUP_NAME,
-                                       ITEM_UNIQUE_NAME = a.ITEM_UNIQUE_NAME,
-                                       REGIONAL_LANGUAGE = a.REGIONAL_LANGUAGE,
-                                       SALES_PRICE_BEFOR_TAX = a.SALES_PRICE_BEFOR_TAX,
-                                       IS_DELETE = a.IS_DELETE,
-                                       INCLUDE_TAX = a.INCLUDE_TAX,
-                                       IS_Shortable_Item = false,
-                                       IS_Purchased = false,
-                                       IS_Service_Item = false,
-                                       IS_For_Online_Shop = false,
-                                       IS_Not_for_online_shop = false,
-                                       IS_Not_For_Sell = false,
-                                       ALLOW_PURCHASE_ON_ESHOP = false,
-                                       IS_ACTIVE = a.IS_ACIVE,
-                                       IS_Gift_Card = false,
-                                       MODIFICATION_DATE = a.MODIFICATION_DATE,
-                                       WEIGHT_OF_CARDBOARD = a.WEIGHT_OF_CARDBOARD,
-                                       WEIGHT_OF_FOAM = a.WEIGHT_OF_FOAM,
-                                       WEIGHT_OF_PLASTIC = a.WEIGHT_OF_PLASTIC,
-                                       WEIGHT_OF_PAPER = a.WEIGHT_OF_PAPER,
-                                       GODOWN = a.GODOWN,
-                                       DATE = a.DATE,
-                                       COMPANY_NAME = a.COMPANY_NAME,
-                                       TAX_COLLECTED_NAME = a.TAX_COLLECTED_NAME,
-                                       TAX_PAID_NAME = a.TAX_PAID_NAME,
-                                       TaxName = a.TAX_NAME,
-                                       TaxValue = a.TAX_VALUE,
-                                       Current_Qty = (from b in db.TBL_ESTIMATE1 where b.ITEM_ID == item && b.ID == id select b.CURRENT_QTY).FirstOrDefault(),
-                                       Total = (from b in db.TBL_ESTIMATE1 where b.ITEM_ID == item && b.ID == id select b.TOTAL).FirstOrDefault(),
-                                   }).FirstOrDefault();
+                                           OPN_QNT = a.OPN_QNT,
+                                           DISPLAY_INDEX = a.DISPLAY_INDEX,
+                                           ITEM_GROUP_NAME = a.ITEM_GROUP_NAME,
+                                           ITEM_UNIQUE_NAME = a.ITEM_UNIQUE_NAME,
+                                           REGIONAL_LANGUAGE = a.REGIONAL_LANGUAGE,
+                                           SALES_PRICE_BEFOR_TAX = a.SALES_PRICE_BEFOR_TAX,
+                                           IS_DELETE = a.IS_DELETE,
+                                           INCLUDE_TAX = a.INCLUDE_TAX,
+                                           IS_Shortable_Item = false,
+                                           IS_Purchased = false,
+                                           IS_Service_Item = false,
+                                           IS_For_Online_Shop = false,
+                                           IS_Not_for_online_shop = false,
+                                           IS_Not_For_Sell = false,
+                                           ALLOW_PURCHASE_ON_ESHOP = false,
+                                           IS_ACTIVE = a.IS_ACIVE,
+                                           IS_Gift_Card = false,
+                                           MODIFICATION_DATE = a.MODIFICATION_DATE,
+                                           WEIGHT_OF_CARDBOARD = a.WEIGHT_OF_CARDBOARD,
+                                           WEIGHT_OF_FOAM = a.WEIGHT_OF_FOAM,
+                                           WEIGHT_OF_PLASTIC = a.WEIGHT_OF_PLASTIC,
+                                           WEIGHT_OF_PAPER = a.WEIGHT_OF_PAPER,
+                                           GODOWN = a.GODOWN,
+                                           DATE = a.DATE,
+                                           COMPANY_NAME = a.COMPANY_NAME,
+                                           TAX_COLLECTED_NAME = a.TAX_COLLECTED_NAME,
+                                           TAX_PAID_NAME = a.TAX_PAID_NAME,
+                                           TaxName = a.TAX_NAME,
+                                           TaxValue = a.TAX_VALUE,
+                                           Current_Qty = (from b in db.TBL_ESTIMATE1 where b.ITEM_ID == item && b.ID == id select b.CURRENT_QTY).FirstOrDefault(),
+                                           Total = (from b in db.TBL_ESTIMATE1 where b.ITEM_ID == item && b.ID == id select b.TOTAL).FirstOrDefault(),
+                                       }).FirstOrDefault(); 
+                                   
+                                   
                         if (str != null)
                         {
-                            _ItemEstimate.Add(new ItemModel
+                            _ItemModel.Add(new ItemModel
                             {
                                 IMAGE_PATH = str.IMAGE_PATH,
                                 ITEM_ID = str.ITEM_ID,
@@ -185,7 +259,7 @@ namespace InvoicePOSAPI.Controllers
                     }
                 }
             }
-            return Request.CreateResponse(HttpStatusCode.OK, _ItemEstimate);
+            return Request.CreateResponse(HttpStatusCode.OK, _ItemModel);
         }
         [HttpGet]
         public HttpResponseMessage DeleteEstimate(int id)

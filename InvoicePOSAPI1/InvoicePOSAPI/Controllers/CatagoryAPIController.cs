@@ -11,7 +11,7 @@ namespace InvoicePOSAPI.Controllers
 {
     public class CatagoryAPIController : ApiController
     {
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         CatagoryModel ca = new CatagoryModel();
         [HttpGet]
         public HttpResponseMessage GetCatagory(int id)

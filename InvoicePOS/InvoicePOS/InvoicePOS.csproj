@@ -71,6 +71,7 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -117,7 +118,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WpfAutoComplete">
-      <HintPath>..\..\..\..\..\Downloads\bin\Debug\WpfAutoComplete.dll</HintPath>
+      <HintPath>..\..\..\..\annwesha\19.01.2018\InvoicePOS\InvoicePOS\bin\Debug\WpfAutoComplete.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -125,8 +126,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
     <Compile Include="Helpers\Cryptography.cs" />
     <Compile Include="Helpers\FontHelper.cs" />
+=======
+>>>>>>> b811ef6e96d1a81e5f0f77f4385dd560152d0fa4
     <Compile Include="Helper\AsyncCommand .cs" />
     <Compile Include="Helper\Simple.cs" />
     <Compile Include="Helper\SimpleFolderConverter.cs" />
@@ -147,6 +151,7 @@
     <Compile Include="Models\EstimateModel.cs" />
     <Compile Include="Models\GetReceivePayment.cs" />
     <Compile Include="Models\GodownModel.cs" />
+    <Compile Include="Models\HoldInvoice.cs" />
     <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\LoyaltyModel.cs" />
@@ -233,6 +238,9 @@
     </Compile>
     <Compile Include="UserControll\Customer\CustomerList.xaml.cs">
       <DependentUpon>CustomerList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\Customer\ImportDataForCustomer.xaml.cs">
+      <DependentUpon>ImportDataForCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControll\Customer\ImportExcel.xaml.cs">
       <DependentUpon>ImportExcel.xaml</DependentUpon>
@@ -517,7 +525,6 @@
     <Compile Include="ViewModels\ChangQntViewModel.cs" />
     <Compile Include="ViewModels\ChildViewModel.cs" />
     <Compile Include="ViewModels\Company\CompanyCommand.cs" />
-    <Compile Include="ViewModels\CurrencySettingsViewModel.cs" />
     <Compile Include="ViewModels\CustomerGroupViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerCommand.cs" />
@@ -609,9 +616,6 @@
     <Compile Include="Views\ChangeItem\ChangeItemPrice.xaml.cs">
       <DependentUpon>ChangeItemPrice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CurrencySettings.xaml.cs">
-      <DependentUpon>CurrencySettings.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Customer\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
@@ -630,12 +634,6 @@
     <Compile Include="Views\Customer\Openingbalance.xaml.cs">
       <DependentUpon>Openingbalance.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FontChooser.xaml.cs">
-      <SubType>Code</SubType>
-      <DependentUpon>FontChooser.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\FontFamilyListItem.cs" />
-    <Compile Include="Helpers\FontSizeListItem.cs" />
     <Compile Include="Views\InvoiceSettings.xaml.cs">
       <DependentUpon>InvoiceSettings.xaml</DependentUpon>
     </Compile>
@@ -675,13 +673,10 @@
     <Compile Include="Views\Main\Taxdetails.xaml.cs">
       <DependentUpon>Taxdetails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\NameDictionaryHelper.cs" />
     <Compile Include="Views\Report\EstimateInvoice.xaml.cs" />
     <Compile Include="Views\SaleUnitAutoComplete.xaml.cs">
       <DependentUpon>SaleUnitAutoComplete.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\TypefaceListItem.cs" />
-    <Compile Include="Helpers\TypographicFeatureListItem.cs" />
     <Compile Include="Views\Unit\AddUnit.xaml.cs">
       <DependentUpon>AddUnit.xaml</DependentUpon>
     </Compile>
@@ -806,6 +801,10 @@
     <Page Include="UserControll\Customer\CustomerList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControll\Customer\ImportDataForCustomer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControll\Customer\ImportExcel.xaml">
       <SubType>Designer</SubType>
@@ -1268,10 +1267,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CurrencySettings.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Customer\Customer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1296,13 +1291,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\FontChooser.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\InvoiceSettings.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ItemNameAutoComplete.xaml">
       <SubType>Designer</SubType>
@@ -1391,8 +1382,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Resources\Resources.resx" />
     <EmbeddedResource Include="Resources\Settings.resx" />
+=======
+>>>>>>> b811ef6e96d1a81e5f0f77f4385dd560152d0fa4
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>

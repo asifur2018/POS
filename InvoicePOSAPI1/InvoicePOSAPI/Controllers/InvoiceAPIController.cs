@@ -13,7 +13,7 @@ namespace InvoicePOSAPI.Controllers
     public class InvoiceAPIController : ApiController
     {
         InvoiceModel Invoice = new InvoiceModel();
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
 
 
 
@@ -230,6 +230,15 @@ namespace InvoicePOSAPI.Controllers
                 throw;
             }
 
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+        [HttpGet]
+        public HttpResponseMessage DeleteInvoice(int id)
+        {
+            var str = (from a in db.TBL_INVOICE_PAY where a.CUSTOMER_ID == id select a).FirstOrDefault();
+            str.IS_ACTIVE = false;
+            db.TBL_INVOICE_PAY.Remove(str);
+            db.SaveChanges();
             return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
         [HttpGet]
@@ -766,6 +775,74 @@ namespace InvoicePOSAPI.Controllers
                 //db.SaveChanges();
             
             return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+        [HttpGet]
+        public HttpResponseMessage PickInvoiceList()
+        {
+            var pendingInvoice = db.TBL_HOLD_INVOICE.Where(m => m.STATUS == "Cancelled").ToList();
+            var data = from a in db.TBL_ITEMS
+                       join b in db.TBL_HOLD_INVOICE on a.ITEM_ID equals b.ITEM_ID
+                       select (new ItemModel {
+                           IMAGE_PATH = a.IMAGE_PATH,
+                           ITEM_ID = a.ITEM_ID,
+                           ITEM_NAME = a.ITEM_NAME,
+                           ITEM_DESCRIPTION = a.ITEM_DESCRIPTION,
+                           ITEM_PRICE = a.ITEM_PRICE,
+                           ITEM_INVOICE_ID = a.ITEM_INVOICE_ID,
+                           ITEM_PRODUCT_ID = a.ITEM_PRODUCT_ID,
+                           KEYWORD = a.KEYWORD,
+                           ACCESSORIES_KEYWORD = a.ACCESSORIES_KEYWORD,
+                           BARCODE = a.BARCODE,
+                           CATAGORY_ID = a.CATAGORY_ID,
+                           CATEGORY_NAME = a.CATEGORY_NAME,
+                           SEARCH_CODE = a.SERCH_CODE,
+                           TAX_PAID = a.TAX_PAID,
+                           TAX_COLLECTED = a.TAX_COLLECTED,
+                           INVOICE_ID = b.INVOICE_ID,
+                           //BUSINESS_LOC = a.BUSSINESS_LOCATION,
+                           BUSS_LOC_ID = a.BUSS_LOC_ID,
+                           GODOWN_ID = a.GODOWN_ID,
+                           UNIT_SALES_ID = a.SALE_UNIT_ID,
+                           UNIT_PURCHAGE_ID = a.PURCHAGE_UNIT_ID,
+                           PURCHASE_UNIT = a.PURCHASE_UNIT,
+                           SALES_UNIT = a.SALES_UNIT,
+                           PURCHASE_UNIT_PRICE = a.PURCHASE_UNIT_PRICE,
+                           SALES_PRICE = a.SALES_PRICE,
+                           MRP = a.MRP,
+                           COMPANY_ID = a.COMPANY_ID,
+
+                           OPN_QNT = a.OPN_QNT,
+                           DISPLAY_INDEX = a.DISPLAY_INDEX,
+                           ITEM_GROUP_NAME = a.ITEM_GROUP_NAME,
+                           ITEM_UNIQUE_NAME = a.ITEM_UNIQUE_NAME,
+                           REGIONAL_LANGUAGE = a.REGIONAL_LANGUAGE,
+                           SALES_PRICE_BEFOR_TAX = a.SALES_PRICE_BEFOR_TAX,
+                           IS_DELETE = a.IS_DELETE,
+                           INCLUDE_TAX = a.INCLUDE_TAX,
+                           IS_Shortable_Item = false,
+                           IS_Purchased = false,
+                           IS_Service_Item = false,
+                           IS_For_Online_Shop = false,
+                           IS_Not_for_online_shop = false,
+                           IS_Not_For_Sell = false,
+                           ALLOW_PURCHASE_ON_ESHOP = false,
+                           IS_ACTIVE = a.IS_ACIVE,
+                           IS_Gift_Card = false,
+                           MODIFICATION_DATE = a.MODIFICATION_DATE,
+                           WEIGHT_OF_CARDBOARD = a.WEIGHT_OF_CARDBOARD,
+                           WEIGHT_OF_FOAM = a.WEIGHT_OF_FOAM,
+                           WEIGHT_OF_PLASTIC = a.WEIGHT_OF_PLASTIC,
+                           WEIGHT_OF_PAPER = a.WEIGHT_OF_PAPER,                           
+                           TAX_COLLECTED_NAME = a.TAX_COLLECTED_NAME,
+                           TAX_PAID_NAME = a.TAX_PAID_NAME,                           
+                           Current_Qty = a.OPN_QNT,
+                           Total = a.MRP,
+                           TotalTax = b.TOTAL_TAX,
+                           TaxValue = 0,
+                           DATE = a.MODIFICATION_DATE
+                       });
+
+            return Request.CreateResponse(HttpStatusCode.OK, data);
         }
         [HttpGet]
         public HttpResponseMessage PickInvoice(int id)

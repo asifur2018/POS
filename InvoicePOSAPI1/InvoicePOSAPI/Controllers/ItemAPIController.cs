@@ -13,7 +13,7 @@ namespace InvoicePOSAPI.Controllers
     public class ItemAPIController : ApiController
     {
         ItemModel im = new ItemModel();
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
 
         [HttpGet]
         public HttpResponseMessage GetAllItem1(int id, int comp)
@@ -1819,6 +1819,69 @@ namespace InvoicePOSAPI.Controllers
         }
         [HttpPost]
         public HttpResponseMessage ItemUpdate(ItemModel _ItemModel)
+        {
+            var str = (from a in db.TBL_ITEMS where a.ITEM_ID == _ItemModel.ITEM_ID select a).FirstOrDefault();
+
+            str.ITEM_NAME = _ItemModel.ITEM_NAME;
+            str.OPN_QNT = _ItemModel.OPN_QNT;
+            str.ITEM_DESCRIPTION = _ItemModel.ITEM_DESCRIPTION;
+            str.ITEM_PRICE = _ItemModel.ITEM_PRICE;
+            str.ITEM_INVOICE_ID = _ItemModel.ITEM_INVOICE_ID;
+            str.ITEM_PRODUCT_ID = _ItemModel.ITEM_PRODUCT_ID;
+            str.KEYWORD = _ItemModel.KEYWORD;
+            str.ACCESSORIES_KEYWORD = _ItemModel.ACCESSORIES_KEYWORD;
+            str.BARCODE = _ItemModel.BARCODE;
+            str.CATAGORY_ID = _ItemModel.CATAGORY_ID;
+            str.CATEGORY_NAME = _ItemModel.CATEGORY_NAME;
+            str.SERCH_CODE = _ItemModel.SEARCH_CODE;
+            str.TAX_PAID = _ItemModel.TAX_PAID;
+            str.TAX_COLLECTED = _ItemModel.TAX_COLLECTED;
+            str.PURCHASE_UNIT = _ItemModel.PURCHASE_UNIT;
+            str.SALES_UNIT = _ItemModel.SALES_UNIT;
+            str.PURCHASE_UNIT_PRICE = _ItemModel.PURCHASE_UNIT_PRICE;
+            str.SALES_PRICE = _ItemModel.SALES_PRICE;
+            str.MRP = _ItemModel.MRP;
+            str.DISPLAY_INDEX = _ItemModel.DISPLAY_INDEX;
+            str.ITEM_GROUP_NAME = _ItemModel.ITEM_GROUP_NAME;
+            str.ITEM_UNIQUE_NAME = _ItemModel.ITEM_UNIQUE_NAME;
+            str.REGIONAL_LANGUAGE = _ItemModel.REGIONAL_LANGUAGE;
+            str.SALES_PRICE_BEFOR_TAX = _ItemModel.SALES_PRICE_BEFOR_TAX;
+            str.WEIGHT_OF_CARDBOARD = _ItemModel.WEIGHT_OF_CARDBOARD;
+            str.WEIGHT_OF_FOAM = _ItemModel.WEIGHT_OF_FOAM;
+            str.WEIGHT_OF_PAPER = _ItemModel.WEIGHT_OF_PAPER;
+            str.WEIGHT_OF_PLASTIC = _ItemModel.WEIGHT_OF_PLASTIC;
+            str.IMAGE_PATH = _ItemModel.IMAGE_PATH;
+            str.TAX_COLLECTED_NAME = _ItemModel.TAX_COLLECTED_NAME;
+            str.TAX_PAID_NAME = _ItemModel.TAX_PAID_NAME;
+            str.MODIFICATION_DATE = System.DateTime.Now;
+
+
+
+            str.BUSS_LOC_ID = _ItemModel.BUSS_LOC_ID;
+            str.GODOWN_ID = _ItemModel.GODOWN_ID;
+            str.TAX_COLLECTED_ID = _ItemModel.TAX_COLLECTED_ID;
+            str.TAX_PAID_ID = _ItemModel.TAX_PAID_ID;
+            str.PURCHAGE_UNIT_ID = _ItemModel.UNIT_PURCHAGE_ID;
+            str.SALE_UNIT_ID = _ItemModel.UNIT_SALES_ID;
+            str.IS_ACIVE = true;
+
+            //var _ITEM_ATTRIBUTE = (from a in db.TBL_ITEMS_ATTRIBUTE where a.ITEM_ID == _ItemModel.ITEM_ID select a).FirstOrDefault();
+            //_ITEM_ATTRIBUTE.ALLOW_PURCHASE_ON_ESHOP = _ItemModel.ALLOW_PURCHASE_ON_ESHOP;
+            //_ITEM_ATTRIBUTE.NOT_FOR_ONLINE_SHOP = _ItemModel.IS_Not_for_online_shop;
+            //_ITEM_ATTRIBUTE.IS_PURCHASED = _ItemModel.IS_Purchased;
+            //_ITEM_ATTRIBUTE.IS_SERVICE = _ItemModel.IS_Service_Item;
+            //_ITEM_ATTRIBUTE.ONLY_ONLINE_SHOP = _ItemModel.IS_For_Online_Shop;
+            //_ITEM_ATTRIBUTE.NOT_FOR_SALE = _ItemModel.IS_Not_For_Sell;
+            //_ITEM_ATTRIBUTE.INCLUDE_TAX = _ItemModel.INCLUDE_TAX;
+            //_ITEM_ATTRIBUTE.IS_SORTABLE_ITEM = _ItemModel.IS_Shortable_Item;
+            //_ITEM_ATTRIBUTE.IS_ACTIVE = _ItemModel.IS_ACTIVE;
+            //_ITEM_ATTRIBUTE.IS_GIFT_CARD = _ItemModel.IS_Gift_Card;
+            //_ITEM_ATTRIBUTE.INCLUDE_TAX = _ItemModel.INCLUDE_TAX;
+            db.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+        [HttpPost]
+        public HttpResponseMessage ItemUpdateList(ItemModel _ItemModel)
         {
             var str = (from a in db.TBL_ITEMS where a.ITEM_ID == _ItemModel.ITEM_ID select a).FirstOrDefault();
 

@@ -12,7 +12,7 @@ namespace InvoicePOSAPI.Controllers
     public class EmployeeAPIController : ApiController
     {
         EmployeeModel emp = new EmployeeModel();
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         [HttpGet]
         public HttpResponseMessage EmployeeList(int id)
         {

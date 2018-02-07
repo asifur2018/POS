@@ -2159,48 +2159,53 @@ namespace InvoicePOS.ViewModels
                 if (response.IsSuccessStatusCode)
                 {
                     data = JsonConvert.DeserializeObject<ItemModel[]>(await response.Content.ReadAsStringAsync());
+                   
                     int x = 0;
                     for (int i = 0; i < data.Length; i++)
                     {
                         x++;
-                        _ListGrid_Temp.Add(new ItemModel
+                        if (data[i].IS_ACTIVE != true)
                         {
-                            SLNO = x,
-                            IMAGE_PATH = data[i].IMAGE_PATH,
-                            //IMAGE_PATH = System.IO.Path.Combine(dir.FullName + "\\", data[3].IMAGE_PATH),
-                            // IMAGE_PATH="C:/Users/Suvendu/Desktop/24.04.2017/InvoicePOS/InvoicePOS/bin/Debug/uploaded/319200865402.jpg",
-                            ITEM_NAME = data[i].ITEM_NAME,
-                            ITEM_LOCATION = data[i].ITEM_LOCATION,
-                            ITEM_ID = data[i].ITEM_ID,
-                            BARCODE = data[i].BARCODE,
-                            ACCESSORIES_KEYWORD = data[i].ACCESSORIES_KEYWORD,
-                            CATAGORY_ID = data[i].CATAGORY_ID,
-                            ITEM_DESCRIPTION = data[i].ITEM_DESCRIPTION,
-                            ITEM_INVOICE_ID = data[i].ITEM_INVOICE_ID,
-                            ITEM_PRICE = data[i].ITEM_PRICE,
-                            ITEM_PRODUCT_ID = data[i].ITEM_PRODUCT_ID,
-                            KEYWORD = data[i].KEYWORD,
-                            MRP = data[i].MRP,
-                            PURCHASE_UNIT = data[i].PURCHASE_UNIT,
-                            PURCHASE_UNIT_PRICE = data[i].PURCHASE_UNIT_PRICE,
-                            SALES_PRICE = data[i].SALES_PRICE,
-                            SALES_UNIT = data[i].SALES_UNIT,
-                            SEARCH_CODE = data[i].SEARCH_CODE,
-                            TAX_COLLECTED = data[i].TAX_COLLECTED,
-                            TAX_PAID = data[i].TAX_PAID,
-                            ALLOW_PURCHASE_ON_ESHOP = data[i].ALLOW_PURCHASE_ON_ESHOP,
-                            CATEGORY_NAME = data[i].CATEGORY_NAME,
-                            DISPLAY_INDEX = data[i].DISPLAY_INDEX,
-                            INCLUDE_TAX = data[i].INCLUDE_TAX,
-                            ITEM_GROUP_NAME = data[i].ITEM_GROUP_NAME,
-                            ITEM_UNIQUE_NAME = data[i].ITEM_UNIQUE_NAME,
-                            OPN_QNT = data[i].OPN_QNT,
-                            REGIONAL_LANGUAGE = data[i].REGIONAL_LANGUAGE,
-                            SALES_PRICE_BEFOR_TAX = data[i].SALES_PRICE_BEFOR_TAX,
-                            MODIFICATION_DATE = data[i].MODIFICATION_DATE,
-                            IS_ACTIVE = data[i].IS_ACTIVE,
+                            _ListGrid_Temp.Add(new ItemModel
+                            {
+                                SLNO = x,
+                                IMAGE_PATH = data[i].IMAGE_PATH,
+                                //IMAGE_PATH = System.IO.Path.Combine(dir.FullName + "\\", data[3].IMAGE_PATH),
+                                // IMAGE_PATH="C:/Users/Suvendu/Desktop/24.04.2017/InvoicePOS/InvoicePOS/bin/Debug/uploaded/319200865402.jpg",
+                                ITEM_NAME = data[i].ITEM_NAME,
+                                ITEM_LOCATION = data[i].ITEM_LOCATION,
+                                ITEM_ID = data[i].ITEM_ID,
+                                BARCODE = data[i].BARCODE,
+                                ACCESSORIES_KEYWORD = data[i].ACCESSORIES_KEYWORD,
+                                CATAGORY_ID = data[i].CATAGORY_ID,
+                                ITEM_DESCRIPTION = data[i].ITEM_DESCRIPTION,
+                                ITEM_INVOICE_ID = data[i].ITEM_INVOICE_ID,
+                                ITEM_PRICE = data[i].ITEM_PRICE,
+                                ITEM_PRODUCT_ID = data[i].ITEM_PRODUCT_ID,
+                                KEYWORD = data[i].KEYWORD,
+                                MRP = data[i].MRP,
+                                PURCHASE_UNIT = data[i].PURCHASE_UNIT,
+                                PURCHASE_UNIT_PRICE = data[i].PURCHASE_UNIT_PRICE,
+                                SALES_PRICE = data[i].SALES_PRICE,
+                                SALES_UNIT = data[i].SALES_UNIT,
+                                SEARCH_CODE = data[i].SEARCH_CODE,
+                                TAX_COLLECTED = data[i].TAX_COLLECTED,
+                                TAX_PAID = data[i].TAX_PAID,
+                                ALLOW_PURCHASE_ON_ESHOP = data[i].ALLOW_PURCHASE_ON_ESHOP,
+                                CATEGORY_NAME = data[i].CATEGORY_NAME,
+                                DISPLAY_INDEX = data[i].DISPLAY_INDEX,
+                                INCLUDE_TAX = data[i].INCLUDE_TAX,
+                                ITEM_GROUP_NAME = data[i].ITEM_GROUP_NAME,
+                                ITEM_UNIQUE_NAME = data[i].ITEM_UNIQUE_NAME,
+                                OPN_QNT = data[i].OPN_QNT,
+                                REGIONAL_LANGUAGE = data[i].REGIONAL_LANGUAGE,
+                                SALES_PRICE_BEFOR_TAX = data[i].SALES_PRICE_BEFOR_TAX,
+                                MODIFICATION_DATE = data[i].MODIFICATION_DATE,
+                                IS_ACTIVE = data[i].IS_ACTIVE,
 
-                        });
+                            });
+                        }
+                       
                     }
 
 

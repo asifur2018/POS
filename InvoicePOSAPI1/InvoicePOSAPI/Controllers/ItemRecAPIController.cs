@@ -12,7 +12,7 @@ namespace InvoicePOSAPI.Controllers
     public class ItemRecAPIController : ApiController
     {
         ReceiveItem im = new ReceiveItem();
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         [HttpGet]
         public HttpResponseMessage GetAllRecItem(int id)
         {

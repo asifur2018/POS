@@ -11,7 +11,7 @@ namespace InvoicePOSAPI.Controllers
 {
     public class DesignationListAPIController : ApiController
     {
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         [HttpGet]
         public HttpResponseMessage GetDesignation(int id)
         {

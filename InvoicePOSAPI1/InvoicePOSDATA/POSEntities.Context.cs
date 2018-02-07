@@ -16,10 +16,10 @@ namespace InvoicePOSDATA
     using System.Data.Objects.DataClasses;
     using System.Linq;
     
-    public partial class NEW_POSEntities : DbContext
+    public partial class NEW_POSEntities3 : DbContext
     {
-        public NEW_POSEntities()
-            : base("name=NEW_POSEntities")
+        public NEW_POSEntities3()
+            : base("name=NEW_POSEntities3")
         {
         }
     
@@ -82,6 +82,7 @@ namespace InvoicePOSDATA
         public DbSet<tbl_supppaydetails> tbl_supppaydetails { get; set; }
         public DbSet<TBL_TAX> TBL_TAX { get; set; }
         public DbSet<TBL_TRANSFER> TBL_TRANSFER { get; set; }
+        public DbSet<TBL_TRANSFER_CASH> TBL_TRANSFER_CASH { get; set; }
         public DbSet<TBL_UNIT_MEASURING> TBL_UNIT_MEASURING { get; set; }
         public DbSet<TBL_USER> TBL_USER { get; set; }
         public DbSet<TBL_VENDORS> TBL_VENDORS { get; set; }

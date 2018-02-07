@@ -14,7 +14,7 @@
                 <Grid HorizontalAlignment="Left" Height="325" Margin="10,10,0,0" VerticalAlignment="Top" Width="300"/>
                 <Grid HorizontalAlignment="Left" Height="403" Margin="21,0,0,0" VerticalAlignment="Top" Width="488"/>
                 <TextBlock HorizontalAlignment="Left" Margin="36,13,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="20" Width="91"/>
-                <TextBlock HorizontalAlignment="Left" Margin="36,38,0,0" TextWrapping="Wrap" Text="Bar code Prefix" VerticalAlignment="Top" Height="23" Width="91"/>
+                <TextBlock HorizontalAlignment="Left" Margin="36,38,0,0" TextWrapping="Wrap" Text="Barcode Prefix" VerticalAlignment="Top" Height="23" Width="91"/>
                 <TextBlock HorizontalAlignment="Left" Margin="36,66,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="20" Width="72"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,160,0,0" TextWrapping="Wrap" Text=" e Shop Display Index" VerticalAlignment="Top" Height="19" Width="122"/>
                 <CheckBox Content="Not For Portal" IsChecked="{Binding IS_NOT_PROTAL,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="127,210,0,0" VerticalAlignment="Top" Height="21" Width="202"/>

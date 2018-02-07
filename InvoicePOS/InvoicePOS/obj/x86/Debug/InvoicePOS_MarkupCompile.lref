@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿D:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOS\InvoicePOS\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 
 FD:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOS\InvoicePOS\UserControll\CashReg\Window_CashRegList.xaml;;
@@ -25,4 +26,33 @@ FD:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOS\InvoicePOS\Views\Main\Main.xa
 FD:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOS\InvoicePOS\Views\Main\ShowStockList.xaml;;
 FD:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOS\InvoicePOS\Views\Report\EstimateInvoice.xaml;;
 FD:\tanima\tanima\18.1.2018_POS\POS_GIT\InvoicePOS\InvoicePOS\Views\WelCome\WelComePage.xaml;;
+=======
+﻿
+
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\CashReg\Window_CashRegList.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Company\BusinessLocationAdd.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Customer\AddCustomer.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Employee\EmployeeAdd.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Item\ItemAdd.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Item\ViewSalesHistory.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Item\Window_Opening_stock.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Report\AddReportGroup.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Report\GenerateReport.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Report\Item Report\ReportAllItem.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\UserControll\Report\PO Report\ReportPO.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\AddNewCashTransfer.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashReg.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashRegisterAmountDetails.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocation.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocationWarningMessage.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\CashRegister\WindowCashRegister.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\ChangeItem\ChangeItemPrice.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Company\Company_Window.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\MainWindow.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Main\demopage.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Main\Main.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Main\ShowStockList.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\Report\EstimateInvoice.xaml;;
+FD:\Annwesha\POS\POS\InvoicePOS\InvoicePOS\Views\WelCome\WelComePage.xaml;;
+>>>>>>> b811ef6e96d1a81e5f0f77f4385dd560152d0fa4
 

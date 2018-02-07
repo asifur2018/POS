@@ -11,7 +11,7 @@
     <Grid>
         <Button Content="Save" Visibility="{Binding CreatVisible}" Command="{Binding Path=InsertSalesreturn,UpdateSourceTrigger=PropertyChanged }" Margin="831,523,0,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Bussiness Location" VerticalAlignment="Top" Height="25" Width="107"/>
-        <TextBlock HorizontalAlignment="Left" Margin="26,35,0,0" TextWrapping="Wrap" Text="Bar Code" VerticalAlignment="Top" Height="25" Width="50"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,35,0,0" TextWrapping="Wrap" Text="Barcode" VerticalAlignment="Top" Height="25" Width="50"/>
         <TextBlock HorizontalAlignment="Left" Margin="26,65,0,0" TextWrapping="Wrap" Text="Item Name" VerticalAlignment="Top" Height="25" Width="91"/>
         <TextBlock HorizontalAlignment="Left" Margin="26,90,0,0" TextWrapping="Wrap" Text="Search Code" VerticalAlignment="Top" Height="25" Width="91"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding SelectedItem.BARCODE,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="122,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>

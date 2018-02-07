@@ -13,7 +13,7 @@ namespace InvoicePOSAPI.Controllers
     {
 
 
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         StocktransferModel cm = new StocktransferModel();
         [HttpGet]
         public HttpResponseMessage GetStocktransfer(string Code)

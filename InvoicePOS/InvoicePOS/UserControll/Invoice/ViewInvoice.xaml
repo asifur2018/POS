@@ -1,7 +1,7 @@
 ﻿<Window x:Class="InvoicePOS.UserControll.Invoice.ViewInvoice"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStartupLocation="CenterScreen"
-        Title="View Invoice" Height="715.649" Width="1125.573">
+        Title="View Invoice" Height="805.912" Width="1278.786">
     <Grid Margin="0,0,0,0">
         <Grid Margin="10,10,567,0" Height="155" VerticalAlignment="Top">
             <TextBox x:Name="textBox2" Margin="142,10,0,0" IsEnabled="{Binding BARCODEENABLE}" Text="{Binding BusinessLocation, Mode=TwoWay,  ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Style="{StaticResource itemTextboxdetails}" HorizontalAlignment="Left" Width="244" Visibility="Hidden"/>

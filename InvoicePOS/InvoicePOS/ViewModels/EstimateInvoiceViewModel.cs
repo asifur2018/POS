@@ -27,8 +27,8 @@ namespace InvoicePOS.ViewModels
         ItemModel[] data12 = null;
 
         List<ItemModel> _ListGrid_Temp12 = new List<ItemModel>();
-        public List<EstimateModel> _ListGrid { get; set; }
-        public List<EstimateModel> ListGrid
+        public List<ItemModel> _ListGrid { get; set; }
+        public List<ItemModel> ListGrid
         {
             get
             {
@@ -53,18 +53,18 @@ namespace InvoicePOS.ViewModels
             {
               SelectedEstimate = App.Current.Properties["ViewEstimate"] as EstimateModel ;
               ListGrid.Clear();
-              ListGrid.Add(new EstimateModel
+              ListGrid.Add(new ItemModel
               {
-                  Barcode = SelectedEstimate.Barcode,
-                  EstimateId = SelectedEstimate.EstimateId,
-                  EstimateNo = SelectedEstimate.EstimateNo,
-                  BusinessLocation = SelectedEstimate.BusinessLocation,
-                  CashRegister = SelectedEstimate.CashRegister,
-                  CountItem = SelectedEstimate.CountItem,
-                  CustomerName = SelectedEstimate.CustomerName,
-                  EmployeeLogin = SelectedEstimate.EmployeeLogin,
-                  TotalItemQty = SelectedEstimate.TotalItemQty,
-                  TotalPrice = SelectedEstimate.TotalPrice
+                  BARCODE = SelectedEstimate.Barcode,
+                  ESTIMATE_ID = SelectedEstimate.EstimateId,
+                  ESTIMATE_NO = SelectedEstimate.EstimateNo,
+                  BUSINESS_LOC = SelectedEstimate.BusinessLocation,
+                  CASH_REG = SelectedEstimate.CashRegister,
+                  Current_Qty = SelectedEstimate.CountItem,
+                  CUSTOMER_NAME = SelectedEstimate.CustomerName,
+                  //EmployeeLogin = SelectedEstimate.EmployeeLogin,
+                  TOTAL_QTY = Convert.ToInt32(SelectedEstimate.TotalItemQty),
+                  Total = Convert.ToDecimal(SelectedEstimate.TotalPrice)
               });
               EstimateNo = SelectedEstimate.EstimateNo;
               TotalPrice = SelectedEstimate.TotalPrice.Value;
@@ -741,12 +741,12 @@ namespace InvoicePOS.ViewModels
 
             }
         }
-        public async Task<ObservableCollection<EstimateModel>> GetEstimate(string comp)
+        public async void GetEstimate(string comp)
         {
             try
             {
-                EstimateModel[] data1 = null;
-                List<EstimateModel> _ListGrid_Temp = new List<EstimateModel>();
+                ItemModel[] data1 = null;
+                List<ItemModel> _ListGrid_Temp = new List<ItemModel>();
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(GlobalData.gblApiAdress);
                 client.DefaultRequestHeaders.Accept.Add(
@@ -757,38 +757,42 @@ namespace InvoicePOS.ViewModels
                 {
                     string val = await response.Content.ReadAsStringAsync();
                     //data = JsonConvert.DeserializeObject<EstimateModel[]>(await response.Content.ReadAsStringAsync());
-                    data1 = JsonConvert.DeserializeObject<EstimateModel[]>(await response.Content.ReadAsStringAsync());
+                    data1 = JsonConvert.DeserializeObject<ItemModel[]>(await response.Content.ReadAsStringAsync());
                     int x = 0;
                     for (int i = 0; i < data1.Length; i++)
                     {
                         x++;
-                        _ListGrid_Temp.Add(new EstimateModel
+                        _ListGrid_Temp.Add(new ItemModel
                         {
-                            EstimateNo = data1[i].EstimateNo,
-                            EstimateId = data1[i].EstimateId,
-                            CountItem = data1[i].CountItem,
-                            TotalPrice = data1[i].TotalPrice,
-                            TotalTax = data1[i].TotalTax,
-                            BusinessLocation = data1[i].BusinessLocation,
-                            CashRegister = data1[i].CashRegister,
-                            CustomerName = data1[i].CustomerName,
-                            EmployeeLogin = data1[i].EmployeeLogin,
-                            EstimateDate = data1[i].EstimateDate,
-                            //EstimateNumber = data[i].EstimateNumber,
-                            InvoiceDate = data1[i].InvoiceDate,
-                            TotalItemQty = data1[i].TotalItemQty,
-                            GrnadTotal = data1[i].GrnadTotal,
-                            HoldNote = data1[i].HoldNote,
-                            InvoiceNote = data1[i].InvoiceNote,
-                            InvoiceStatus = data1[i].InvoiceStatus,
-                            TaxGrandTotal = data1[i].TaxGrandTotal,
-                            Barcode = data1[i].Barcode,
-                            ItemName = data1[i].ItemName
+                            ESTIMATE_ID = data1[i].ESTIMATE_ID,
+                            ESTIMATE_NO = data1[i].ESTIMATE_NO,
+                            SALES_PRICE = data1[i].SALES_PRICE,
+                            INVOICE_ID = data1[i].INVOICE_ID,
+                            BUSINESS_LOC = data1[i].BUSINESS_LOC,
+                            INVOICE_NO = data1[i].INVOICE_NO,
+                            //TotalTax = data1[i].TotalTax,
+                            CASH_REG = data1[i].CASH_REG,
+                            //CUSTOMER_NAME = data1[i].CUSTOMER_NAME,
+                            ESTIMATE_DATE = data1[i].ESTIMATE_DATE,
+                            INVOICE_DATE = data1[i].INVOICE_DATE,
+                            OPN_QNT = data1[i].OPN_QNT,
+                            ITEM_NAME = data1[i].ITEM_NAME,
+                            BARCODE = data1[i].BARCODE,
+                            SALESPRICE = data1[i].MRP,
+                            
+                            //EmployeeLogin = data1[i].EmployeeLogin, 
+                            //GrnadTotal = data1[i].MRP,
+                            //HoldNote = data1[i].HoldNote,
+                            //InvoiceNote = data1[i].InvoiceNote,
+                            //InvoiceStatus = data1[i].InvoiceStatus,
+                            //TaxGrandTotal = data1[i].TaxGrandTotal,
+                            //Barcode = data1[i].Barcode,
+                            //ItemName = data1[i].ItemName
                         });
                     }
                     ListGrid = _ListGrid_Temp;
                 }
-                return new ObservableCollection<EstimateModel>(_ListGrid_Temp);
+                //return new ObservableCollection<EstimateModel>(_ListGrid_Temp);
             }
             catch (Exception ex)
             {
@@ -814,7 +818,7 @@ namespace InvoicePOS.ViewModels
         {
             App.Current.Properties["SelectEstimatedItem"] = SelectedEstimate;
             App.Current.Properties["Estimate_Grid"] = App.Current.Properties["DataGrid"];
-            _ListGrid = App.Current.Properties["SelectEstimatedItem"] as List<EstimateModel>;
+            _ListGrid = App.Current.Properties["SelectEstimatedItem"] as List<ItemModel>;
             if (SelectedEstimate.EstimateId != null && SelectedEstimate.EstimateId != 0)
             {
                 
@@ -1187,19 +1191,19 @@ namespace InvoicePOS.ViewModels
                             SelectedEstimate.EstimateDate = data[i].EstimateDate;
                             //SelectedEstimate.TotalTax = data[i].TotalTax;
                         }
-                        ListGrid.Add(new EstimateModel
+                        ListGrid.Add(new ItemModel
                         {
-                            Barcode = SelectedEstimate.Barcode,
-                            EstimateId = SelectedEstimate.EstimateId,
-                            EstimateNo = SelectedEstimate.EstimateNo,
-                            BusinessLocation = SelectedEstimate.BusinessLocation,
-                            CashRegister = SelectedEstimate.CashRegister,
-                            CountItem = SelectedEstimate.CountItem,
-                            CustomerName = SelectedEstimate.CustomerName,
-                            EmployeeLogin = SelectedEstimate.EmployeeLogin,
-                            TotalItemQty = SelectedEstimate.TotalItemQty,
-                            TotalPrice = SelectedEstimate.TotalPrice,
-                            ItemName = SelectedEstimate.ItemName
+                            BARCODE = SelectedEstimate.Barcode,
+                            ESTIMATE_ID = SelectedEstimate.EstimateId,
+                            ESTIMATE_NO = SelectedEstimate.EstimateNo,
+                            BUSINESS_LOC = SelectedEstimate.BusinessLocation,
+                            CASH_REG = SelectedEstimate.CashRegister,
+                            Current_Qty = SelectedEstimate.CountItem,
+                            CUSTOMER_NAME = SelectedEstimate.CustomerName,
+                            //EmployeeLogin = SelectedEstimate.EmployeeLogin,
+                            TOTAL_QTY = Convert.ToInt32(SelectedEstimate.TotalItemQty),
+                            Total = Convert.ToDecimal(SelectedEstimate.TotalPrice),
+                            ITEM_NAME = SelectedEstimate.ItemName
                         });
                         App.Current.Properties["ViewEstimate"] = SelectedEstimate;
                         //InvoicePOS.UserControll.Estimate.ViewEstimate.TotalAmount.Text = SelectedEstimate.TotalPrice.ToString();

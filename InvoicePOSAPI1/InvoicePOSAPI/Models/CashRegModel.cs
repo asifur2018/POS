@@ -17,6 +17,11 @@ namespace InvoicePOSAPI.Models
         public bool? IS_MAIN_CASH { get; set; }
         public long? COMPANY_ID { get; set; }
         public decimal? CASH_AMOUNT { get; set; }
+        public int TRANSFER_ID { get; set; }
+        public int TRANSFER_CODE { get; set; }
+        public int FROM_TRAN_CASH_REGISTER { get; set; }
+        public int TO_TRAN_CASH_REGISTER { get; set; }
+        public bool STATUS { get; set; }
 
     }
 }

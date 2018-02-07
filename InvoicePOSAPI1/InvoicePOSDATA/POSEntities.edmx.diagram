@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9db6ea9501ee4393ba911164096d092c" Name="Diagram1" ZoomLevel="85">
+      <Diagram DiagramId="ec722761b72e4eb58a3fe7cfa20e7cd6" Name="Diagram1">
         <EntityTypeShape EntityType="NEW_POSModel.AUTHORIZATION" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.MODULE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.TBL_AUTO_GENERATE_CODE" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
@@ -55,21 +55,22 @@
         <EntityTypeShape EntityType="NEW_POSModel.TBL_SALES_RETURN" Width="1.5" PointX="22.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.TBL_STOCK_TRANSFER" Width="1.5" PointX="14.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.TBL_SUPP_PAYMENT" Width="1.5" PointX="22.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.TBL_SUPPLIER" Width="1.5" PointX="4.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.tbl_supppaydetails" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.TBL_TAX" Width="1.5" PointX="24.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.TBL_TRANSFER" Width="1.5" PointX="24.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.TBL_UNIT_MEASURING" Width="1.5" PointX="24.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.TBL_USER" Width="1.5" PointX="16.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.TBL_VENDORS" Width="1.5" PointX="24.75" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.tmp_invoice" Width="1.5" PointX="24.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.MODULE_RIGHTS" Width="1.5" PointX="6.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.TBL_SUPPLIER" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.tbl_supppaydetails" Width="1.5" PointX="4.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.TBL_TAX" Width="1.5" PointX="24.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.TBL_TRANSFER" Width="1.5" PointX="24.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.TBL_TRANSFER_CASH" Width="1.5" PointX="24.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.TBL_UNIT_MEASURING" Width="1.5" PointX="16.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.TBL_USER" Width="1.5" PointX="24.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.TBL_VENDORS" Width="1.5" PointX="6.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.tmp_invoice" Width="1.5" PointX="22.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.MODULE_RIGHTS" Width="1.5" PointX="24.75" PointY="25.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.VIEW_GROUP_SUBGROUP" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.VIEW_INVOICE" Width="1.5" PointX="26.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.View_ITEM_ATTRIBUTE" Width="1.5" PointX="26.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NEW_POSModel.View_STOCK_SEARCH" Width="1.5" PointX="18.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.VW_EMP_ACCESS_MODULE" Width="1.5" PointX="20.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NEW_POSModel.VW_EMP_MODULE_ACCESS" Width="1.5" PointX="0.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.VW_EMP_ACCESS_MODULE" Width="1.5" PointX="0.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NEW_POSModel.VW_EMP_MODULE_ACCESS" Width="1.5" PointX="8.75" PointY="27.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
