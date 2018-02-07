@@ -13,7 +13,7 @@ namespace InvoicePOSAPI.Controllers
 {
     public class ReportGroupAPIController : ApiController
     {
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         ReportGroupModel _ReportGroupModel = new ReportGroupModel();
         [HttpGet]
         public HttpResponseMessage GetReportName(int id)

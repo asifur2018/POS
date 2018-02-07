@@ -12,7 +12,7 @@ namespace InvoicePOSAPI.Controllers
 {
     public class SalesReturnAPIController : ApiController
     {
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         SalesReturnModel cm = new SalesReturnModel();
         [HttpPost]
         public HttpResponseMessage CreateSalesReturn(SalesReturnModel _SalesReturnModel)

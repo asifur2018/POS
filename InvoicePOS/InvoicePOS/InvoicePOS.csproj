@@ -71,6 +71,7 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -117,7 +118,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WpfAutoComplete">
-      <HintPath>..\..\..\..\..\Downloads\bin\Debug\WpfAutoComplete.dll</HintPath>
+      <HintPath>..\..\..\..\annwesha\19.01.2018\InvoicePOS\InvoicePOS\bin\Debug\WpfAutoComplete.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
+    <Compile Include="Helpers\Cryptography.cs" />
+    <Compile Include="Helpers\FontHelper.cs" />
+=======
+>>>>>>> b811ef6e96d1a81e5f0f77f4385dd560152d0fa4
     <Compile Include="Helper\AsyncCommand .cs" />
     <Compile Include="Helper\Simple.cs" />
     <Compile Include="Helper\SimpleFolderConverter.cs" />
@@ -136,6 +142,7 @@
     <Compile Include="Models\CashRegModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\CurrencySettingsModel.cs" />
     <Compile Include="Models\CustomerGroupModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
@@ -144,6 +151,7 @@
     <Compile Include="Models\EstimateModel.cs" />
     <Compile Include="Models\GetReceivePayment.cs" />
     <Compile Include="Models\GodownModel.cs" />
+    <Compile Include="Models\HoldInvoice.cs" />
     <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\LoyaltyModel.cs" />
@@ -456,6 +464,9 @@
     <Compile Include="UserControll\SalesReturn\SalesReturnView.xaml.cs">
       <DependentUpon>SalesReturnView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControll\Settings\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\StockLedger\StockLedgerList.xaml.cs">
       <DependentUpon>StockLedgerList.xaml</DependentUpon>
     </Compile>
@@ -520,7 +531,6 @@
     <Compile Include="ViewModels\BankViewModel.cs" />
     <Compile Include="ViewModels\BussinessLocationViewModel.cs" />
     <Compile Include="ViewModels\CashRegViewModel.cs" />
-    <Compile Include="ViewModels\CategoryAutoScr.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\ChangeBussinessLocationViewModel.cs" />
     <Compile Include="ViewModels\ChangeItemViewModel.cs" />
@@ -556,6 +566,7 @@
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\SalesReturnViewModel.cs" />
     <Compile Include="ViewModels\SalesViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShowStockViewModel.cs" />
     <Compile Include="ViewModels\StockLedgerViewModel.cs" />
     <Compile Include="ViewModels\StockTransferViewModel.cs" />
@@ -634,6 +645,9 @@
     </Compile>
     <Compile Include="Views\Customer\Openingbalance.xaml.cs">
       <DependentUpon>Openingbalance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvoiceSettings.xaml.cs">
+      <DependentUpon>InvoiceSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ItemNameAutoComplete.xaml.cs">
       <DependentUpon>ItemNameAutoComplete.xaml</DependentUpon>
@@ -817,8 +831,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControll\Customer\ImportDataForCustomer.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControll\Customer\ImportExcel.xaml">
       <SubType>Designer</SubType>
@@ -1100,6 +1114,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControll\Settings\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControll\StockLedger\StockLedgerList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1301,6 +1319,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\InvoiceSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ItemNameAutoComplete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1388,6 +1410,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Resources\Resources.resx" />
+    <EmbeddedResource Include="Resources\Settings.resx" />
+=======
+>>>>>>> b811ef6e96d1a81e5f0f77f4385dd560152d0fa4
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -1565,6 +1592,13 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\currency.png" />
+    <Resource Include="Images\email.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

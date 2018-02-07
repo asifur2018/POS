@@ -15,7 +15,7 @@ namespace InvoicePOSAPI.Controllers
     public class CompanyAPIController : ApiController
     {
 
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         CompanyModel cm = new CompanyModel();
 
 

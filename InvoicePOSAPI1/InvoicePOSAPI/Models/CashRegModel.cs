@@ -28,12 +28,20 @@ namespace InvoicePOSAPI.Models
         public long? COMPANY_ID { get; set; }
         public int SLNO { get; set; }
         public decimal? CASH_AMOUNT { get; set; }
+<<<<<<< HEAD
         public decimal CURRENT_CASH { get; set; }
         public decimal? CASH_TO_TRANSFER { get; set; }
         public decimal SUBMITTED_CASH { get; set; }
         public decimal CURRENT_REMAIN { get; set; }
         public string STATUS { get; set; }
         
+=======
+        public int TRANSFER_ID { get; set; }
+        public int TRANSFER_CODE { get; set; }
+        public int FROM_TRAN_CASH_REGISTER { get; set; }
+        public int TO_TRAN_CASH_REGISTER { get; set; }
+        public bool STATUS { get; set; }
+>>>>>>> 677b4a99cb25707bb628091827e6da01d2f84517
 
     }
 }

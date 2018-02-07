@@ -12,7 +12,7 @@ namespace InvoicePOSAPI.Controllers
     public class SuppPaymentAPIController : ApiController
     {
         SuppPaymentModel im = new SuppPaymentModel();
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         [HttpGet]
         public HttpResponseMessage GetSuppPayment(int id)
         {

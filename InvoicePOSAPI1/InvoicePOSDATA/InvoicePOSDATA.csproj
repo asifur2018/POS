@@ -246,6 +246,9 @@
     <Compile Include="TBL_TRANSFER_CASH.cs">
       <DependentUpon>POSDATA.tt</DependentUpon>
     </Compile>
+    <Compile Include="TBL_TRANSFER_CASH.cs">
+      <DependentUpon>POSEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBL_UNIT_MEASURING.cs">
       <DependentUpon>POSDATA.tt</DependentUpon>
     </Compile>
@@ -293,6 +296,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>POSDATA.Designer.cs</LastGenOutput>
     </EntityDeploy>
+<<<<<<< HEAD
     <None Include="POSDATA.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>POSDATA.edmx</DependentUpon>
@@ -305,6 +309,20 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>POSDATA.edmx</DependentUpon>
       <LastGenOutput>POSDATA.cs</LastGenOutput>
+=======
+    <None Include="POSEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>POSEntities.edmx</DependentUpon>
+      <LastGenOutput>POSEntities.Context.cs</LastGenOutput>
+    </None>
+    <None Include="POSEntities.edmx.diagram">
+      <DependentUpon>POSEntities.edmx</DependentUpon>
+>>>>>>> 677b4a99cb25707bb628091827e6da01d2f84517
+    </None>
+    <None Include="POSEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>POSEntities.edmx</DependentUpon>
+      <LastGenOutput>POSEntities.cs</LastGenOutput>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

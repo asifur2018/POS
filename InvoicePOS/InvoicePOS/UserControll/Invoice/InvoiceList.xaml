@@ -11,31 +11,43 @@
                     <TextBlock HorizontalAlignment="Left" Margin="192,8,0,0" TextWrapping="Wrap" Text="To Date:" VerticalAlignment="Top" Width="65" Height="22" FontWeight="Bold"/>
                     <DatePicker HorizontalAlignment="Left" Margin="259,5,0,0" VerticalAlignment="Top" SelectedDate="{Binding ENDDATE,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox Content="Apply Date" IsChecked="{Binding DATE_CHECK,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="380,9,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Right" Height="30" Margin="0,2,220,0" TextWrapping="Wrap" Text="{Binding SEARCH_CUS,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="205"/>
-                    <Button Command="{Binding SearchCustomer}"    Margin="0,1,145,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="75" HorizontalAlignment="Right"  >
+                    <TextBox HorizontalAlignment="Right" Height="30" Margin="0,6,106,0" TextWrapping="Wrap" Text="{Binding SEARCH_CUS,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="205"/>
+                    <Button Command="{Binding SearchCustomer}"    Margin="0,6,16,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="75" HorizontalAlignment="Right"  >
                         <DockPanel HorizontalAlignment="Stretch">
                             <Image Source="/InvoicePOS;component/Images/search-icon.png" Stretch="Uniform" DockPanel.Dock="left" Width="19" Height="21"/>
                             <Label Content="Search" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
                         </DockPanel>
                     </Button>
-                    <Button Command="{Binding ViewINvoice}"    Margin="483,7,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}"  Width="70" HorizontalAlignment="Left"  >
+                    <Button ToolTip="View Item" Command="{Binding ViewINvoice}"    Margin="595,11,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}"  Width="50" HorizontalAlignment="Left"  >
                         <DockPanel HorizontalAlignment="Stretch">
                             <Image Source="/InvoicePOS;component/Images/view1.png" Stretch="Uniform" DockPanel.Dock="left" Width="23" Height="26"/>
-                            <Label Content="View" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
+                            <!--<Label Content="View" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />-->
                         </DockPanel>
                     </Button>
-                    <Button Command="{Binding ExportInvoice}"    Margin="560,6,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}"  Width="110" HorizontalAlignment="Left" Click="Button_Click_1"  >
+                    <Button ToolTip="Export Item" Command="{Binding ExportInvoice}"    Margin="660,11,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}"  Width="50" HorizontalAlignment="Left" Click="Button_Click_1"  >
                         <DockPanel HorizontalAlignment="Stretch">
                             <Image Source="/InvoicePOS;component/Images/view1.png" Stretch="Uniform" DockPanel.Dock="left" Width="23" Height="26"/>
-                            <Label Content="Export Item" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
+                            <!--<Label Content="Export Item" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />-->
                         </DockPanel>
                     </Button>
-                    <Button Command="{Binding ExcelImportClick}"    Margin="675,6,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}"  Width="110" HorizontalAlignment="Left">
+                    <Button ToolTip="Upload Item" Command="{Binding ExcelImportClick}"    Margin="725,11,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}"  Width="50" HorizontalAlignment="Left">
                         <DockPanel HorizontalAlignment="Stretch">
                             <Image Source="/InvoicePOS;component/Images/view1.png" Stretch="Uniform" DockPanel.Dock="left" Width="23" Height="26"/>
-                            <Label Content="Upload Item" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
+                            <!--<Label Content="Upload Item" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />-->
                         </DockPanel>
                     </Button>
+                    <Button ToolTip="Delete Item" Command="{Binding DeleteINvoice}" Margin="530,11,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageDelete}"  Width="50" HorizontalAlignment="Left"  >
+                        <DockPanel HorizontalAlignment="Stretch">
+                            <Image Source="/InvoicePOS;component/Images/delete-icon-small.png" Stretch="Uniform" DockPanel.Dock="left" Width="20" Height="20"/>
+                            <!--<Label Content="View" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />-->
+                        </DockPanel>
+                    </Button>
+                    <!--<Button ToolTip="Add Item" Command="{Binding ViewINvoice}"    Margin="465,11,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}"  Width="50" HorizontalAlignment="Left"  >
+                        <DockPanel HorizontalAlignment="Stretch">
+                            <Image Source="/InvoicePOS;component/Images/edit-icon-new.png" Stretch="Uniform" DockPanel.Dock="left" Width="20" Height="20"/>
+                            
+                        </DockPanel>
+                    </Button>-->
                 </Grid>
 
                 <DataGrid  SelectionMode="Single" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged, Path=ListGrid}" SelectedItem="{Binding Path=SelectInv}"  RowHeight="28"  FontSize="12" Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1" IsReadOnly="True" AutoGenerateColumns="False"     Name="dataGrid1" Margin="10,75,10,0" VerticalAlignment="Top" Height="400"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="White" FontWeight="Normal" HorizontalGridLinesBrush="#dddddd" VerticalGridLinesBrush="#dddddd" Grid.RowSpan="2" MouseDoubleClick="grdInvoice_MouseDoubleClick" >
@@ -69,11 +81,11 @@
 
                         <DataGridTextColumn     Width="150" MaxWidth="120" Header="Inv Number" Binding="{Binding INVOICE_NO}"  />
                         <DataGridTextColumn   Width="150" Header="Invoice Date"  Binding="{Binding INVOICE_DATE}"/>
-                        <DataGridTextColumn   Width="150" Header="Grand Total"  Binding="{Binding TOTAL_AMOUNT}"/>
-                        <DataGridTextColumn   Width="150" Header="Tax Grand Total"  Binding="{Binding TOTAL_TAX}"/>
-                        <DataGridTextColumn   Width="150" Header="Total Item Quantity"  Binding="{Binding QUANTITY_TOTAL}"/>
-                        <DataGridTextColumn   Width="150" Header="Returnable Amount"  Binding="{Binding RETURNABLE_AMOUNT}"/>
-                        <DataGridTextColumn   Width="200" Header="Invoice Pending Amount"  Binding="{Binding PENDING_AMOUNT}"/>
+                        <DataGridTextColumn   Width="150" Header="Grand Total"  Binding="{Binding FORMATTED_TOTAL_AMOUNT}"/>
+                        <DataGridTextColumn   Width="150" Header="Tax Grand Total"  Binding="{Binding FORMATTED_TOTAL_TAX}"/>
+                        <DataGridTextColumn   Width="150" Header="Total Item Quantity"  Binding="{Binding FORMATTED_QUANTITY_TOTAL}"/>
+                        <DataGridTextColumn   Width="150" Header="Returnable Amount"  Binding="{Binding FORMATTED_RETURNABLE_AMOUNT}"/>
+                        <DataGridTextColumn   Width="200" Header="Invoice Pending Amount"  Binding="{Binding FORMATTED_PENDING_AMOUNT}"/>
                         <DataGridTextColumn   Width="150" Header="Customer Name"  Binding="{Binding CUSTOMER}"/>
                         <DataGridTextColumn   Width="150" Header="Mobile Number"  Binding="{Binding CUSTOMER_MOBILE_NO}"/>
                         <DataGridTextColumn   Width="150" Header="Estimate Invoice Number"  Binding="{Binding INVOICE_NO}"/>

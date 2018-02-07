@@ -11,7 +11,7 @@ namespace InvoicePOSAPI.Controllers
 {
     public class BankAPIController : ApiController
     {
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         BankModel _BankModel = new BankModel();
         [HttpGet]
         public HttpResponseMessage GetBank(int id)

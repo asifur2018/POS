@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:InvoicePOS.UserControll.CashReg"
         mc:Ignorable="d"
+<<<<<<< HEAD
         Title="Window_CashRegList" Height="450" Width="1000">
     <Grid Margin="0,0,0,0" >
         <!--<Grid.RowDefinitions>
@@ -14,6 +15,17 @@
         <Grid  VerticalAlignment="Top" Margin="11,25,0,0" Height="45" >
             <TextBox x:Name="textBox" Text="{Binding SEARCH_PO}" Margin="5,0,0,5" TextWrapping="Wrap" Height="30" VerticalAlignment="Bottom" Width="205" HorizontalAlignment="Left"/>
             <Button Command="{Binding SearchItem}"    Margin="225,10,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="75" HorizontalAlignment="Left"  >
+=======
+        Title="Window_CashRegList" Height="427" Width="1564.765">
+    <Grid Background="#ffffff" Margin="10,10,53,56">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="107*"/>
+            <RowDefinition Height="28*"/>
+        </Grid.RowDefinitions>
+        <Grid  VerticalAlignment="Top" Margin="507,5,474,0" Height="60" >
+            <TextBox x:Name="textBox" Text="{Binding SEARCH_PO}" Margin="533,0,-225,10" TextWrapping="Wrap" Height="30" VerticalAlignment="Bottom" Width="205" HorizontalAlignment="Left"/>
+            <Button Command="{Binding SearchItem}"    Margin="754,15,-335,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="94" HorizontalAlignment="Left" Height="40" RenderTransformOrigin="0.5,0.5"  >
+>>>>>>> 677b4a99cb25707bb628091827e6da01d2f84517
                 <DockPanel HorizontalAlignment="Stretch">
                     <Image Source="/InvoicePOS;component/Images/search-icon.png" Stretch="Uniform" DockPanel.Dock="left" Width="19" Height="21"/>
                     <Label Content="Search" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
@@ -52,7 +64,11 @@
             </Button>-->
 
         </Grid>
+<<<<<<< HEAD
         <DataGrid  SelectionMode="Single" ItemsSource="{Binding Path=ListGrid,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedItem="{Binding Path=SelectedItem}"  RowHeight="28"   Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1"  IsReadOnly="True" AutoGenerateColumns="False"     Name="dataGrid1" Margin="0,78,0,0" VerticalAlignment="Top"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="White" FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="12" HorizontalGridLinesBrush="#dddddd" VerticalGridLinesBrush="#dddddd" TextBlock.TextAlignment="Center" Height="227" MouseDoubleClick="Win_CashRegList_MouseDoubleClick">
+=======
+        <DataGrid  SelectionMode="Single" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged, Path=ListGrid}" SelectedItem="{Binding Path=SelectedItem}"  RowHeight="28"   Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1"  IsReadOnly="True" AutoGenerateColumns="False"     Name="dataGrid1" Margin="15,83,69,0" VerticalAlignment="Top"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="White" FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="12" HorizontalGridLinesBrush="#dddddd" VerticalGridLinesBrush="#dddddd" TextBlock.TextAlignment="Center" Height="147" MouseDoubleClick="Win_CashRegList_MouseDoubleClick">
+>>>>>>> 677b4a99cb25707bb628091827e6da01d2f84517
             <!--<DataGrid  SelectionMode="Single" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged, Path=ListGrid}" SelectedItem="{Binding Path=SelectedItem}"  RowHeight="35"  FontSize="14" Cursor="Hand"  BorderBrush="Transparent" GridLinesVisibility="Horizontal" BorderThickness="1" IsReadOnly="True" AutoGenerateColumns="False"     Name="dataGrid1" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Height="454" Width="1028"  AlternationCount="2">-->
             <DataGrid.Style>
                 <Style TargetType="DataGrid">

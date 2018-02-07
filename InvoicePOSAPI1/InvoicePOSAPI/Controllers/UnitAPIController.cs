@@ -12,7 +12,7 @@ namespace InvoicePOSAPI.Controllers
     public class UnitAPIController : ApiController
     {
         UnitModel um = new UnitModel();
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         [HttpGet]
         public HttpResponseMessage GetUnit(int id)
         {

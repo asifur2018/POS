@@ -48,7 +48,7 @@ namespace InvoicePOS.Models
     public class BusinessLocationModel : IDataErrorInfo
     {
         public long BUSINESS_LOCATION_ID { get; set; }
-
+        public string CASHREG_NAME { get; set; }
         public string BUSINESS_LOCATION { get; set; }
         public long COMPANY_ID { get; set; }
         public string COMPANY { get; set; }

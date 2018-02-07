@@ -12,7 +12,7 @@ namespace InvoicePOSAPI.Controllers
     public class BussLocationAPIController : ApiController
     {
         BusinessLocationModel bl = new BusinessLocationModel();
-        NEW_POSEntities db = new NEW_POSEntities();
+        POSEntities db = new POSEntities();
         [HttpGet]
         public HttpResponseMessage GetAllBusinessLo(int id)
         {
