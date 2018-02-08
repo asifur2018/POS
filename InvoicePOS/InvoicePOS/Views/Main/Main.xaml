@@ -65,22 +65,9 @@
                     <!--<Label Content="{DynamicResource Show Tax Details}" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="8"/>-->
                 </DockPanel>
             </Button>
-<<<<<<< HEAD
-            <!--<Button x:Name="TaxDeH" Visibility="{Binding HideTaxVisibility}" HorizontalAlignment="Left" Margin="883,0,0,0" VerticalAlignment="Top" Width="75" Height="70"  BorderThickness="0" Style="{StaticResource ButtonImageMain}" Command="{Binding TaxDetailsGridHide}" CommandParameter="{Binding ElementName=TaxDeH}">
-=======
-            <Button ToolTip="Hide Tax Details" x:Name="TaxDeH" Visibility="{Binding HideTaxVisibility}" HorizontalAlignment="Left" Margin="880,0,0,0" VerticalAlignment="Top" Width="80" Height="70"  BorderThickness="0" Style="{StaticResource ButtonImageMain}" Command="{Binding TaxDetailsGridHide}" CommandParameter="{Binding ElementName=TaxDeH}">
->>>>>>> 677b4a99cb25707bb628091827e6da01d2f84517
-                <DockPanel HorizontalAlignment="Stretch" >
-                    <Image Source="../../Images/show-details-icon.png" Stretch="Uniform" DockPanel.Dock="Top" Width="40" Height="31"/>
-                    <!--<Label Content="{DynamicResource Hide Tax Details}" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="8"/>-->
-                </DockPanel>
-<<<<<<< HEAD
-            </Button>-->
+
             <Button Margin="971,0,0,0" VerticalAlignment="Top" Height="70"  BorderThickness="0" Style="{StaticResource ButtonImageMain}" HorizontalAlignment="Left" Width="85" Command="{Binding RemoveItem}">
-=======
-            </Button>
-            <Button ToolTip="Remove item" Margin="960,0,0,0" VerticalAlignment="Top" Height="70"  BorderThickness="0" Style="{StaticResource ButtonImageMain}" HorizontalAlignment="Left" Width="80" Command="{Binding RemoveItem}">
->>>>>>> 677b4a99cb25707bb628091827e6da01d2f84517
+
                 <DockPanel HorizontalAlignment="Stretch" >
                     <Image Source="../../Images/remove-item-main.png" Stretch="Uniform" DockPanel.Dock="Top" Width="40" Height="40"/>
                     <!--<Label Content="{DynamicResource Remove item}" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="8"/>-->
@@ -262,31 +249,20 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn    Header="BarCode" Binding="{Binding BARCODE}" Width="200" />
                     <DataGridTextColumn    Header="Item Name" Binding="{Binding ITEM_NAME}" Width="250"/>
-<<<<<<< HEAD
                     <DataGridTextColumn    Header="Price of the Item" Binding="{Binding MRP}" Width="250"/>
                     <DataGridTextColumn    Header="Qty"  Binding="{Binding Current_Qty,Mode=TwoWay}" Width="90"/>
                     <DataGridTextColumn    Header="Price without tax" Binding="{Binding SALES_PRICE_BEFOR_TAX_QTY}" Width="200"/>
                     
-=======
 
-                    <DataGridTextColumn    Header="Price without tax" Binding="{Binding FORMATTED_SALES_PRICE_BEFOR_TAX_QTY}" Width="200"/>
-                    <DataGridTextColumn    Header="Qty"  Binding="{Binding FORMATTED_CURRENT_QTY}" Width="90"/>
->>>>>>> 677b4a99cb25707bb628091827e6da01d2f84517
                     <DataGridTextColumn    Header="Discount" Binding="{Binding Discount,StringFormat=\{0:\}}" Width="100"/>
                     <DataGridTextColumn    Header="Price with Discount" Binding="{Binding FORMATTED_SALES_PRICE_WITH_DISCOUNT}" Width="150"/>
                     <!--<DataGridTextColumn Visibility="Hidden"  Header="Taxt Name" Binding="{Binding TaxName}" Width="100"/>-->
                     <DataGridTextColumn   Header="Tax Price(%)" Binding="{Binding TaxValue,StringFormat=\{0:\}}" Width="100"/>
-<<<<<<< HEAD
                     <DataGridTextColumn Visibility="Hidden"  Header="Tax Price" Binding="{Binding TotalTax,StringFormat=\{0:\}}" Width="100"/>
 
                     <!--<DataGridTextColumn    Header="Unit Price With Tax" Binding="{Binding TAX_PAID,StringFormat=\{0:c\}}" Width="140"/>-->
                     <DataGridTextColumn    Header="Total Price With Tax" Binding="{Binding Total,StringFormat=\{0:\}}" Width="110"/>
-=======
-                    <DataGridTextColumn Visibility="Hidden"  Header="Total Tax" Binding="{Binding FORMATTED_TOTAL_TAX}" Width="100"/>
 
-                    <!--<DataGridTextColumn    Header="Unit Price With Tax" Binding="{Binding TAX_PAID,StringFormat=\{0:c\}}" Width="140"/>-->
-                    <DataGridTextColumn    Header="Total" Binding="{Binding FORMATTED_TOTAL,StringFormat=\{0:\}}" Width="110"/>
->>>>>>> 677b4a99cb25707bb628091827e6da01d2f84517
 
                 </DataGrid.Columns>
                 <i:Interaction.Triggers>

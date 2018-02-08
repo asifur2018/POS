@@ -131,6 +131,7 @@
     <Compile Include="Helpers\FontHelper.cs" />
     <Compile Include="Helpers\FontSizeListItem.cs" />
     <Compile Include="Helpers\NameDictionaryHelper.cs" />
+    <Compile Include="Helpers\PasswordBoxHelper.cs" />
     <Compile Include="Helpers\TypefaceListItem.cs" />
     <Compile Include="Helpers\TypographicFeatureListItem.cs" />
     <Compile Include="Helper\AsyncCommand .cs" />
@@ -153,7 +154,6 @@
     <Compile Include="Models\EstimateModel.cs" />
     <Compile Include="Models\GetReceivePayment.cs" />
     <Compile Include="Models\GodownModel.cs" />
-    <Compile Include="Models\HoldInvoice.cs" />
     <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\LoyaltyModel.cs" />

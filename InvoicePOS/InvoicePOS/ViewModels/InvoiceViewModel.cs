@@ -2246,11 +2246,6 @@ namespace InvoicePOS.ViewModels
         }
         public void ImportClick_Click()
         {
-<<<<<<< HEAD
-           // ImportDataForInvoice sh = new ImportDataForInvoice();
-=======
-            //ImportDataForInvoice sh = new ImportDataForInvoice();
->>>>>>> 677b4a99cb25707bb628091827e6da01d2f84517
             //sh.Show();
         }
 

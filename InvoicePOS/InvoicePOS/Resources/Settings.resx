@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FONT_FAMILY" xml:space="preserve">
-    <value>Arial</value>
+    <value>Bauhaus 93</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="FONT_WEIGHT" type="System.Int32, mscorlib">
@@ -152,7 +152,7 @@
     <value>False</value>
   </data>
   <data name="SPECIAL_CURRENCY_SYMBOL" xml:space="preserve">
-    <value>$</value>
+    <value>AaBb</value>
   </data>
   <data name="SPECIAL_CURRENCY_SYMBOL_LEFT" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -161,7 +161,7 @@
     <value>False</value>
   </data>
   <data name="NUMBER_DECIMAL_PLACES" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="UNIT_PRICE_DECIMAL_PLACES" type="System.Int32, mscorlib">
     <value>0</value>
@@ -170,6 +170,6 @@
     <value>0</value>
   </data>
   <data name="CODE_PAGE" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1253</value>
   </data>
 </root>
