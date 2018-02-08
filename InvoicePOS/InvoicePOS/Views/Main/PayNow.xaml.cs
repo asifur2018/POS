@@ -34,6 +34,7 @@ namespace InvoicePOS.Views.Main
         public static TextBox InvoiceCustomerEmailReff;
         public static TextBlock InvoiceCustomerLimits;
         public static TextBlock InvoiceCustomerLimits1;
+        public static TextBox BusinessLoc;
         public static TextBox Cash_RegName;
         public static TextBox Received_Amount;
         public static TextBlock Available_Amount;
@@ -67,6 +68,9 @@ namespace InvoicePOS.Views.Main
 
             //CreditAmount.Text = "";
             //Available_Amount = CreditAmount;
+
+            BussLoc.Text = "";
+            BusinessLoc = BussLoc;
 
             Email.Text = "";
             InvoiceCustomerEmailReff = Email;

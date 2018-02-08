@@ -178,6 +178,63 @@ namespace InvoicePOS.ViewModels
 
         }
 
+        private string _CHEQUENO { get; set; }
+        public string CHEQUENO
+        {
+            get { return _CHEQUENO; }
+            set
+            {
+                _CHEQUENO = value;
+
+
+                if (_CHEQUENO != value)
+                {
+                    _CHEQUENO = value;
+                    OnPropertyChanged("CHEQUENO");
+                }
+
+
+            }
+
+        }
+        private decimal _CHEQUEAMOUNT { get; set; }
+        public decimal CHEQUEAMOUNT
+        {
+            get { return _CHEQUEAMOUNT; }
+            set
+            {
+                _CHEQUEAMOUNT = value;
+
+
+                if (_CHEQUEAMOUNT != value)
+                {
+                    _CHEQUEAMOUNT = value;
+                    OnPropertyChanged("CHEQUEAMOUNT");
+                }
+
+
+            }
+
+        }
+        private decimal _CURRENTCASH { get; set; }
+        public decimal CURRENTCASH
+        {
+            get { return _CURRENTCASH; }
+            set
+            {
+                _CURRENTCASH = value;
+
+
+                if (_CURRENTCASH != value)
+                {
+                    _CURRENTCASH = value;
+                    OnPropertyChanged("CURRENTCASH");
+                }
+
+
+            }
+
+        }
         public ICommand _CashClick;
         public ICommand CashClick
         {
@@ -222,17 +279,49 @@ namespace InvoicePOS.ViewModels
                 return _CashRegisterAmountClick;
             }
         }
-        public void CashRegisterAmountClick_Ok()
+        public async void CashRegisterAmountClick_Ok()
         {
+            CashRegModel[] cash = null;
             CashRegisterAmountDetails IA = new CashRegisterAmountDetails();
-            IA.Show();
+            App.Current.Properties["CashReg"] = Main.CashRegisterName.Text;
+            App.Current.Properties["SelectBusinessName"] = Main.BusinessLocName.Text;
+             HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            client.Timeout = new TimeSpan(500000000000);
+            HttpResponseMessage response = client.GetAsync("api/CashRegAPI/GetCashRegWithChequeNo").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                cash = JsonConvert.DeserializeObject<CashRegModel[]>(await response.Content.ReadAsStringAsync());
+                if (cash.Length > 0)
+                {
+                    for (int i = 0; i < cash.Length; i++)
+                    {
+                        CASHREG_NAME = cash[i].CASH_REG_NAME;
+                        BusinessLocAddress = cash[i].BUSINESS_LOCATION;
+                        CURRENTCASH = cash[i].CURRENT_CASH;
+                        CHEQUEAMOUNT = cash[i].CHEQUE_AMOUNT;
+                        CHEQUENO = cash[i].CHEQUE_NO;
+                        
+                    }
+                }
+            }
             if (App.Current.Properties["CashReg"] != null)
             {
                 //var d = App.Current.Properties["ChangeBusinessLocation"] as BusinessLocationModel;
                 CashRegisterAmountDetails.CashRegNo.Text = App.Current.Properties["CashReg"].ToString();
                 CashRegisterAmountDetails.BusLocationName.Text = App.Current.Properties["SelectBusinessName"].ToString();
-                CashRegisterAmountDetails.CurrentCash.Text = App.Current.Properties["CurrentCash"].ToString();
+                //CashRegisterAmountDetails.CurrentCash.Text = App.Current.Properties["CurrentCash"].ToString();
             }
+            //CashRegisterAmountDetails.CashRegNo.Text = CASHREG_NAME;
+            CashRegisterAmountDetails.BusLocationName.Text = "Kolkata";
+            CashRegisterAmountDetails.ChqCash.Text = CHEQUEAMOUNT.ToString();
+            CashRegisterAmountDetails.NoOfChq.Text = CHEQUENO;
+            CashRegisterAmountDetails.CurrentCash.Text = CURRENTCASH.ToString();
+            CashRegisterAmountDetails.TotalCash.Text = (CHEQUEAMOUNT + CURRENTCASH).ToString();
+            
+            IA.Show();
         }
         public ICommand _AddCashRegisterClick { get; set; }
         public ICommand AddCashRegisterClick
@@ -3863,6 +3952,7 @@ namespace InvoicePOS.ViewModels
                 //textBox5.Text = "";
                 Main.CashRegisterName.Text = CashReg.CashRegName.Text;
                 App.Current.Properties["CashRegisterName"] = Main.CashRegisterName.Text;
+                App.Current.Properties["CashReg"] = Main.CashRegisterName.Text;
                 //CashRegisterAmountDetails.BusLocationName.Text = CashReg.CashRegName.Text;
             }
         }

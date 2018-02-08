@@ -1358,6 +1358,9 @@ namespace InvoicePOS.ViewModels
                 //ChangeBussinessLocation.Address.Text = SelectedBusinessLoca.BUSS_ADDRESS_1;
                 InvoicePOS.Views.CashRegister.CashReg.BusLocationName.Text = SelectedBusinessLoca.SHOP_NAME;
                 InvoicePOS.Views.CashRegister.CashReg.BussAddress.Text = SelectedBusinessLoca.BUSS_ADDRESS_1;
+                InvoicePOS.Views.Main.PayNow.BusinessLoc.Text = SelectedBusinessLoca.BUSS_ADDRESS_1;
+                App.Current.Properties["SelectBusinessName"] = SelectedBusinessLoca.BUSS_ADDRESS_1;
+                //CashRegisterAmountDetails.BusLocationName.Text = SelectedBusinessLoca.BUSS_ADDRESS_1; ;
             }
             if(App.Current.Properties["ChangeBusinessLocation"] != null && ChangeBussinessLocation.BussinessLocationName != null)
             {
