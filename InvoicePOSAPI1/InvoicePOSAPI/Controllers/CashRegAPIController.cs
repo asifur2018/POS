@@ -38,6 +38,27 @@ namespace InvoicePOSAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, str);
         }
         [HttpGet]
+        public HttpResponseMessage GetCashRegWithChequeNo()
+        {
+            var data = (from a in db.TBL_CASH_REG
+                        join b in db.TBL_CHEQUE on a.INVOICE_ID equals b.INVOICE_ID
+                        select new CashRegModel
+                        {
+                            CASH_REG_NO = 0,
+                            ISADGUSTMENT = false,
+                            IS_MAIN_CASH = false,
+                            IS_TRANSFER_CASH_REGISTER = false,
+                            TRANSFER_DATE = a.CASH_REG_DATE,
+                            COMPANY_ID = 1,
+                            CASH_AMOUNT = a.CASH_AMOUNT.Value,
+                            CASH_TO_TRANSFER = 0,
+                           CURRENT_CASH = a.CASH_AMOUNT.Value,
+                           CHEQUE_NO = b.CHEQUE_NO,
+                           CHEQUE_AMOUNT = b.CHEQUE_AMOUNT.Value
+                        });
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+        [HttpGet]
         public HttpResponseMessage GetAllTransferedCash(int id)
         {
             var str = (from a in db.TBL_TRANSFER_CASH
