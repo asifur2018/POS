@@ -21,17 +21,11 @@ namespace InvoicePOS.Views.LogIn
     public partial class LogIn : Window
     {
         LogInViewModel _LogInViewModel;
-        public static TextBlock pwd;
         public LogIn()
         {
             InitializeComponent();
             _LogInViewModel = new LogInViewModel();
             this.DataContext = _LogInViewModel;
-
-            //txtOutput.Text = "";
-            //txtOutput.Text = password.Password.ToString();
-            //pwd.Text = txtOutput.Text;
-           
         }
     }
 }

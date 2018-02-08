@@ -1299,23 +1299,6 @@ namespace InvoicePOS.ViewModels
                 InvoicePOS.UserControll.Customer.AddCustomer.BusinessLoc.Text = null;
                 InvoicePOS.UserControll.Customer.AddCustomer.BusinessLoc.Text = SelectedBusinessLoca.BUSINESS_LOCATION;
             }
-            if (SelectedBusinessLoca.SHOP_NAME != null
-                && InvoicePOS.UserControll.Customer.ViewLedger.BusinessList != null)
-            {
-                InvoicePOS.UserControll.Customer.ViewLedger.BusinessList.Text = null;
-                InvoicePOS.UserControll.Customer.ViewLedger.BusinessList.Text = SelectedBusinessLoca.BUSINESS_LOCATION;
-
-                InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = null;
-                InvoicePOS.UserControll.Customer.ViewLedger.CompanyList.Text = SelectedBusinessLoca.COMPANY;
-            }
-           /* if (SelectedBusinessLoca.SHOP_NAME != null && InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList != null)
-            {
-                InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList.Text = null;
-                InvoicePOS.UserControll.Supplier.ViewLedger.BusinessList.Text = SelectedBusinessLoca.SHOP_NAME;
-
-                InvoicePOS.UserControll.Supplier.ViewLedger.CompanyList.Text = null;
-                InvoicePOS.UserControll.Supplier.ViewLedger.CompanyList.Text = SelectedBusinessLoca.COMPANY;
-            }*/
             if (fdrt != null)
             {
                 SelectedOpeningStock.GODOWN = fdrt.GODOWN;
@@ -1358,9 +1341,6 @@ namespace InvoicePOS.ViewModels
                 //ChangeBussinessLocation.Address.Text = SelectedBusinessLoca.BUSS_ADDRESS_1;
                 InvoicePOS.Views.CashRegister.CashReg.BusLocationName.Text = SelectedBusinessLoca.SHOP_NAME;
                 InvoicePOS.Views.CashRegister.CashReg.BussAddress.Text = SelectedBusinessLoca.BUSS_ADDRESS_1;
-                InvoicePOS.Views.Main.PayNow.BusinessLoc.Text = SelectedBusinessLoca.BUSS_ADDRESS_1;
-                App.Current.Properties["SelectBusinessName"] = SelectedBusinessLoca.BUSS_ADDRESS_1;
-                //CashRegisterAmountDetails.BusLocationName.Text = SelectedBusinessLoca.BUSS_ADDRESS_1; ;
             }
             if(App.Current.Properties["ChangeBusinessLocation"] != null && ChangeBussinessLocation.BussinessLocationName != null)
             {

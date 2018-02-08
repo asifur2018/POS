@@ -1,29 +1,29 @@
-﻿E:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\GeneratedInternalTypeHelper.g.i.cs
+﻿D:\_GIT_T\POS\InvoicePOS\InvoicePOS\obj\x86\Debug\GeneratedInternalTypeHelper.g.i.cs
 
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\CashReg\Window_CashRegList.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Company\BusinessLocationAdd.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Customer\AddCustomer.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Employee\EmployeeAdd.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Item\ItemAdd.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Item\ViewSalesHistory.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Item\Window_Opening_stock.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Report\AddReportGroup.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Report\GenerateReport.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Report\Item Report\ReportAllItem.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\UserControll\Report\PO Report\ReportPO.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\CashRegister\AddNewCashTransfer.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashReg.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashRegisterAmountDetails.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocation.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocationWarningMessage.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\CashRegister\WindowCashRegister.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\ChangeItem\ChangeItemPrice.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\Company\Company_Window.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\LogIn\LogIn.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\MainWindow.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\Main\demopage.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\Main\Main.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\Main\ShowStockList.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\Report\EstimateInvoice.xaml;;
-FE:\_GIT_TORTOISE\POS\InvoicePOS\InvoicePOS\Views\WelCome\WelComePage.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\CashReg\Window_CashRegList.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Company\BusinessLocationAdd.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Customer\AddCustomer.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Employee\EmployeeAdd.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Item\ItemAdd.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Item\ViewSalesHistory.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Item\Window_Opening_stock.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Report\AddReportGroup.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Report\GenerateReport.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Report\Item Report\ReportAllItem.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\UserControll\Report\PO Report\ReportPO.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\AddNewCashTransfer.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashReg.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\CashRegisterAmountDetails.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocation.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\ChangeBussinessLocationWarningMessage.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\CashRegister\WindowCashRegister.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\ChangeItem\ChangeItemPrice.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Company\Company_Window.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\LogIn\LogIn.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\MainWindow.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Main\demopage.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Main\Main.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Main\ShowStockList.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\Report\EstimateInvoice.xaml;;
+FD:\_GIT_T\POS\InvoicePOS\InvoicePOS\Views\WelCome\WelComePage.xaml;;
 

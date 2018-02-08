@@ -55,7 +55,7 @@
                     <Button Content="AddSupplier" Command="{Binding SuppPayAdd}"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="104" />
                     <Button Content="EditSupplier" Command="{Binding EditSupplier}" HorizontalAlignment="Left" Margin="119,10,0,0" VerticalAlignment="Top" Width="75"/>
                 </Grid>-->
-                <Grid  VerticalAlignment="Top" Margin="0,25,0,0"  >
+                <Grid  VerticalAlignment="Top" Margin="0,35,0,0"  >
                     <CheckBox Content="Show In Active Vendor only" IsChecked="{Binding IS_InACTIVESearch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="11,-22,0,0" VerticalAlignment="Top" Height="19" Width="205"/>
                     <TextBox x:Name="textBox" Text="{Binding SEARCH_SUPPLIER,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="11,0,0,37" TextWrapping="Wrap" Height="30" VerticalAlignment="Center" Width="205" HorizontalAlignment="Left" />
                     <Button Command="{Binding SearchSupp}"    Margin="221,0,0,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="86" HorizontalAlignment="Left"  >
@@ -98,12 +98,6 @@
                         <DockPanel HorizontalAlignment="Stretch">
                             <Image Source="/InvoicePOS;component/Images/plus-icon.png" Stretch="Uniform" DockPanel.Dock="left" Width="13" Height="13"/>
                             <Label Content="Upload Items" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
-                        </DockPanel>
-                    </Button>
-                    <Button Command="{Binding ViewLedgerVendor}"    Margin="0,0,624,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="111" HorizontalAlignment="Right">
-                        <DockPanel HorizontalAlignment="Stretch">
-                            <Image Source="/InvoicePOS;component/Images/plus-icon.png" Stretch="Uniform" DockPanel.Dock="left" Width="13" Height="13"/>
-                            <Label Content="View Ledger" DockPanel.Dock="right" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Foreground="#ffffff" />
                         </DockPanel>
                     </Button>
                     <Button Command="{Binding ExcelImportClick}"    Margin="0,2,390,0" VerticalAlignment="Top"  Style="{StaticResource ButtonImageAdd}" Width="109" HorizontalAlignment="Right"  >

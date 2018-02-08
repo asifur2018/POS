@@ -25,9 +25,6 @@ namespace InvoicePOS.Views.CashRegister
         public static TextBox BusLocationName;       
         public static TextBox CashRegNo;
         public static TextBox CurrentCash;
-        public static TextBox NoOfChq;
-        public static TextBox ChqCash;
-        public static TextBox TotalCash;
         public CashRegisterAmountDetails()
         {
             InitializeComponent();
@@ -40,9 +37,6 @@ namespace InvoicePOS.Views.CashRegister
             textBox1.Text = "";
             CashRegNo = textBox1;
             CurrentCash = textBox2;
-            NoOfChq = textBox3;
-            ChqCash = textBox4;
-            TotalCash = textBox7;
             var BussinessNameList = App.Current.Properties["BussLocListforCashAmount"] as List<AutoBussinessModel>;
             //var data = App.Current.Properties["SelectData"] as CashRegModel;
             //textBox.Text = data.BUSINESS_LOCATION;

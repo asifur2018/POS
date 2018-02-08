@@ -18,6 +18,7 @@ using Newtonsoft.Json;
 using InvoicePOS.Views.LogIn;
 using System.Collections.ObjectModel;
 
+
 namespace InvoicePOS.ViewModels
 {
     public class LogInViewModel : DependencyObject, INotifyPropertyChanged, IModalService
@@ -94,7 +95,7 @@ namespace InvoicePOS.ViewModels
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(GlobalData.gblApiAdress);
-            
+
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
             client.Timeout = new TimeSpan(500000000000);
@@ -108,7 +109,7 @@ namespace InvoicePOS.ViewModels
                     App.Current.Properties["Company_Id"] = data.COMPANY_ID;
                     App.Current.Properties["User_Id"] = data.USER_ID;
 
-                    
+
                     HttpResponseMessage response3 = client.GetAsync("api/AccessRightAPI/GetAccessRights?EId=" + data.USER_ID + "").Result;
                     if (response.IsSuccessStatusCode)
                     {
@@ -122,18 +123,18 @@ namespace InvoicePOS.ViewModels
                                 ACTION_VIEW = data3[i].ACTION_VIEW,
                                 APPROVE = data3[i].APPROVE,
                                 // Company_Id = data3[i].Company_Id,
-                             
+
                                 EDIT = data3[i].EDIT,
                                 EXPT_TO_EXCEL = data3[i].EXPT_TO_EXCEL,
-                               // ID = data3[i].ID,
+                                // ID = data3[i].ID,
                                 IMORT_TO_EXCEL = data3[i].IMORT_TO_EXCEL,
                                 MAILBACK = data3[i].MAILBACK,
                                 MESSAGE = data3[i].MESSAGE,
                                 MODULE_ID = data3[i].MODULE_ID,
                                 MODULE_NAME = data3[i].MODULE_NAME,
                                 NOTIFICATION = data3[i].NOTIFICATION,
-                               // ROLE_ID = data3[i].ROLE_ID,
-                               // User_Id = data3[i].User_Id,
+                                // ROLE_ID = data3[i].ROLE_ID,
+                                // User_Id = data3[i].User_Id,
                                 VERIFICATION = data3[i].VERIFICATION,
                             });
                         }
@@ -145,7 +146,7 @@ namespace InvoicePOS.ViewModels
                 {
                     MessageBox.Show("Your Credentials is wrong");
                 }
-            }            
+            }
         }
         private string _USERNAME;
         public string USERNAME
