@@ -9,7 +9,7 @@
     <system:String x:Key="Location">Ort</system:String>
     <system:String x:Key="Invoice">Rechnung</system:String>
     <system:String x:Key="Search Code">Such code</system:String>
-    <system:String x:Key="Barcode">Barcode</system:String>
+    <system:String x:Key="Bar Code">Bar code</system:String>
     <system:String x:Key="Search with Stock">Suche mit Lager</system:String>
     <system:String x:Key="Date">Datum</system:String>
     <system:String x:Key="Pay Now">Zahl jetzt</system:String>

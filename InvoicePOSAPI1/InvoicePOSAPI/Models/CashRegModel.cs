@@ -33,7 +33,8 @@ namespace InvoicePOSAPI.Models
         public decimal SUBMITTED_CASH { get; set; }
         public decimal CURRENT_REMAIN { get; set; }
         public string STATUS { get; set; }
-        
+        public string CHEQUE_NO { get; set; }
+        public decimal CHEQUE_AMOUNT { get; set; }
 
     }
 }

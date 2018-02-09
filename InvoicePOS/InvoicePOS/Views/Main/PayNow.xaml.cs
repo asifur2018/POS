@@ -37,7 +37,6 @@ namespace InvoicePOS.Views.Main
         public static TextBox Cash_RegName;
         public static TextBox Received_Amount;
         public static TextBlock Available_Amount;
-        public static Grid PrintGrid;
         public PayNow()
         {
             InitializeComponent();
@@ -88,8 +87,7 @@ namespace InvoicePOS.Views.Main
             //    imageCapture.Arrange(new Rect(new Point(0, 0), imageCapture.DesiredSize));
             //    imgControlPrint.PrintVisual(imageCapture, "Screen Shot");
             //}
-
-            PrintGrid = ReportPanel;
+          
 
         }
 
@@ -104,6 +102,8 @@ namespace InvoicePOS.Views.Main
         {
 
             PrintCharts(this.ReportPanel);
+            
+            
         }
         private void PrintCharts(Grid grid)
         {
