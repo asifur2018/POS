@@ -40,7 +40,9 @@ namespace InvoicePOS.Models
         public string STATUS { get; set; }
         public DateTime FROM_DATE { get; set; }
         public DateTime TO_DATE { get; set; }
-        
+        public string CHEQUE_NO { get; set; }
+        public decimal CHEQUE_AMOUNT { get; set; }
+
         private string error = string.Empty;
         public string Error
         {
