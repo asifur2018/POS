@@ -143,44 +143,44 @@
         </Grid>
         <Grid Margin="605,71,0,487">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="103*"/>
-                <ColumnDefinition Width="1076*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="761*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Rectangle Fill="#f5f5f5" Margin="10,14,12,8" Stroke="#dadada" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="textBlock15" Height="20" Margin="54,0,0,107" TextWrapping="Wrap"  Text="{DynamicResource Invoice}"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="60" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="textBlock16" Height="25" Margin="176.647,0,71,105" TextWrapping="Wrap"  Text="{DynamicResource Date}"  VerticalAlignment="Bottom" Grid.Column="1"/>
-            <TextBlock x:Name="textBlock17" Height="20" Margin="53,0,253,83" TextWrapping="Wrap" Text="{DynamicResource Bar Code}"  VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="Select_BarCodee" Text="{Binding Select_BarCode,UpdateSourceTrigger=PropertyChanged}" Margin="39.647,0,103,78" TextWrapping="Wrap" VerticalAlignment="Bottom" Style="{StaticResource numberdisplayTextboxsearch}" Width="Auto" Grid.Column="1"   >
+            <TextBlock x:Name="textBlock15" Height="20" Margin="8,0,0,107" TextWrapping="Wrap"  Text="{DynamicResource Invoice}"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="60" Grid.Column="1"/>
+            <TextBlock x:Name="textBlock16" Height="25" Margin="230,0,71,110" TextWrapping="Wrap"  Text="{DynamicResource Date}"  VerticalAlignment="Bottom" Grid.Column="1"/>
+            <TextBlock x:Name="textBlock17" Height="20" Margin="10,0,246,81" TextWrapping="Wrap" Text="{DynamicResource Bar Code}"  VerticalAlignment="Bottom" Grid.Column="1"/>
+            <TextBox x:Name="Select_BarCodee" Text="{Binding Select_BarCode,UpdateSourceTrigger=PropertyChanged}" Margin="79,0,64,76" TextWrapping="Wrap" VerticalAlignment="Bottom" Style="{StaticResource numberdisplayTextboxsearch}" Width="Auto" Grid.Column="1"   >
                 <TextBox.InputBindings>
                     <KeyBinding Key="Tab" Command="{Binding TabChangeCode}" />
                     <KeyBinding Key="Enter" Command="{Binding TabChangeCode}" />
                 </TextBox.InputBindings>
             </TextBox>
-            <TextBlock x:Name="textBlock18" Height="25" Margin="55,0,251,43" TextWrapping="Wrap" Text="{DynamicResource Item Name}" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="textBlock19" Height="15" Margin="53,0,0,29" TextWrapping="Wrap" Text="{DynamicResource Search Code}"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="80" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="textBlock18" Height="25" Margin="9,0,247,50" TextWrapping="Wrap" Text="{DynamicResource Item Name}" VerticalAlignment="Bottom" Grid.Column="1"/>
+            <TextBlock x:Name="textBlock19" Height="15" Margin="10,0,0,26" TextWrapping="Wrap" Text="{DynamicResource Search Code}"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="80" Grid.Column="1"/>
             <!--<TextBox x:Name="textBox2" Text="{Binding SEARCHITEM_NAME,UpdateSourceTrigger=PropertyChanged}"  Margin="143,0,4,52" TextWrapping="Wrap" VerticalAlignment="Bottom" Style="{StaticResource numberdisplayTextboxsearch}" Width="Auto">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Tab" Command="{Binding TabChangeName}" />
                 </TextBox.InputBindings>
             </TextBox>-->
-            <local:ItemNameAutoComplete x:Name="textBox2"  Margin="39.647,72,0,0" Height="28"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="352" Grid.Column="1" />
+            <local:ItemNameAutoComplete x:Name="textBox2"  Margin="80,76,0,0" Height="28"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="352" Grid.Column="1" />
 
             <!--<textBox2.InputBindings>
                     <KeyBinding Command="{Binding Path=ShowItemGrid}" Key="Enter" />
                 </local.InputBindings>-->
 
             <!--<TextBox x:Name="textBox9" Text="{Binding SEARCHITEM_CODE}"  Margin="143,0,0,22" TextWrapping="Wrap" VerticalAlignment="Bottom" Style="{StaticResource numberdisplayTextboxsearchsmall}" Width="80" HorizontalAlignment="Left"/>-->
-            <local:ItemScrCodeAutoComplete x:Name="textBox9"  Margin="39.647,102,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Grid.Column="1"/>
-            <TextBlock x:Name="textBlock20" Height="25" Margin="165.647,0,0,16" TextWrapping="Wrap" Text="{DynamicResource Search with Stock}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="141" Grid.Column="1"/>
-            <TextBox x:Name="textBox10" Text="{Binding SEARCHITEM_STOCK}"  Margin="261.647,0,0,19" TextWrapping="Wrap" VerticalAlignment="Bottom" Style="{StaticResource numberdisplayTextboxsearchsmall2}" Width="163" HorizontalAlignment="Left" Grid.Column="1" />
+            <local:ItemScrCodeAutoComplete x:Name="textBox9"  Margin="80,107,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Grid.Column="1"/>
+            <!--<TextBlock x:Name="textBlock20" Height="25" Margin="165.647,0,0,16" TextWrapping="Wrap" Text="{DynamicResource Search with Stock}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="141" Grid.Column="1"/>-->
+            <!--<TextBox x:Name="textBox10" Text="{Binding SEARCHITEM_STOCK}"  Margin="261.647,0,0,19" TextWrapping="Wrap" VerticalAlignment="Bottom" Style="{StaticResource numberdisplayTextboxsearchsmall2}" Width="163" HorizontalAlignment="Left" Grid.Column="1" />-->
             <!--<TextBlock x:Name="textBlockDate" Margin="0,17,133,113" TextWrapping="Wrap" Text="{Binding COMP_DATE}" HorizontalAlignment="Right" Width="99"/>-->
-            <TextBox x:Name="textBlockInvoiceNo" IsEnabled="{Binding Invoice_No}" Margin="39.647,0,0,107" TextWrapping="Wrap" Text="{Binding INVOICE_NO}" HorizontalAlignment="Left" Width="99" Height="21" VerticalAlignment="Bottom" Grid.Column="1"/>
-            <Button Content="--" Command="{Binding ItemClick}" Margin="393.647,72,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" Height="27" Grid.Column="1"/>
-            <Button Content="--" Command="{Binding ItemSearchClick}" Margin="124.647,103,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" Grid.Column="1"/>
-            <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding COMP_DATE}"  Margin="228.647,13,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-            <Button Content="-" HorizontalAlignment="Left" Visibility="{Binding ReadVisible}" Margin="140.647,0,0,109" Command="{Binding AutoInvoiceNo}" VerticalAlignment="Bottom" Width="21" Height="20" Grid.Column="1"/>
-            <Button Content="-" HorizontalAlignment="Left" Visibility="{Binding RiteVisible}" Margin="140.647,0,0,109" Command="{Binding AutoInvoiceNo1}" Width="21" Height="20" VerticalAlignment="Bottom" Grid.Column="1"/>
+            <TextBox x:Name="textBlockInvoiceNo" IsEnabled="{Binding Invoice_No}" Margin="80,0,0,104" TextWrapping="Wrap" Text="{Binding INVOICE_NO}" HorizontalAlignment="Left" Width="99" Height="21" VerticalAlignment="Bottom" Grid.Column="1"/>
+            <Button Content="--" Command="{Binding ItemClick}" Margin="434,74,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" Height="27" Grid.Column="1"/>
+            <Button Content="--" Command="{Binding ItemSearchClick}" Margin="166,109,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" Grid.Column="1" Height="21"/>
+            <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding COMP_DATE}"  Margin="330,14,0,0" VerticalAlignment="Top" Grid.Column="1" Height="24" Width="97"/>
+            <Button Content="-" HorizontalAlignment="Left" Visibility="{Binding ReadVisible}" Margin="185,0,0,104" Command="{Binding AutoInvoiceNo}" VerticalAlignment="Bottom" Width="21" Height="20" Grid.Column="1"/>
+            <Button Content="-" HorizontalAlignment="Left" Visibility="{Binding RiteVisible}" Margin="185,0,0,104" Command="{Binding AutoInvoiceNo1}" Width="21" Height="20" VerticalAlignment="Bottom" Grid.Column="1"/>
 
         </Grid>
         <!--right panel start here-->

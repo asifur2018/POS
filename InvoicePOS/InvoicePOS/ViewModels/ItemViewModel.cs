@@ -2841,7 +2841,7 @@ namespace InvoicePOS.ViewModels
 
             if (App.Current.Properties["ItemList"] != null)
             {
-                AddPO.ItemRef.Text = SelectedOpeningStock.ITEM_NAME;
+               // AddPO.ItemRef.Text = SelectedOpeningStock.ITEM_NAME;
                 AddPO.ScrRef.Text = null;
                 var comp = Convert.ToInt32(App.Current.Properties["Company_Id"].ToString());
                 POViewModel itn = new POViewModel();
