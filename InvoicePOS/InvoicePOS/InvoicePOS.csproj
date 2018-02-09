@@ -639,6 +639,9 @@
     <Compile Include="Views\Customer\Openingbalance.xaml.cs">
       <DependentUpon>Openingbalance.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\InvoiceSettings.xaml.cs">
+      <DependentUpon>InvoiceSettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ItemNameAutoComplete.xaml.cs">
       <DependentUpon>ItemNameAutoComplete.xaml</DependentUpon>
     </Compile>
@@ -1302,6 +1305,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Customer\Openingbalance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InvoiceSettings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
