@@ -51,6 +51,20 @@ namespace InvoicePOS.ViewModels
                     InvoicePOS.Views.CashRegister.ChangeBussinessLocation.BussinessLocationName.Text = data.BUSS_ADDRESS_1;
                 }
             }
+            else
+            {
+                Window_BusinessLocationList IA = new Window_BusinessLocationList();
+                IA.Show();
+                if (App.Current.Properties["BussLocName"] != null)
+                {
+                    //InvoicePOS.Views.CashRegister.CashReg.CashRegName.Text = _selectedItem.CASH_REG_NAME;
+                    //textBox5.Text = "";
+                    var data = App.Current.Properties["BussLocName"] as BusinessLocationModel;
+                    //Main.CashRegisterName.Text = CashReg.CashRegName.Text;
+                    //CashRegisterAmountDetails.BusLocationName.Text = CashReg.CashRegName.Text;
+                    InvoicePOS.Views.CashRegister.ChangeBussinessLocation.BussinessLocationName.Text = data.BUSS_ADDRESS_1;
+                }
+            }
         }
         public ICommand _ShowCashReg { get; set; }
         public ICommand ShowCashReg

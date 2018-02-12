@@ -142,7 +142,82 @@ namespace InvoicePOS.ViewModels
             }
 
         }
+        private string _CASHREG_NAME { get; set; }
+        public string CASHREG_NAME
+        {
+            get { return _CASHREG_NAME; }
+            set
+            {
+                _CASHREG_NAME = value;
 
+
+                if (_CASHREG_NAME != value)
+                {
+                    _CASHREG_NAME = value;
+                    OnPropertyChanged("CASHREG_NAME");
+                }
+
+
+            }
+
+        }
+        private string _CHEQUENO { get; set; }
+        public string CHEQUENO
+        {
+            get { return _CHEQUENO; }
+            set
+            {
+                _CHEQUENO = value;
+
+
+                if (_CHEQUENO != value)
+                {
+                    _CHEQUENO = value;
+                    OnPropertyChanged("CHEQUENO");
+                }
+
+
+            }
+
+        }
+        private decimal _CHEQUEAMOUNT { get; set; }
+        public decimal CHEQUEAMOUNT
+        {
+            get { return _CHEQUEAMOUNT; }
+            set
+            {
+                _CHEQUEAMOUNT = value;
+
+
+                if (_CHEQUEAMOUNT != value)
+                {
+                    _CHEQUEAMOUNT = value;
+                    OnPropertyChanged("CHEQUEAMOUNT");
+                }
+
+
+            }
+
+        }
+        private decimal _CURRENTCASH { get; set; }
+        public decimal CURRENTCASH
+        {
+            get { return _CURRENTCASH; }
+            set
+            {
+                _CURRENTCASH = value;
+
+
+                if (_CURRENTCASH != value)
+                {
+                    _CURRENTCASH = value;
+                    OnPropertyChanged("CURRENTCASH");
+                }
+
+
+            }
+
+        }
         public ICommand _CashClick;
         public ICommand CashClick
         {
@@ -187,17 +262,49 @@ namespace InvoicePOS.ViewModels
                 return _CashRegisterAmountClick;
             }
         }
-        public void CashRegisterAmountClick_Ok()
+        public async void CashRegisterAmountClick_Ok()
         {
+            CashRegModel[] cash = null;
             CashRegisterAmountDetails IA = new CashRegisterAmountDetails();
-            IA.Show();
+            App.Current.Properties["CashReg"] = Main.CashRegisterName.Text;
+            App.Current.Properties["SelectBusinessName"] = Main.BusinessLocName.Text;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            client.Timeout = new TimeSpan(500000000000);
+            HttpResponseMessage response = client.GetAsync("api/CashRegAPI/GetCashRegWithChequeNo").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                cash = JsonConvert.DeserializeObject<CashRegModel[]>(await response.Content.ReadAsStringAsync());
+                if (cash.Length > 0)
+                {
+                    for (int i = 0; i < cash.Length; i++)
+                    {
+                        CASHREG_NAME = cash[i].CASH_REG_NAME;
+                        BusinessLocAddress = cash[i].BUSINESS_LOCATION;
+                        CURRENTCASH = cash[i].CURRENT_CASH;
+                        CHEQUEAMOUNT = cash[i].CHEQUE_AMOUNT;
+                        CHEQUENO = cash[i].CHEQUE_NO;
+
+                    }
+                }
+            }
             if (App.Current.Properties["CashReg"] != null)
             {
                 //var d = App.Current.Properties["ChangeBusinessLocation"] as BusinessLocationModel;
                 CashRegisterAmountDetails.CashRegNo.Text = App.Current.Properties["CashReg"].ToString();
                 CashRegisterAmountDetails.BusLocationName.Text = App.Current.Properties["SelectBusinessName"].ToString();
-                CashRegisterAmountDetails.CurrentCash.Text = App.Current.Properties["CurrentCash"].ToString();
+                //CashRegisterAmountDetails.CurrentCash.Text = App.Current.Properties["CurrentCash"].ToString();
             }
+            //CashRegisterAmountDetails.CashRegNo.Text = CASHREG_NAME;
+            CashRegisterAmountDetails.BusLocationName.Text = "Kolkata";
+            CashRegisterAmountDetails.ChqCash.Text = CHEQUEAMOUNT.ToString();
+            CashRegisterAmountDetails.NoOfChq.Text = CHEQUENO;
+            CashRegisterAmountDetails.CurrentCash.Text = CURRENTCASH.ToString();
+            CashRegisterAmountDetails.TotalCash.Text = (CHEQUEAMOUNT + CURRENTCASH).ToString();
+
+            IA.Show();
         }
         public ICommand _AddCashRegisterClick { get; set; }
         public ICommand AddCashRegisterClick
@@ -1378,7 +1485,7 @@ namespace InvoicePOS.ViewModels
             }
 
         }
-        public void Pick_Invoice()
+        public async void Pick_Invoice()
         {
             if (App.Current.Properties["Grid"] != null)
             {
@@ -1391,7 +1498,7 @@ namespace InvoicePOS.ViewModels
 
                         // ObservableCollection<ItemModel> _hft = App.Current.Properties["DataGrid"] as ObservableCollection<ItemModel>;
                         ObservableCollection<ItemModel> _hft = App.Current.Properties["Grid"] as ObservableCollection<ItemModel>;
-                        
+
                         ListGrid = _hft;
                         Main.ListGridRef.ItemsSource = null;
                         App.Current.Properties["DataGrid"] = _hft;
@@ -1414,56 +1521,60 @@ namespace InvoicePOS.ViewModels
                         }
                     }
                 }
-                else
-                {
-                    App.Current.Properties["Action"] = "PickVoid";
-                    ObservableCollection<ItemModel> _hft = App.Current.Properties["Grid"] as ObservableCollection<ItemModel>;
-                    ListGrid = _hft;
-                    Main.ListGridRef.ItemsSource = null;
-                    App.Current.Properties["DataGrid"] = _hft;
-                    Main.ListGridRef.ItemsSource = _hft;
-                    App.Current.Properties["Grid"] = null;
-                    HttpClient client = new HttpClient();
-                    // This instance has already started one or more requests. Properties can only be modified before sending the first request.
-                    // _opr.NAME = SelectedCustomer.NAME;
-                    client.BaseAddress = new Uri(GlobalData.gblApiAdress);
-                    client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
-                    client.Timeout = new TimeSpan(500000000000);
-                    HttpResponseMessage response = client.GetAsync("api/InvoiceAPI/PickInvoice?id=" + _hft[0].ITEM_ID + "").Result;
-                    if (response.StatusCode.ToString() == "OK")
-                    {
-                        MessageBox.Show(" Pick Invoice");
-                        //Cancel_Customer();
-                        //ModalService.NavigateTo(new CustomerList(), delegate(bool returnValue) { });
-                    }
-                    if (ListGrid != null)
-                    {
-
-                        TotalBottom();
-                        //ExPay = true;
-                        //PayNow = true;
-                        //TOTAL_ITEM = ListGrid.Count;
-                        //GROSSAMT = 0;
-                        //for (int i = 0; i < ListGrid.Count; i++)
-                        //{
-                        //    GROSSAMT = Convert.ToDecimal(ListGrid[i].Total + GROSSAMT);
-                        //    App.Current.Properties["CurrentGrosAmount"] = GROSSAMT;
-                        //    NETAMT = Convert.ToDecimal((ListGrid[i].SALES_PRICE) * (ListGrid[i].OPN_QNT) + NETAMT);
-                        //}
-                        //QUNT_TOTAL = 0;
-                        //foreach (var qunt in ListGrid)
-                        //{
-                        //    QUNT_TOTAL = qunt.OPN_QNT + QUNT_TOTAL;
-                        //}
-                    }
-                }
             }
             else
             {
-                MessageBox.Show("Item Can't Blank");
+                ObservableCollection<ItemModel> _hft = App.Current.Properties["Grid"] as ObservableCollection<ItemModel>;
+                ListGrid = _hft;
+                ItemModel[] dataInvoice = null;
+                ObservableCollection<ItemModel> _ListGrid_TempInvoice = new ObservableCollection<ItemModel>();
+                Main.ListGridRef.ItemsSource = null;
+                App.Current.Properties["DataGrid"] = _hft;
+                Main.ListGridRef.ItemsSource = _hft;
+                App.Current.Properties["Grid"] = null;
+                HttpClient client = new HttpClient();
+                // This instance has already started one or more requests. Properties can only be modified before sending the first request.
+                // _opr.NAME = SelectedCustomer.NAME;
+                client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.Timeout = new TimeSpan(500000000000);
+                //HttpResponseMessage response = client.GetAsync("api/InvoiceAPI/PickInvoice?id=" + _hft[0].ITEM_ID + "").Result;
+                HttpResponseMessage response = client.GetAsync("api/InvoiceAPI/PickInvoiceList").Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    dataInvoice = JsonConvert.DeserializeObject<ItemModel[]>(await response.Content.ReadAsStringAsync());
+
+                    for (int i = 0; i < dataInvoice.Length; i++)
+                    {
+
+                        _ListGrid_Temp.Add(new ItemModel
+                        {
+                            BARCODE = dataInvoice[i].BARCODE,
+                            ITEM_NAME = dataInvoice[i].ITEM_NAME,
+                            SALES_PRICE_BEFOR_TAX_QTY = dataInvoice[i].SALES_PRICE_BEFOR_TAX_QTY,
+                            Current_Qty = dataInvoice[i].Current_Qty,
+                            Discount = dataInvoice[i].Discount,
+                            SalePriceWithDiscount = dataInvoice[i].SalePriceWithDiscount,
+                            TaxValue = dataInvoice[i].TaxValue,
+                            TotalTax = dataInvoice[i].TotalTax,
+                            Total = dataInvoice[i].TOTAL_SUM
+                        });
+                    }
+
+                    //if (response.StatusCode.ToString() == "OK")
+                    //{
+                    //    MessageBox.Show(" Pick Invoice");
+                    //    //Cancel_Customer();
+                    //    //ModalService.NavigateTo(new CustomerList(), delegate(bool returnValue) { });
+                    //}                
+                }
+                App.Current.Properties["PickInvoiceList"] = _ListGrid_Temp;
+                ListGrid = _ListGrid_Temp;
             }
         }
+
+
              private InvoiceModel _SelectInvoice;
         public InvoiceModel SelectInvoice
         {
@@ -3887,7 +3998,8 @@ namespace InvoicePOS.ViewModels
             }
             else
             {
-                MessageBox.Show("Select Item");
+                InvoicePOS.Views.CashRegister.ChangeBussinessLocation IA = new InvoicePOS.Views.CashRegister.ChangeBussinessLocation();
+                IA.Show();
             }
 
         }
@@ -4432,6 +4544,28 @@ namespace InvoicePOS.ViewModels
             App.Current.Properties["ItemMain"] = 1;
             Window_ItemList ex = new Window_ItemList();
             ex.ShowDialog();
+            SelectedItem = App.Current.Properties["SelectItemList"] as ItemModel;
+            // ModalService.NavigateTo(new ItemAdd(), delegate(bool returnValue) { });
+            if (SelectedItem != null)
+            {
+                _ListGrid_Temp.Add(new ItemModel
+                {
+                    BARCODE = SelectedItem.BARCODE,
+                    ITEM_NAME = SelectedItem.ITEM_NAME,
+                    SALES_PRICE_BEFOR_TAX_QTY = Convert.ToDecimal(SelectedItem.OPN_QNT * SelectedItem.SALES_PRICE_BEFOR_TAX) - SelectedItem.Discount,
+                    Current_Qty = 1,
+                    Discount = SelectedItem.Discount,
+                    SalePriceWithDiscount = SelectedItem.SalePriceWithDiscount,
+                    TaxValue = SelectedItem.TaxValue,
+                    TotalTax = SelectedItem.TotalTax,
+                    Total = ((decimal)(SelectedItem.OPN_QNT) * (SelectedItem.SALES_PRICE)),
+                    ITEM_ID = SelectedItem.ITEM_ID
+                });
+            }
+            ListGrid = _ListGrid_Temp;
+            //Main.ListQnt.Text = (SelectedItem.Current_Qty + Convert.ToInt32(Main.ListQnt.Text)).ToString();
+            TotalBottom();
+           
         }
 
 
@@ -4568,9 +4702,31 @@ namespace InvoicePOS.ViewModels
 
         public void ItemSearch_Click()
         {
-            App.Current.Properties["ItemSearchMain"] = 1;
+           
+            App.Current.Properties["ItemMain"] = 1;
             Window_ItemList ex = new Window_ItemList();
             ex.ShowDialog();
+            SelectedItem = App.Current.Properties["SelectSearchItemList"] as ItemModel;
+            // ModalService.NavigateTo(new ItemAdd(), delegate(bool returnValue) { });
+            if (SelectedItem != null)
+            {
+                _ListGrid_Temp.Add(new ItemModel
+                {
+                    BARCODE = SelectedItem.BARCODE,
+                    ITEM_NAME = SelectedItem.ITEM_NAME,
+                    SALES_PRICE_BEFOR_TAX_QTY = Convert.ToDecimal(SelectedItem.OPN_QNT * SelectedItem.SALES_PRICE_BEFOR_TAX) - SelectedItem.Discount,
+                    Current_Qty = 1,
+                    Discount = SelectedItem.Discount,
+                    SalePriceWithDiscount = SelectedItem.SalePriceWithDiscount,
+                    TaxValue = SelectedItem.TaxValue,
+                    TotalTax = SelectedItem.TotalTax,
+                    Total = ((decimal)(SelectedItem.OPN_QNT) * (SelectedItem.SALES_PRICE)),
+                    ITEM_ID = SelectedItem.ITEM_ID
+                });
+            }
+            ListGrid = _ListGrid_Temp;
+            TotalBottom();
+      
         }
 
         private ICommand _ItemShowStock { get; set; }

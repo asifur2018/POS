@@ -525,6 +525,8 @@
     <Compile Include="ViewModels\FolderItem.cs" />
     <Compile Include="ViewModels\GodownViewModel.cs" />
     <Compile Include="ViewModels\HttpClient.cs" />
+    <Compile Include="ViewModels\IEnumerable.cs" />
+    <Compile Include="ViewModels\InvoiceSettingsViewModel.cs" />
     <Compile Include="ViewModels\InvoiceViewModel.cs" />
     <Compile Include="ViewModels\ItemLocation.cs" />
     <Compile Include="ViewModels\Item\ItemCommand.cs" />
@@ -616,6 +618,9 @@
     </Compile>
     <Compile Include="Views\Customer\Openingbalance.xaml.cs">
       <DependentUpon>Openingbalance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvoiceSettings.xaml.cs">
+      <DependentUpon>InvoiceSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ItemNameAutoComplete.xaml.cs">
       <DependentUpon>ItemNameAutoComplete.xaml</DependentUpon>
@@ -1256,6 +1261,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Customer\Openingbalance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InvoiceSettings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
