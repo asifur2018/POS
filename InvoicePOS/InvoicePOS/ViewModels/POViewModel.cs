@@ -3,7 +3,7 @@ using InvoicePOS.Models;
 using InvoicePOS.UserControll.Company;
 using InvoicePOS.UserControll.Item;
 using InvoicePOS.UserControll.PO;
-using InvoicePOS.UserControll.Report.PO_Report;
+//using InvoicePOS.UserControll.Report.PO_Report;
 using InvoicePOS.UserControll.Supplier;
 using Newtonsoft.Json;
 using System;
@@ -306,7 +306,7 @@ namespace InvoicePOS.ViewModels
 
         public async Task<ObservableCollection<POrderModel>> GetPoItem(int comp)
         {
-            ReportPO.ListGridRef = new DataGrid();
+            //ReportPO.ListGridRef = new DataGrid();
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(GlobalData.gblApiAdress);
             client.DefaultRequestHeaders.Accept.Add(
@@ -1573,7 +1573,7 @@ namespace InvoicePOS.ViewModels
 
         public async void GetPOList(long POId)
         {
-            ReportPO.ListGridRef = new DataGrid();
+            //ReportPO.ListGridRef = new DataGrid();
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(GlobalData.gblApiAdress);
             client.DefaultRequestHeaders.Accept.Add(
@@ -1623,7 +1623,7 @@ namespace InvoicePOS.ViewModels
                     _ListGrid_Temp = item1;
                 }
                 App.Current.Properties["DataGrid1"] = _ListGrid_Temp;
-                ReportPO.ListGridRef.ItemsSource = _ListGrid_Temp.ToList();
+                //ReportPO.ListGridRef.ItemsSource = _ListGrid_Temp.ToList();
 
             }
             ListGrid = _ListGrid_Temp;

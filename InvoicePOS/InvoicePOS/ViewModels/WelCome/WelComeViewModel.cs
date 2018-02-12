@@ -31,7 +31,7 @@ using InvoicePOS.UserControll.Loyalty;
 using InvoicePOS.UserControll.Bank;
 using InvoicePOS.UserControll.TaxManagement;
 using InvoicePOS.UserControll.DailySales;
-using InvoicePOS.UserControll.Report;
+//using InvoicePOS.UserControll.Report;
 using InvoicePOS.UserControll.Invoice;
 using InvoicePOS.UserControll.AccessRide;
 using InvoicePOS.UserControll.Designation;
@@ -230,7 +230,7 @@ namespace InvoicePOS.ViewModels.WelCome
 
 
 
-            ModalService.NavigateTo(new ReportList(), delegate(bool returnValue) { });
+            //ModalService.NavigateTo(new ReportList(), delegate(bool returnValue) { });
         }
 
         private ICommand _EstimateClick { get; set; }

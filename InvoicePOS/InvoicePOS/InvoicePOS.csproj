@@ -431,24 +431,6 @@
     <Compile Include="UserControll\PO\Window_POList.xaml.cs">
       <DependentUpon>Window_POList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControll\Report\AddReportGroup.xaml.cs">
-      <DependentUpon>AddReportGroup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControll\Report\GenerateReport.xaml.cs">
-      <DependentUpon>GenerateReport.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControll\Report\Item Report\ReportAllItem.xaml.cs">
-      <DependentUpon>ReportAllItem.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControll\Report\PO Report\ReportPO.xaml.cs">
-      <DependentUpon>ReportPO.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControll\Report\ReportAdd.xaml.cs">
-      <DependentUpon>ReportAdd.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControll\Report\ReportList.xaml.cs">
-      <DependentUpon>ReportList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControll\SalesReturn\SalesReturnAdd.xaml.cs">
       <DependentUpon>SalesReturnAdd.xaml</DependentUpon>
     </Compile>
@@ -554,8 +536,6 @@
     <Compile Include="ViewModels\POViewModel.cs" />
     <Compile Include="ViewModels\ReceiveItemViewModel.cs" />
     <Compile Include="ViewModels\ReceivePaymentViewModel.cs" />
-    <Compile Include="ViewModels\ReportGroupViewModel.cs" />
-    <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\SalesReturnViewModel.cs" />
     <Compile Include="ViewModels\SalesViewModel.cs" />
     <Compile Include="ViewModels\ShowStockViewModel.cs" />
@@ -1063,30 +1043,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControll\PO\Window_POList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControll\Report\AddReportGroup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControll\Report\GenerateReport.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControll\Report\Item Report\ReportAllItem.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControll\Report\PO Report\ReportPO.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControll\Report\ReportAdd.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControll\Report\ReportList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
